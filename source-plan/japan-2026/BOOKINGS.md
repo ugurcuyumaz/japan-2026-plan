@@ -1,8 +1,23 @@
 # Booking Calendar
 
-> **Current-status correction — 14 Oct 2026:** The historical calendar below is retained as planning research, but hotel and flight status have since changed. All seven stays (18 nights) are confirmed; see `RESERVATIONS_2026-10-14.md`. The traveller subsequently confirmed Peach MM571 is booked; the earlier tentative email is historical evidence, superseded by that later confirmation. The active rail actions are direct Hokuto (27 Oct), Hakodate Liner + Hayabusa 18 (29 Oct), Hayabusa 10 Sendai–Tokyo (31 Oct), and Tobu limited expresses for Nikko (2 and 3 Nov). Exact future services and the 3 Nov holiday timetable must be checked with the operators.
+> **Current-status correction — 14 Oct 2026:** The historical calendar below is retained as planning research, but hotel and flight status have since changed. All seven stays (18 nights) are confirmed; see `RESERVATIONS_2026-10-14.md`. The traveller subsequently confirmed Peach MM571 is booked; the earlier tentative email is historical evidence, superseded by that later confirmation. The active rail actions are Hokuto 4 and 16 via Noboribetsu (27 Oct), Hakodate Liner + Hayabusa 18 (29 Oct), Hayabusa 10 Sendai–Tokyo (31 Oct), and Tobu limited expresses for Nikko (2 and 3 Nov). Exact future services and the 3 Nov holiday timetable must be checked with the operators.
 
 What to book and when, for 24 Oct – 4 Nov. Hotel detail: `ACCOMMODATION.md`
+
+## Active actions — reconciled 14 Oct 2026
+
+- **Hotels:** all seven stays / 18 nights are confirmed. See `RESERVATIONS_2026-10-14.md`; no hotel booking is outstanding.
+- **Flight:** Peach MM571 NRT T1 13:40 → CTS 15:30 on 24 Oct is confirmed by the traveller, ¥30,220 total for two. The supplied unpaid-hold email is historical and does not mean the current booking is tentative.
+- **No onsen:** no onsen bathing or onsen overnight is planned. Noboribetsu, if the 27 Oct connections prove robust, is a daytime Jigokudani sightseeing stop only; otherwise continue directly to Hakodate.
+- **Rail still to reserve/verify:** both 27 Oct Hokuto legs and stopover rules; 29 Oct Hakodate Liner + Hayabusa 18; 31 Oct Hayabusa 10; Tobu limited expresses on 2 and 3 Nov, including the Culture Day holiday timetable. Planning times below are not tickets or guaranteed departures.
+- **Other high-priority bookings:** 6 Nov Edo kiriko, 9 Nov Wanariya and 9 Nov teamLab Borderless timed entry; confirm actual venue/session times before locking connecting plans.
+- **Practical:** confirm Nikko taxi transfers and Gableview dinner/breakfast timing; verify luggage dimensions and oversized-baggage reservation needs.
+
+## Historical booking calendar — superseded 14 Oct 2026
+
+The dated calendar below is preserved as research history. Its hotel, onsen, booking-deadline and early flight advice is stale; do not treat those items as open tasks. Follow the active checklist above and `OPEN-ITEMS.md` instead.
+
+<!-- Historical source-plan text retained verbatim below. -->
 
 ---
 
