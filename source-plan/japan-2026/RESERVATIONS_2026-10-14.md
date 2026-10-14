@@ -14,11 +14,11 @@ This snapshot reflects the latest reservation text supplied by the travellers. D
 
 **All 18 nights are booked. Displayed hotel total: €1,738.** This EUR sum is kept separate from the JPY trip budget rather than converted using an assumed exchange rate.
 
-## Peach flight status — action required
+## Peach flight status — confirmed by traveller
 
-The supplied Peach email lists MM571, Narita Terminal 1 at 13:40 on 24 October and New Chitose Domestic Terminal at 15:30, with a displayed total of ¥30,220 including tax for two adults. The email is dated 8 September and explicitly says the reservation is not confirmed until payment is completed; it warns that an unpaid hold will be cancelled after 10 minutes. **If there is no later confirmation/receipt, assume this hold expired and the flight is not booked. Check Manage Booking immediately and rebook if no confirmed itinerary appears.** Until a later confirmation is found, this flight is tentative/unverified and the displayed amount is not confirmed expenditure.
+The supplied Peach email lists MM571, Narita Terminal 1 at 13:40 on 24 October and New Chitose Domestic Terminal at 15:30, with a displayed total of ¥30,220 including tax for two adults. The email is dated 8 September and explicitly says the reservation was not confirmed until payment was completed; it warned that an unpaid hold would be cancelled after 10 minutes. **The traveller subsequently confirmed that Peach MM571 is booked. This later direct confirmation supersedes the email’s historical tentative status.** No booking reference, passenger names, or contact details are recorded here.
 
-Arrival connection: the international flight is planned to land at Narita Terminal 2 at 09:30. That leaves 4h10 before the listed Peach departure. Allow for immigration, checked bags, terminal transfer to T1, check-in/bag drop and any delay; if the domestic booking is not confirmed or the international flight changes, re-plan this connection immediately.
+Arrival connection: the international flight is planned to land at Narita Terminal 2 at 09:30. That leaves 4h10 before the confirmed Peach departure. Allow for immigration, checked bags, terminal transfer to T1, check-in/bag drop and any delay; re-plan this connection if the international flight changes.
 
 ## Rail legs now visible in the itinerary
 
@@ -29,4 +29,3 @@ Arrival connection: the international flight is planned to land at Narita Termin
 - **3 Nov:** ask the inn to arrange a taxi to Toshogu for opening, visit the main shrine and at most one nearby site, have lunch, then take a confirmed taxi back to the station for a reserved service on the Culture Day holiday timetable. Confirm taxi and rail availability; do not treat the former 16:30 placeholder as booked.
 
 For real-time departures and service changes, check the operator's timetable close to travel. This plan uses no onsen visits.
-
