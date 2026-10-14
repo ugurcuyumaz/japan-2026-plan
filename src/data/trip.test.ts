@@ -60,5 +60,31 @@ describe('canonical itinerary data', () => {
     expect(placeById('2026-11-09', 'wanariya-azabudai-transfer')?.durationMinutes).toBeGreaterThanOrEqual(35);
     expect(placeById('2026-11-11', 'hotel-tokyo-station')?.startTime).toBe('07:45');
   });
+
+  it('does not overlap scheduled core stops once estimated travel is counted', () => {
+    for (const day of tripDays) {
+      const coreStops = day.places
+        .filter((place) => place.type !== 'optional' && place.type !== 'stay' && place.startTime && place.durationMinutes)
+        .map((place) => ({ place, start: Number(place.startTime!.slice(0, 2)) * 60 + Number(place.startTime!.slice(3, 5)) }))
+        .sort((a, b) => a.start - b.start);
+
+      for (let index = 1; index < coreStops.length; index += 1) {
+        const previous = coreStops[index - 1];
+        const current = coreStops[index];
+        expect(previous.start + previous.place.durationMinutes!, `${day.date}: ${previous.place.id} overlaps ${current.place.id}`).toBeLessThanOrEqual(current.start);
+      }
+    }
+  });
+
+  it('budgets the critical intercity and neighbourhood transfers explicitly', () => {
+    const byId = (date: string, id: string) => tripDays.find((day) => day.id === date)?.places.find((place) => place.id === id);
+    expect(byId('2026-10-27', 'noboribetsu-bus-out')?.durationMinutes).toBe(19);
+    expect(byId('2026-10-29', 'hakodate-hotel-station-walk')?.durationMinutes).toBe(25);
+    expect(byId('2026-10-30', 'matsushima-cruise')?.startTime).toBe('10:00');
+    expect(byId('2026-11-06', 'kiriko-transfer')?.durationMinutes).toBe(35);
+    expect(byId('2026-11-07', 'shinjuku-shimokitazawa-transfer')?.startTime).toBe('13:00');
+    expect(byId('2026-11-08', 'akabane-transfer')?.durationMinutes).toBe(45);
+    expect(byId('2026-11-10', 'tsukiji-nihombashi-transfer')?.originQuery).toBe('Tsukiji Outer Market');
+  });
 });
 
