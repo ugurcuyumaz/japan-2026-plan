@@ -63,7 +63,7 @@ function MapView({ selectedDay, selectedPlaceId, onSelectPlace, filter }: { sele
   const routePoints = useMemo(() => selectedDay ? places.filter((place) => place.type !== 'stay').map((place) => place.coordinates).filter((point): point is [number, number] => Boolean(point)) : baseVisits.map((city) => city.coordinates), [selectedDay, places]);
   const selectedPlace = selectedDay?.places.find((place) => place.id === selectedPlaceId);
   return <MapContainer className="leaflet-map" center={[39.8, 138.2]} zoom={5} scrollWheelZoom zoomControl={false} keyboard aria-label={selectedDay ? `Interactive map of ${selectedDay.base} places` : 'Interactive map of Japan route'}>
-    <TileLayer attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>' url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png" subdomains="abc" maxZoom={19} />
+    <TileLayer attribution='Map data &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap contributors</a> · <a href="https://maps.wikimedia.org/">Wikimedia Maps</a>' url="https://maps.wikimedia.org/osm-intl/{z}/{x}/{y}{r}.png?lang=en" maxZoom={19} />
     <ZoomControl position="bottomright" /><MapSelection place={selectedPlace} /><FitBounds points={selectedDay ? (points.length ? points : routePoints) : baseVisits.map((city) => city.coordinates)} />
     <Polyline positions={routePoints} pathOptions={{ color: '#d7654d', weight: selectedDay ? 3 : 4, dashArray: selectedDay ? '8 8' : undefined, opacity: .85 }} />
     {!selectedDay && baseCities.map((city) => <Marker key={city.name} position={city.coordinates} icon={markerIcon('stay', false)}><Popup><strong>{city.name}</strong><br />{city.nights} nights in the route</Popup></Marker>)}
