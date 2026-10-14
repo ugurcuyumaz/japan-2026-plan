@@ -22,6 +22,8 @@ export interface Place {
   priceBand?: '€' | '€€' | '€€€';
   fallback?: boolean;
   estimatedCostJPY?: number;
+  sourceUrl?: string;
+  sourceLabel?: string;
   sourceDocument?: string;
   verification: Verification;
   role?: 'primary' | 'backup';
@@ -74,6 +76,10 @@ export interface Booking {
   estimatedCostJPY?: number;
   destination: string;
   mapsQuery?: string;
+  purchaseUrl?: string;
+  purchaseLabel?: string;
+  referenceUrl?: string;
+  referenceLabel?: string;
   notes: string;
   dayId?: string;
 }
@@ -97,3 +103,4 @@ export interface OpenItem {
   relatedId?: string;
   action: string;
 }
+

@@ -1,4 +1,4 @@
-# Japan 2026 — 23 Oct to 11 Nov, 18 nights, 2 adults
+# Japan 2026 — 24 Oct to 11 Nov in Japan, 18 nights, 2 adults (depart Madrid 23 Oct)
 
 > **Current route update — 14 Oct 2026:** no onsen bathing or overnight. Plan a short Noboribetsu Jigokudani sightseeing stop between Hokuto trains on 27 Oct only if bus, luggage storage, rail reservations and stopover ticket rules check out; otherwise continue directly to Hakodate. The following day is a manageable Hakodate city loop. Matsushima is the selected Sendai day trip. Seven hotels cover all 18 nights (€1,738 displayed total). The traveller subsequently confirmed Peach MM571 is booked; the supplied tentative email is retained as historical evidence, superseded by that later confirmation. See `OPEN-ITEMS.md`, `ROUTE_UPDATE_2026-10-01.md` and `RESERVATIONS_2026-10-14.md`.
 
@@ -6,14 +6,14 @@
 
 ---
 
-## The plan — seven files, root level
+## The plan — eight topic files, root level
 
 | File | What's in it |
 |---|---|
 | **`ITINERARY.md`** | **The day-by-day plan, all 18 nights.** The one you carry |
-| `ACCOMMODATION.md` | Every night, rates, the private-bath rationale, what to ask each hotel |
-| `TRANSPORT.md` | Flights, rail pass, oversized baggage, airport transfers, tax-free rules |
-| `BUDGET.md` | Costs per leg and whole-trip totals. FX rate lives here |
+| `ACCOMMODATION.md` | Confirmed stays, displayed rates and terms; old candidate research is marked archival |
+| `TRANSPORT.md` | Confirmed Peach flight, planned rail/ground legs, pass decision, luggage and airport transfer |
+| `BUDGET.md` | Confirmed-spend ledger, JPY/EUR comparison and unpriced categories; no unsupported whole-trip total |
 | `BOOKINGS.md` | What to book and when, in date order |
 | `HALLOWEEN.md` | 31 October night — costumes, venues, the 4.5-hour train gap, safety |
 | `PRACTICALITIES.md` | eSIM, IC card, cash, power, medication, what to pack, arrival checklist |
@@ -36,10 +36,12 @@
 | 2 | Hakodate | 27–28 Oct |
 | 2 | Sendai | 29–30 Oct |
 | 2 | Tokyo | 31 Oct 🎃 · 1 Nov |
-| 1 | Nikko | 2 Nov 🛁 |
+| 1 | Nikko | 2 Nov — travel and rest; sightseeing next morning |
 | 8 | Tokyo | 3–10 Nov |
 
 **Fly home 11 Nov, IB282 14:10 from Narita.**
+
+**Tokyo pacing:** full Tokyo days are intentionally open except the Kamakura day trip on 5 Nov. The activity pool is optional inspiration, not a fixed itinerary. Hotel stays and essential transfer/flight logistics remain in place.
 
 ---
 
@@ -49,7 +51,7 @@
 2. **No car, no serious hiking.** Everything is rail, bus or flat walking.
 3. **Halloween in Tokyo on Saturday 31 October** — a fixed anchor the whole itinerary is built around.
 4. **At least a week in Tokyo** — delivered as **10 nights** split either side of Nikko: 2 before (31 Oct Halloween + 1 Nov recovery), 8 after (3–10 Nov).
-5. **Cheapest viable everywhere**, non-refundable rates now the plan is settled.
+5. **No onsen visits.** Prior drafts mentioning private-bath onsen nights are superseded; the booked Nikko inn is for an overnight rest, not bathing.
 
 ---
 
@@ -57,7 +59,7 @@
 
 - **Dates:** `2026-10-24 (Sat)` in prose; short form in tables.
 - **Times:** 24h. State the timezone only when ambiguous.
-- **Money:** yen first, euro in brackets. **FX rate ¥186 = €1**, recorded in `BUDGET.md`. Prices are **for two adults** unless marked *pp*.
+- **Money:** show JPY and EUR where a meaningful comparison is available. Current conversions use the ECB 14 Oct 2026 reference **€1 = ¥177.39**; this is not a card-settlement quote. Prices are **for two adults** unless marked *per person*. The old research estimate tables are superseded and must not be used as the current budget.
 - **Status markers:** ✅ confirmed · 🔶 estimate · ⚠️ verify or risk · ❌ rejected.
 - **Uncertainty is explicit.** Anything unverified carries ⚠️ and says what needs checking. Never present a general-knowledge figure as sourced.
 - **Symbols:** 🎃 Halloween · ⭐ unmissable.
@@ -71,3 +73,4 @@
 
 ---
 *Restructured 2026-08-04: two leg files merged into `ITINERARY.md`, topic files consolidated at root, evidence moved to `research/`, superseded drafts to `archive/`.*
+

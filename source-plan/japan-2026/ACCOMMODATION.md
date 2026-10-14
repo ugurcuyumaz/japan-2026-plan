@@ -1,6 +1,6 @@
 # Accommodation — confirmed stays (snapshot 14 Oct 2026)
 
-> **Active booking record:** All seven properties below are confirmed for 18 nights (€1,738 total for two). This table is reconciled to `RESERVATIONS_2026-10-14.md`. No onsen stay or bathing is planned. The detailed candidate research that follows is preserved as an archive, not as current lodging advice.
+> **Active booking record:** All seven properties below are confirmed for 18 nights (€1,738 total for two; approximately ¥308,304 at the ECB 14 Oct reference rate of ¥177.39/€). EUR figures are the reservation display totals; the yen figure is only a conversion equivalent, not the charged amount. This table is reconciled to `RESERVATIONS_2026-10-14.md`. No onsen stay or bathing is planned. Everything after this current table is superseded candidate research, retained for provenance and not current lodging advice.
 
 | Dates | City | Confirmed property | Total | Status / terms |
 |---|---|---|---:|---|
@@ -12,7 +12,7 @@
 | 2–3 Nov | Nikko | Gableview Forest Inn ゲーブルビュー | €131 | Confirmed · non-refundable |
 | 3–11 Nov | Tokyo | Comfort Hotel Tokyo Kiyosumi Shirakawa | €955 | Confirmed · free cancellation |
 
-**Confirmed total: €1,738.** Dates, prices and terms above are the active source of truth; do not use the estimates or properties in the archival research below as current reservations.
+**Confirmed total: €1,738 (≈¥308,304 equivalent).** Dates, displayed prices and terms above are the active source of truth; do not use the estimates or properties in the archival research below as current reservations. Tokyo bases are Sakura Hotel Ikebukuro (31 Oct–2 Nov) and Comfort Hotel Tokyo Kiyosumi Shirakawa (3–11 Nov); no luggage drop at a former candidate hotel is assumed.
 
 ---
 
@@ -173,3 +173,4 @@ The single-booking alternative — all ten Tokyo nights at Monzen-Nakacho — wo
 
 ---
 *Evidence: `research/budget-business-hotels.md`, `research/noboribetsu-budget-onsen.md`, `research/nikko-budget-onsen.md`, `research/private-bath-lodging.md`, `research/tokyo-week-accommodation.md`, `research/tokyo-week-neighbourhoods.md`.*
+

@@ -13,9 +13,20 @@
     <link rel="icon" href="/japan-2026-plan/favicon.svg" type="image/svg+xml" />
     <link rel="manifest" href="/japan-2026-plan/manifest.webmanifest" />
     <title>Japan, slowly — 2026 itinerary</title>
+    <script>
+      const redirectTarget = sessionStorage.getItem('redirect');
+      if (redirectTarget) {
+        sessionStorage.removeItem('redirect');
+        const redirectUrl = new URL(redirectTarget, window.location.origin);
+        if (redirectUrl.origin === window.location.origin && redirectUrl.pathname.startsWith('/japan-2026-plan/')) {
+          window.history.replaceState(null, '', `${redirectUrl.pathname}${redirectUrl.search}${redirectUrl.hash}`);
+        }
+      }
+    </script>
   </head>
   <body>
     <div id="root"></div>
     <script type="module" src="/src/main.tsx"></script>
   </body>
 </html>
+
