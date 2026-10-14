@@ -19,9 +19,21 @@ describe('canonical itinerary data', () => {
 
   it('derives action and budget summaries from structured data', () => {
     expect(openItems).toHaveLength(8);
-    expect(bookings.filter((booking) => booking.status !== 'booked')).toHaveLength(9);
-    expect(confirmedHotelTotalEUR).toBe(777);
+    expect(bookings.filter((booking) => booking.status !== 'booked')).toHaveLength(10);
+    expect(confirmedHotelTotalEUR).toBe(1738);
+    expect(stays).toHaveLength(7);
+    expect(stays.every((stay) => stay.status === 'booked')).toBe(true);
     expect(budgetTotals.low).toBeGreaterThan(0);
     expect(budgetTotals.high).toBeGreaterThan(budgetTotals.centre);
   });
+
+  it('keeps the Peach booking explicitly unconfirmed and includes the intercity rail legs', () => {
+    const flightBooking = bookings.find((booking) => booking.id === 'booking-flights');
+    expect(flightBooking?.status).toBe('verify');
+    expect(flightBooking?.estimatedCostJPY).toBe(30220);
+    expect(tripDays.find((day) => day.id === '2026-10-29')?.places.some((place) => place.id === 'hakodate-liner')).toBe(true);
+    expect(tripDays.find((day) => day.id === '2026-10-31')?.places.some((place) => place.id === 'hayabusa-sendai-tokyo')).toBe(true);
+    expect(tripDays.find((day) => day.id === '2026-11-02')?.places.some((place) => place.id === 'nikko-hotel-taxi')).toBe(true);
+  });
 });
+
