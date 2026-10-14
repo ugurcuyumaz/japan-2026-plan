@@ -21,11 +21,31 @@ function markerIcon(type: ItemType, active: boolean) {
 
 function FitBounds({ points }: { points: [number, number][] }) {
   const map = useMap();
-  useEffect(() => { if (points.length > 1) map.fitBounds(L.latLngBounds(points), { padding: [38, 38], maxZoom: 12 }); else if (points[0]) map.setView(points[0], 12); }, [map, points]);
+  useEffect(() => {
+    const container = map.getContainer();
+    let frame = 0;
+    const fit = () => {
+      window.cancelAnimationFrame(frame);
+      frame = window.requestAnimationFrame(() => {
+        // Leaflet can mount before a responsive panel or mobile sheet has its
+        // final dimensions. Re-measure first, then fit against the real size.
+        map.invalidateSize({ animate: false, pan: false });
+        const size = map.getSize();
+        if (!size.x || !size.y || points.length === 0) return;
+        if (points.length > 1) map.fitBounds(L.latLngBounds(points), { padding: [38, 38], maxZoom: 12 });
+        else map.setView(points[0], 12);
+      });
+    };
+    const observer = new ResizeObserver(fit);
+    observer.observe(container);
+    fit();
+    return () => {
+      window.cancelAnimationFrame(frame);
+      observer.disconnect();
+    };
+  }, [map, points]);
   return null;
 }
-
-function MapResize() { const map = useMap(); useEffect(() => { const timer = window.setTimeout(() => map.invalidateSize(), 120); return () => window.clearTimeout(timer); }, [map]); return null; }
 
 function MapSelection({ place }: { place?: Place }) {
   const map = useMap();
@@ -43,7 +63,7 @@ function MapView({ selectedDay, selectedPlaceId, onSelectPlace, filter }: { sele
   const selectedPlace = selectedDay?.places.find((place) => place.id === selectedPlaceId);
   return <MapContainer className="leaflet-map" center={[39.8, 138.2]} zoom={5} scrollWheelZoom zoomControl={false} keyboard aria-label={selectedDay ? `Interactive map of ${selectedDay.base} places` : 'Interactive map of Japan route'}>
     <TileLayer attribution='&copy; <a href="https://carto.com/attributions">CARTO</a> &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>' url="https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png" subdomains="abcd" maxZoom={19} />
-    <ZoomControl position="bottomright" /><MapResize /><MapSelection place={selectedPlace} /><FitBounds points={selectedDay ? (points.length ? points : routePoints) : baseCities.map((city) => city.coordinates)} />
+    <ZoomControl position="bottomright" /><MapSelection place={selectedPlace} /><FitBounds points={selectedDay ? (points.length ? points : routePoints) : baseCities.map((city) => city.coordinates)} />
     <Polyline positions={routePoints} pathOptions={{ color: '#d7654d', weight: selectedDay ? 3 : 4, dashArray: selectedDay ? '8 8' : undefined, opacity: .85 }} />
     {!selectedDay && baseCities.map((city) => <Marker key={city.name} position={city.coordinates} icon={markerIcon('stay', false)}><Popup><strong>{city.name}</strong><br />{city.nights} nights in the route</Popup></Marker>)}
     {selectedDay && mappedPlaces.map((place) => <Marker key={place.id} position={place.coordinates!} title={`${place.startTime ? `${place.startTime} · ` : ''}${place.name}`} alt={`${itemLabel[place.type]}: ${place.name}`} icon={markerIcon(place.type, selectedPlaceId === place.id)} eventHandlers={{ click: () => onSelectPlace(place) }}><Popup><div className="map-popup"><span className={`type-chip type-${place.type}`}>{itemLabel[place.type]}</span>{place.startTime && <small className="map-popup-time">{place.startTime}{place.durationMinutes ? ` · ${place.durationMinutes} min` : ''}</small>}<strong>{place.name}</strong><p>{place.description}</p>{place.cuisine && <p className="map-popup-detail">{place.cuisine}{place.signature ? ` · ${place.signature}` : ''}{place.mealContext ? ` · ${place.mealContext}` : ''}</p>}{place.bookingState && place.bookingState !== 'not-needed' && <p className="map-popup-detail">Status: {place.bookingState}</p>}<div className="map-popup-links"><a href={googleMapsUrl(place.mapsQuery)} target="_blank" rel="noopener noreferrer">Place <ExternalLink size={13} /></a><a href={googleDirectionsUrl(place.mapsQuery)} target="_blank" rel="noopener noreferrer">Directions <Footprints size={13} /></a></div></div></Popup></Marker>)}
@@ -80,7 +100,7 @@ function DayTimeline({ day, selectedPlaceId, onSelectPlace }: { day: TripDay; se
 
 function DayDetail({ day, selectedPlaceId, onSelectPlace, onClose, onChangeDay, first, last, mobile }: { day: TripDay; selectedPlaceId?: string; onSelectPlace: (place: Place) => void; onClose: () => void; onChangeDay: (offset: number) => void; first: boolean; last: boolean; mobile: boolean }) {
   const dialogRef = useRef<HTMLElement>(null);
-  useEffect(() => { if (!mobile) return; const previous = document.activeElement as HTMLElement | null; dialogRef.current?.focus(); const onKey = (event: KeyboardEvent) => { if (event.key === 'Escape') onClose(); if (event.key === 'Tab' && dialogRef.current) { const focusable = Array.from(dialogRef.current.querySelectorAll<HTMLElement>('button,a,[tabindex]:not([tabindex="-1"])')); if (focusable.length && (event.shiftKey ? document.activeElement === focusable[0] : document.activeElement === focusable[focusable.length - 1])) { event.preventDefault(); (event.shiftKey ? focusable[focusable.length - 1] : focusable[0]).focus(); } } }; document.addEventListener('keydown', onKey); return () => { document.removeEventListener('keydown', onKey); previous?.focus(); }; }, [mobile, onClose]);
+  useEffect(() => { if (!mobile) return; const previous = document.activeElement as HTMLElement | null; const background = Array.from(document.querySelectorAll<HTMLElement>('.app-shell > header, .app-shell > main, .app-shell > footer')); const inertBefore = background.map((element) => element.inert); background.forEach((element) => { element.inert = true; }); dialogRef.current?.focus(); const onKey = (event: KeyboardEvent) => { if (event.key === 'Escape') onClose(); if (event.key === 'Tab' && dialogRef.current) { const focusable = Array.from(dialogRef.current.querySelectorAll<HTMLElement>('button,a,[tabindex]:not([tabindex="-1"])')); if (focusable.length && (event.shiftKey ? document.activeElement === focusable[0] : document.activeElement === focusable[focusable.length - 1])) { event.preventDefault(); (event.shiftKey ? focusable[focusable.length - 1] : focusable[0]).focus(); } } }; document.addEventListener('keydown', onKey); return () => { document.removeEventListener('keydown', onKey); background.forEach((element, index) => { element.inert = inertBefore[index]; }); previous?.focus(); }; }, [mobile, onClose]);
   const go = day.places.filter((place) => place.type === 'sight'); const eat = day.places.filter((place) => place.type === 'food'); const optional = day.places.filter((place) => place.type === 'optional'); const book = day.places.filter((place) => place.type === 'booking' || place.bookingState === 'required' || place.bookingState === 'recommended');
   return <aside className={`day-detail${mobile ? ' mobile-dialog' : ''}`} role={mobile ? 'dialog' : 'complementary'} aria-modal={mobile || undefined} aria-labelledby="day-detail-title" tabIndex={-1} ref={dialogRef}><div className="detail-top"><div><span className="eyebrow">Day focus · {day.weekday} {new Date(`${day.date}T12:00:00`).toLocaleString('en-US', { month: 'short', day: 'numeric' })}</span><h2 id="day-detail-title">{day.title}</h2><p>{day.base} · <span className={`pace pace-${day.pacing}`}>{day.pacing} pace</span> · ¥{day.dailyEstimateJPY ? `${day.dailyEstimateJPY.low.toLocaleString()}–${day.dailyEstimateJPY.high.toLocaleString()}` : '—'} per day</p></div><button className="icon-button close-detail" onClick={onClose} aria-label="Close day focus"><X size={21} /></button></div><div className="detail-actions"><button className="secondary-button" onClick={() => onChangeDay(-1)} disabled={first}><ArrowLeft size={16} /> Previous</button><button className="secondary-button" onClick={() => onChangeDay(1)} disabled={last}>Next <ArrowRight size={16} /></button><button className="secondary-button print-day-button" onClick={() => window.print()}><Printer size={15} /> Print day</button></div><p className="season-note"><Moon size={15} /> {day.seasonNote}</p><div className="detail-map-heading"><strong>{day.base} map</strong><span>Tap a marker for the stop and map link</span></div><div className="detail-map-shell"><MapView selectedDay={day} selectedPlaceId={selectedPlaceId} onSelectPlace={onSelectPlace} filter="all" /></div><DayTimeline day={day} selectedPlaceId={selectedPlaceId} onSelectPlace={onSelectPlace} /><div className="detail-sections"><DetailPlaceSection title="Go · committed sights" places={go} selectedPlaceId={selectedPlaceId} onSelectPlace={onSelectPlace} /><DetailPlaceSection title="Eat · primary first" places={eat} selectedPlaceId={selectedPlaceId} onSelectPlace={onSelectPlace} /><DetailPlaceSection title="Optional · only if energy allows" places={optional} selectedPlaceId={selectedPlaceId} onSelectPlace={onSelectPlace} /><DetailPlaceSection title="Book / verify" places={book} selectedPlaceId={selectedPlaceId} onSelectPlace={onSelectPlace} /></div>{(day.tiredPlan || day.rainPlan) && <div className="contingency"><h3><Coffee size={16} /> Keep a plan B</h3>{day.tiredPlan && <p><strong>If tired:</strong> {day.tiredPlan}</p>}{day.rainPlan && <p><strong>If raining:</strong> {day.rainPlan}</p>}</div>}</aside>;
 }
