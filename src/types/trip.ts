@@ -24,7 +24,7 @@ export interface Place {
   sourceDocument?: string;
   verification: Verification;
   role?: 'primary' | 'backup';
-  travelMode?: 'walk' | 'train' | 'bus' | 'taxi' | 'flight' | 'ferry';
+  travelMode?: 'walk' | 'train' | 'bus' | 'tram' | 'taxi' | 'flight' | 'ferry';
   travelNote?: string;
 }
 
@@ -50,6 +50,8 @@ export interface Stay {
   id: string;
   city: string;
   dates: string;
+  checkIn: string;
+  checkOut: string;
   nights: number;
   property: string;
   status: BookingState;
@@ -94,3 +96,4 @@ export interface OpenItem {
   relatedId?: string;
   action: string;
 }
+
