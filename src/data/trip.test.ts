@@ -42,5 +42,23 @@ describe('canonical itinerary data', () => {
     expect(tripDays.find((day) => day.id === '2026-10-27')?.places.some((place) => place.id === 'stay-hakodate')).toBe(true);
     expect(tripDays.find((day) => day.id === '2026-10-30')?.places.some((place) => place.id === 'godaido')).toBe(true);
   });
+
+  it('keeps each day in chronological order and exposes cross-area transfer estimates', () => {
+    for (const day of tripDays) {
+      const scheduled = day.places.flatMap((place) => place.startTime ? [place.startTime] : []);
+      expect(scheduled, day.id).toEqual([...scheduled].sort());
+    }
+
+    const placeById = (date: string, id: string) => tripDays.find((day) => day.id === date)?.places.find((place) => place.id === id);
+    expect(placeById('2026-10-28', 'goryokaku')?.startTime).toBe('09:30');
+    expect(placeById('2026-10-28', 'lucky-pierrot')?.startTime).toBe('11:30');
+    expect(placeById('2026-10-30', 'senseki-return')?.durationMinutes).toBe(45);
+    expect(placeById('2026-11-03', 'nikko-station-taxi')?.travelMode).toBe('taxi');
+    expect(placeById('2026-11-05', 'kamakura-return')?.durationMinutes).toBeGreaterThanOrEqual(60);
+    expect(placeById('2026-11-05', 'hasedera')?.durationMinutes).toBe(70);
+    expect(placeById('2026-11-05', 'enoden-coast')?.name).toContain('Tsurugaoka');
+    expect(placeById('2026-11-09', 'wanariya-azabudai-transfer')?.durationMinutes).toBeGreaterThanOrEqual(35);
+    expect(placeById('2026-11-11', 'hotel-tokyo-station')?.startTime).toBe('07:45');
+  });
 });
 
