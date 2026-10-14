@@ -13,6 +13,7 @@ export interface Place {
   durationMinutes?: number;
   coordinates?: [latitude: number, longitude: number];
   mapsQuery: string;
+  originQuery?: string;
   bookingState?: BookingState;
   bookingNote?: string;
   cuisine?: string;

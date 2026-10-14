@@ -54,14 +54,14 @@ Most important corrected sequence/buffers:
 | Date | Practical sequence and realistic allowance |
 |---|---|
 | 24 Oct | Narita arrival → immigration/bags/terminal transfer → Peach only if confirmed → JR to Sapporo. The supplied Peach email is explicitly tentative; do not treat 13:40 as a booked flight. |
-| 25 Oct | Nijo breakfast (about 75 min) → 20–30 min walk to university → ginkgo/campus (about 75 min) → lunch and Sunday queue (45–60 min) → Beer Museum optional (20–30 min each way plus visit) → Moiwa only with a 2–2.5 h round trip. Drop Beer Museum first. |
-| 27 Oct | Hokuto to Noboribetsu → Donan bus (operator estimate about 27 min) → luggage counter after 09:00 → Jigokudani (60–75 min) → early lunch → bus back (about 27 min) → retain at least 60 min at station before Hokuto. This stop remains conditional; go directly to Hakodate if the actual bus/rail connection or luggage plan does not work. [Donan route and journey estimate](https://www.donanbus.co.jp/map/noboribetsu_ashiyu/?hp_lang=en). |
+| 25 Oct | Nijo breakfast (07:30–08:45) → walk to Akarenga (20 min) → landmark (45 min) → walk to university (30 min) → ginkgo/campus (75 min) → return toward GARAKU (35 min) → lunch (75 min, Sunday queue included) → Beer Museum optional (15:00–16:15) → T38 optional (17:00–17:45) → early dinner → Moiwa transfer (45 min each way) + summit (90 min). Very full day: drop Beer Museum and T38 first, Moiwa if tired or weather is poor. |
+| 27 Oct | Hokuto 4 06:53–08:03 → target Donan bus 08:23–08:42 (scheduled leg; general journey estimate ~27 min) → luggage counter after 09:00 → walk to Jigokudani (15 min) → boardwalk (75 min) → early lunch (60 min) → Sengen Park/Gokuraku Street (60 min) → retrieve luggage → target bus 14:15–14:27 → Hokuto 16 15:59–18:30. Conditional: go directly to Hakodate if bus, luggage or rail stopover is not confirmed. [Donan route and journey estimate](https://www.donanbus.co.jp/map/noboribetsu_ashiyu/). |
 | 28 Oct | Morning Market → tram plus 10–15 min walk to Goryokaku (about 30–40 min door-to-door) → tower/park (90–105 min) → lunch → tram/walk to Motomachi (about 30–40 min) → historic-quarter walk (90–105 min). Kanemori and summit are competing optional endings; choose at most one, check service/weather, and budget 2–2.5 h for a summit round trip. |
-| 29–31 Oct | Treat hotel check-in/bag drop as a real transfer stop. Hakodate Liner to Shin-Hakodate-Hokuto: keep at least 30 min for the reserved shinkansen connection. Sendai station to KOKO: allow 10–15 min with bags. Tokyo Station to Ikebukuro: allow 25–35 min plus navigation before the festival. |
-| 30 Oct | Sendai–Matsushima train about 40–45 min each way. Reach the pier before boarding; walk between pier, Zuiganji, Godaido and lunch. If lunch or cruise timing slips, skip the one optional garden/island stop and take a later verified train. [Official Tohoku Matsushima itinerary](https://www.tohokukanko.jp/en/itineraries/detail_19.html). |
+| 29–31 Oct | On 29 Oct: breakfast 07:00–08:00 → hotel/station transfer 08:15–08:40 → Liner target 09:41–10:03 → 50-minute shinkansen connection → Hayabusa target 10:53–13:29 → 15-minute station-to-hotel walk → bag drop. On 31 Oct: hotel-to-Sendai Station is budgeted at 45 min, Hayabusa 09:31–11:04, then Tokyo Station-to-Ikebukuro 35 min plus bag drop, lunch and event. |
+| 30 Oct | Sendai–Matsushima train about 40–45 min each way. Target the official 10:00–10:50 cruise; walk to Zuiganji (75 min), Godaido (30 min), lunch (60 min), then Entsuin only if on time. Aim for a verified 15:30 return; preserve a later-train fallback. [Official cruise times](https://www.matsushima.or.jp/en/timesheet/) · [model course](https://www.matsushima.or.jp/en/charm/model_course.html). |
 | 2–3 Nov | Ikebukuro–Asakusa cross-city transfer (35–45 min, plus station boarding buffer); Asakusa–Tobu-Nikko limited express about 110 min. Arrange the inn taxi. On 3 Nov, taxi to Toshogu before opening; Toshogu (about 2 h) plus **one** nearby site (about 45 min), lunch, then prearranged taxi (20–30 min plus pickup slack) and a reserved return. Tobu schedules/tickets must be checked for the Culture Day holiday; do not rely on the former guessed 16:30 departure. [Tobu timetable](https://www.tobu.co.jp/en/express_info/timetable.html) · [Nikko access](https://www.nikko-kotsu.co.jp/en/access/). |
-| 5 Nov | Hotel–Tokyo Station 15–20 min, JR to Kamakura about 55–60 min; then Enoden + walk to Hase. Great Buddha (45 min) → Hasedera (70 min) → lunch (60 min) → Enoden back to Kamakura (about 20 min) → Komachi/Tsurugaoka (75 min). Enoshima is optional (20–30 min transfer + about 60 min on the island); if taken, target the 17:00 return window. Skip it if the morning slips. |
-| 6–9 Nov | Leave 30–45 min for the Kappabashi/workshop and Wanariya/Azabudai cross-city legs. Keep the Edo Kiriko trip conditional on the confirmed studio address. On 9 Nov travel directly after the workshop, have a quick lunch by Azabudai and arrive 10–15 min before the timed entry. |
+| 5 Nov | Hotel-to-Tokyo Station + JR is budgeted at 75 min; allow another 30 min from Kamakura Station to the Great Buddha via Enoden and walking. Great Buddha (45 min) → Hasedera (70 min) → lunch (60 min) → Enoden to Kamakura (20 min) → Komachi/Tsurugaoka (75 min). Optional Enoshima: 30 min transfer + 90 min there, then budget 115 min back to the hotel. Skip it if the morning slips. |
+| 6–9 Nov | On 6 Nov: Kuramae (90 min) → walk to Kappabashi (15–20 min) → selected shops (60 min) → lunch (40 min) → transfer to the confirmed kiriko studio (35 min) → workshop (120 min). On 7 Nov: Map Camera (90 min) → lunch (45 min) → Shinjuku–Shimokitazawa train (30 min) → neighbourhood visit (3 h). On 8 Nov, budget 45 min each way to Akabane. On 9 Nov, budget 120 min for Wanariya, 45 min to Azabudai, lunch (40 min), then 14:00 timed entry; verify workshop duration and addresses. |
 | 11 Nov | Leave the hotel around 07:45–08:00 for Tokyo Station; the TYO-NRT bus time is **not** the hotel departure time. Reach the bus stop 15–20 min before boarding and keep a rail alternative for road disruption. |
 
 Tokyo local transfer estimates in the website are deliberately approximate; use current station routing and allow extra time for luggage, station navigation, queues and accessibility needs.
@@ -130,11 +130,13 @@ This is a transit-and-sightseeing day, not an onsen day. The whole stop is condi
 | Planning time | Plan |
 |---|---|
 | 06:53–08:03 | Target Hokuto 4 Sapporo→Noboribetsu; confirm the October timetable and reserve seats. |
-| ~08:23–08:50 | Planning target Donan bus from JR Noboribetsu Station to the onsen town; operator journey estimate is about 27 minutes. Confirm the service. |
-| 09:00–09:20 | Walk to Tourist Association and store luggage after published opening; confirm it accepts your cases. |
-| 09:30–10:45 | Jigokudani boardwalk/viewpoints only (60–75 minutes). No bathing and no long Oyunuma walk. |
+| 08:23–08:42 | Current weekday Donan timetable target from JR Noboribetsu Station to the onsen town. The operator's general journey estimate is about 27 minutes; confirm the service. |
+| 09:00–09:15 | Walk to Tourist Association and store luggage after published opening; confirm it accepts your cases. |
+| 09:15–09:30 | Walk from the visitor-information/bus-terminal area to Jigokudani. |
+| 09:30–10:45 | Jigokudani boardwalk/viewpoints only (75 minutes). No bathing and no long Oyunuma walk. |
 | 11:00–12:00 | Early lunch close to the bus terminal. Leave time to collect bags and walk to the correct stop. |
-| ~14:15–14:42 | Planning target bus back to JR Noboribetsu Station; about 27 minutes. Verify the weekday departure and keep roughly 75 minutes before the 15:59 train. |
+| 12:15–13:15 | Short Gokuraku Street/Sengen Park stroll; no bathing. Collect luggage by 13:45. |
+| 14:15–14:27 | Current weekday Donan timetable target back to JR Noboribetsu Station; verify the departure and retain about 92 minutes before the 15:59 train. |
 | 15:59–18:30 | Target Hokuto 16 to Hakodate; reserve onward seats and verify ticket/pass stopover rules. |
 | Evening | Check in at Pension Puppy Tail; dinner near Hakodate Station. No Motomachi or summit outing tonight. |
 
@@ -146,7 +148,6 @@ All listed departure times are planning targets, not confirmed tickets. The tran
 
 | Planning time | Plan |
 |---|---|
-| 07:30 | Hakodate Morning Market breakfast and a compact browse; not every stall/activity is guaranteed open. |
 | 07:30–08:45 | Hakodate Morning Market breakfast and a compact browse. |
 | 08:45–09:25 | Tram toward Goryokaku-koen-mae, then walk 10–15 minutes to the tower (allow 30–40 minutes door to door). |
 | 09:30–11:15 | Goryokaku Tower, park and former magistrate-office area (about 90–105 minutes). |
@@ -167,8 +168,8 @@ Drop Kanemori or the summit first if tired; avoid doubling back across town.
 
 | | |
 |---|---|
-| 06:30–08:00 | **Morning Market breakfast** — it's open from 05:00, so eat properly before you go |
-| 08:30 | **Check out and leave both cases with the hotel front desk**, collect at ~09:00. Free and near-universal in Japan — better than hunting one of the limited ¥1,000 coin lockers |
+| 07:00–08:00 | **Morning Market breakfast** — leave time to retrieve luggage and confirm stalls are open |
+| 08:15–08:40 | **Check out and transfer to Hakodate Station**; carry cases, then allow about an hour for the platform buffer |
 | **09:41** | **Hakodate Liner → Shin-Hakodate-Hokuto, 22 min, arr 10:03** — PASS ✅ *verified* |
 | **10:53** | **HAYABUSA 18 → Sendai 13:29** — PASS, 2h36 ✅ *verified exactly*. **50 min connection, comfortable.** ⚠️ **Oversized-baggage reservation required** |
 | 14:00 | Check in — east exit, closest to the Shinkansen platforms for the 31st |
@@ -192,11 +193,11 @@ Drop Kanemori or the summit first if tired; avoid doubling back across town.
 | | |
 |---|---|
 | 08:30–09:15 | Take a live Senseki Line service (~40–45 min) and walk to the pier; choose the cruise only after checking the day’s sailings. |
-| ~09:45–10:35 | Bay cruise planning window (about 50 min); reach boarding point early. Exact October departure is not guaranteed. |
-| 10:45–12:00 | Walk to Zuiganji and visit (60–75 min). |
-| 12:05–12:35 | Godaido, a short walk away (20–30 min including photos). |
-| 12:45–13:45 | Seafood/anago lunch by the waterfront; keep a queue buffer. |
-| 14:00–14:45 | Entsuin **or** another short waterfront walk, only if on time. Skip the extra if lunch/cruise runs late. |
+| 10:00–10:50 | Official regular-cruise timetable target; reach the pier early and verify same-day operation. |
+| 11:00–12:15 | Walk to Zuiganji and visit (60–75 min). |
+| 12:30–13:00 | Godaido, a short walk away (20–30 min including photos). |
+| 13:10–14:10 | Seafood/anago lunch by the waterfront; keep a queue buffer. |
+| 14:25–15:10 | Entsuin only if on time; leave time to walk to the station for a verified 15:30 train. |
 | 15:30 onward | Return by a live Senseki Line service (~40–45 min). Confirm departure before leaving Sendai; have later options in mind. |
 | Evening | **Second Kokubuncho evening** — **Iroha Yokocho** or a local izakaya. Sanma, sashimi, a Miyagi sake flight: **Urakasumi (浦霞)**, **Hidakami (日高見)**, **Ichinokura (一ノ蔵)**. ¥5,000–7,000 for two |
 
