@@ -22,11 +22,11 @@ Arrival connection: the international flight is planned to land at Narita Termin
 
 ## Rail legs now visible in the itinerary
 
-- **27 Oct:** reserved direct Limited Express Hokuto, Sapporo → Hakodate. No Noboribetsu detour. Exact departure is to be selected from the live JR Hokkaido timetable.
+- **27 Oct:** plan two separately reserved Limited Express Hokuto legs via Noboribetsu: Sapporo→Noboribetsu (target 06:53–08:03) and Noboribetsu→Hakodate (target 15:59–18:30), with a short Jigokudani visit between. These are targets, not confirmed tickets; check stopover/pass validity, seats, buses and luggage storage. Skip the stop if connections are not robust. No bathing.
 - **29 Oct:** Hakodate Liner → Shin-Hakodate-Hokuto → Hayabusa 18 → Sendai. A roughly 09:40 Liner and 10:53 shinkansen are planning targets from earlier timetable research, not a guarantee; maintain at least a 30-minute transfer buffer and verify both services.
 - **31 Oct:** Hayabusa 10, Sendai 09:31 → Tokyo 11:04 is the researched schedule. Reserve both seats and any qualifying oversized-baggage-area seat; allow time for hotel bag drop before the afternoon event.
-- **2 Nov:** Ikebukuro → Asakusa → reserved Tobu limited express → Tobu-Nikko. Gableview is about 2.6 km from the station; arrange a taxi or confirm pickup with the inn. Keep sightseeing optional on arrival day.
-- **3 Nov:** hotel-arranged taxi to Toshogu for opening; visit the main shrine and at most one nearby site; lunch; return on a reserved service from the Culture Day holiday timetable. The former 16:30 placeholder is not verified and must not be treated as a booked train.
+- **2 Nov:** Ikebukuro → Asakusa → reserved Tobu limited express → Tobu-Nikko. Gableview is about 2.6 km from the station; ask the inn to arrange/confirm taxi pickup. Keep sightseeing optional on arrival day.
+- **3 Nov:** ask the inn to arrange a taxi to Toshogu for opening, visit the main shrine and at most one nearby site, have lunch, then take a confirmed taxi back to the station for a reserved service on the Culture Day holiday timetable. Confirm taxi and rail availability; do not treat the former 16:30 placeholder as booked.
 
 For real-time departures and service changes, check the operator's timetable close to travel. This plan uses no onsen visits.
 
