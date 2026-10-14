@@ -25,13 +25,12 @@ export const stays: Stay[] = [
 const stayPlacesForDate = (date: string): Place[] => stays
   .filter((stay) => stay.checkIn <= date && date <= stay.checkOut)
   .map((stay) => place(stay.id, stay.property, 'stay', `${stay.city} stay · ${stay.dates} · ${stay.note}${stay.costEUR ? ` · €${stay.costEUR}` : ''}. Shown as the relevant lodging location for this travel day.`, stay.property, stay.coordinates, {
-    startTime: date === stay.checkIn ? '15:00' : date === stay.checkOut ? '08:00' : undefined,
     bookingState: stay.status,
     bookingNote: stay.note,
     verification: stay.status === 'booked' ? 'confirmed' : 'research',
   }));
 
-export const tripDays: TripDay[] = [
+const rawTripDays: TripDay[] = [
   { id: '2026-10-23', date: '2026-10-23', weekday: 'Fri', base: 'In the air', title: 'Madrid → Narita', summary: 'The long way east. Arrive rested enough to make the Sapporo connection.', region: 'north', keyDay: false, pacing: 'light', tags: ['travel', 'transit'], seasonNote: 'Autumn begins in the north; keep a layer in your hand luggage.', dailyEstimateJPY: { low: 0, high: 0 }, places: [place('ib281-outbound', 'IB281 Madrid → Narita', 'transit', 'Depart 12:30; arrive Narita at 09:30 the following day.', 'Iberia Madrid airport', [40.4936, -3.5668], { startTime: '12:30', travelMode: 'flight', travelNote: 'Overnight flight; keep the next airport connection flexible.' })] },
   { id: '2026-10-24', date: '2026-10-24', weekday: 'Sat', base: 'Sapporo', title: 'Narita → New Chitose → Susukino', summary: 'Land at 09:30, make the 13:40 Peach connection only if the booking is confirmed, then keep the Sapporo evening deliberately simple.', region: 'north', keyDay: false, pacing: 'light', tags: ['travel', 'food'], seasonNote: 'Cool and crisp in Sapporo; if the flight is confirmed, check in, eat nearby and rest. If not, rebook before travel and update this day’s arrival time.', dailyEstimateJPY: { low: 5000, high: 12000 }, places: [place('peach-cts', 'Peach MM571 · NRT → CTS', 'transit', '13:40 Narita Terminal 1 → 15:30 New Chitose domestic terminal. The 8 Sep email says this is a tentative, unconfirmed booking with a 10-minute payment window; unless a later receipt exists, assume the hold expired and verify/rebook immediately.', 'Peach MM571 Narita Airport Terminal 1', [35.772, 140.392], { startTime: '13:40', endTime: '15:30', bookingState: 'research', bookingNote: 'Tentative email only; likely expired if no later confirmation. Displayed total ¥30,220 for two; no booking reference or passenger details stored here.', estimatedCostJPY: 30220, travelMode: 'flight', verification: 'verify-before-trip' }), place('new-chitose-arrival', 'New Chitose Airport · MM571 arrival', 'transit', 'Destination marker for the listed 15:30 arrival; use only if this specific flight is confirmed.', 'New Chitose Airport Domestic Terminal', [42.787, 141.681], { startTime: '15:30', travelMode: 'flight', verification: 'verify-before-trip' }), place('rapid-airport-sapporo', 'JR Rapid Airport · New Chitose → Sapporo', 'transit', 'After landing, follow signs to JR New Chitose Airport Station; allow time for bags and the station transfer. Ride the Rapid Airport to Sapporo (about 35–40 minutes; confirm the current timetable and fare).', 'JR New Chitose Airport Station', [42.787, 141.681], { startTime: '16:30', travelMode: 'train', durationMinutes: 40, verification: 'verify-before-trip' }), place('sapporo-first-dinner', 'Soup curry or miso ramen', 'food', 'Choose one easy dinner near the hotel; no extra sightseeing after the airport day.', 'Sapporo Station soup curry restaurant', c.sapporo, { startTime: '19:00', mealContext: 'dinner', cuisine: 'Hokkaido comfort food', signature: 'Soup curry or miso ramen', priceBand: '€€', role: 'primary', verification: 'research' })] },
   { id: '2026-10-25', date: '2026-10-25', weekday: 'Sun', base: 'Sapporo', title: 'Markets, ginkgo and a mountain view', summary: 'A full first day: seafood breakfast, soup curry lunch, golden leaves and city lights.', region: 'north', keyDay: true, pacing: 'full', tags: ['food', 'nature', 'culture'], seasonNote: 'Late October is peak colour season in Hokkaido; mornings can be brisk.', dailyEstimateJPY: { low: 8000, high: 18000 }, tiredPlan: 'Drop the Beer Museum and take the tram straight to dinner after the university walk.', rainPlan: 'Swap the ginkgo avenue for the Beer Museum and covered Tanukikoji arcades.', places: [place('nijo-market', 'Nijo Market', 'sight', 'Start early with kaisendon, salmon and ikura.', 'Nijo Market Sapporo', [43.058, 141.356], { startTime: '07:30', durationMinutes: 75, cuisine: 'Seafood market', signature: 'Kaisendon', mealContext: 'breakfast', priceBand: '€€', role: 'primary' }), place('garaku', 'GARAKU soup curry', 'food', 'The lunch anchor; expect a Sunday queue.', 'GARAKU Sapporo', [43.056, 141.354], { startTime: '12:00', mealContext: 'lunch', cuisine: 'Soup curry', signature: 'Chicken soup curry', priceBand: '€€', role: 'primary', verification: 'verify-before-trip' }), place('hokkaido-ginkgo', 'Hokkaido University Ginkgo Avenue', 'sight', 'A free, flat, central autumn walk.', 'Hokkaido University Ginkgo Avenue', [43.077, 141.34], { startTime: '14:00', durationMinutes: 90, role: 'primary' }), place('mt-moiwa', 'Mt Moiwa Observatory', 'sight', 'Tram and shuttle for a wide city view after dark.', 'Mount Moiwa Observatory Sapporo', [43.024, 141.323], { startTime: '20:30', bookingState: 'recommended', bookingNote: 'Check cloud cover and last tram before leaving.', estimatedCostJPY: 2100, role: 'primary' }), place('sapporo-beer', 'Sapporo Beer Museum', 'optional', 'Free exhibition if energy allows.', 'Sapporo Beer Museum', [43.071, 141.367], { startTime: '16:00', durationMinutes: 60, role: 'backup', cuisine: 'Beer museum', mealContext: 'drinks' })] },
@@ -52,7 +51,147 @@ export const tripDays: TripDay[] = [
   { id: '2026-11-09', date: '2026-11-09', weekday: 'Mon', base: 'Tokyo', title: 'Indigo morning, teamLab afternoon', summary: 'A timed workshop and a timed-entry digital art evening.', region: 'tokyo', keyDay: true, pacing: 'full', tags: ['culture', 'booking'], seasonNote: 'Both anchors are time-sensitive; keep lunch close to Azabudai.', dailyEstimateJPY: { low: 12000, high: 25000 }, places: [place('wanariya', 'Wanariya indigo dyeing', 'booking', '10:00 workshop; reservation required.', 'Wanariya Tokyo', [35.724, 139.722], { startTime: '10:00', durationMinutes: 120, bookingState: 'required', bookingNote: 'Reserve the workshop in advance.', estimatedCostJPY: 5000 }), place('teamlab', 'teamLab Borderless', 'booking', '14:00 timed entry at Azabudai Hills.', 'teamLab Borderless Azabudai', [35.661, 139.739], { startTime: '14:00', durationMinutes: 150, bookingState: 'required', bookingNote: 'Timed entry; protect the arrival window.', estimatedCostJPY: 3800 }), place('azabudai-lunch', 'Azabudai lunch', 'food', 'Keep lunch close to the timed entry.', 'Azabudai Hills Tokyo', [35.662, 139.739], { startTime: '12:30', mealContext: 'lunch', cuisine: 'Tokyo lunch', priceBand: '€€', role: 'primary', verification: 'research' })] },
   { id: '2026-11-10', date: '2026-11-10', weekday: 'Tue', base: 'Tokyo', title: 'Market grazing + pack', summary: 'Tsukiji, depachika snacks and a luggage decision before the flight home.', region: 'tokyo', keyDay: false, pacing: 'light', tags: ['food', 'practical'], seasonNote: 'The final day is intentionally spacious for shopping and packing.', dailyEstimateJPY: { low: 5000, high: 15000 }, places: [place('tsukiji', 'Tsukiji Outer Market', 'sight', 'Morning grazing and food gifts.', 'Tsukiji Outer Market', [35.665, 139.77], { startTime: '08:00', durationMinutes: 120, mealContext: 'breakfast', cuisine: 'Market food' }), place('depachika', 'Depachika', 'food', 'Final snacks and gifts.', 'Nihombashi Mitsukoshi depachika', [35.684, 139.767], { startTime: '12:00', mealContext: 'snack', cuisine: 'Department-store food hall', role: 'primary' }), place('luggage-shipping', 'Pack and ship luggage', 'booking', 'Use takkyubin if needed.', 'Tokyo Station Yaesu South Exit', [35.681, 139.767], { startTime: '15:00', bookingState: 'recommended', bookingNote: 'Decide whether to send bags to the airport.', estimatedCostJPY: 2500 }), place('last-monzen', 'Last Monzen-Nakacho evening', 'optional', 'One final local izakaya.', 'Monzen Nakacho Tokyo', [35.672, 139.796], { startTime: '18:00', mealContext: 'dinner', role: 'backup' })] },
   { id: '2026-11-11', date: '2026-11-11', weekday: 'Wed', base: 'Fly home', title: 'Tokyo → Narita → Madrid', summary: 'Out by 08:30, airport bus, and homeward flight IB282 at 14:10.', region: 'tokyo', keyDay: false, pacing: 'light', tags: ['travel', 'transit'], seasonNote: 'Build in international check-in time; the airport transfer is the day’s only priority.', dailyEstimateJPY: { low: 1500, high: 3000 }, places: [place('tyo-nrt-bus', 'TYO-NRT bus', 'transit', '¥1,500 per person from Tokyo Station.', 'TYO-NRT bus Tokyo Station', [35.681, 139.767], { startTime: '08:30', travelMode: 'bus', estimatedCostJPY: 1500 }), place('ib282-home', 'IB282 Narita → Madrid', 'transit', 'Keep a generous international check-in buffer.', 'Narita International Airport', [35.772, 140.392], { startTime: '14:10', travelMode: 'flight' })] },
-] .map((day) => ({ ...day, places: [...day.places.filter((item) => item.type !== 'stay'), ...stayPlacesForDate(day.date)] })) as TripDay[];
+];
+
+// Explicit movement and dwell-time corrections from the full-route timing audit.
+// These are planning windows, not reserved departures; verify operator timetables.
+const timingUpdates: Record<string, { day?: Partial<Omit<TripDay, 'places'>>; replace?: Record<string, Partial<Place>>; add?: Place[] }> = {
+  '2026-10-25': {
+    replace: {
+      'hokkaido-ginkgo': { startTime: '11:00', durationMinutes: 75, description: 'Allow about 75 minutes for the avenue and a relaxed campus walk. It is a walk from central Sapporo; keep the route simple.' },
+      garaku: { startTime: '13:00', description: 'Lunch after the university visit. Allow 45–60 minutes for the meal plus any Sunday queue; verify the current branch and opening hours.' },
+      'sapporo-beer': { startTime: '15:00', durationMinutes: 75, description: 'Optional museum stop. From central Sapporo allow about 20–30 minutes each way by bus/taxi or a longer walk; skip it if the university/lunch runs late.' },
+      'mt-moiwa': { startTime: '20:30', durationMinutes: 90, description: 'At the summit allow about 60–90 minutes including the view and observatory. Budget 2–2.5 hours total for outbound tram/shuttle, ropeway queues and return; check weather, operating hours and last service.' },
+    },
+    add: [
+      place('sapporo-akarenga', 'Akarenga · former Hokkaido Government Office', 'sight', 'A central red-brick landmark near Odori. Allow about 45 minutes including the walk from the market area; verify building access/exhibits.', 'Former Hokkaido Government Office Sapporo', [43.064, 141.347], { startTime: '09:15', durationMinutes: 45, verification: 'research' }),
+      place('sapporo-campus-transfer', 'Walk · Akarenga → Hokkaido University', 'transit', 'Allow about 20–30 minutes on foot from the central area to the campus edge, plus campus walking.', 'Former Hokkaido Government Office Sapporo to Hokkaido University Ginkgo Avenue', [43.067, 141.351], { startTime: '10:30', durationMinutes: 30, travelMode: 'walk', verification: 'research' }),
+      place('sapporo-tower38', 'JR Tower T38 · station-area view', 'optional', 'A relaxed indoor option while waiting for the evening view; allow 45 minutes and confirm last admission. Skip if the day is running late.', 'JR Tower T38 Sapporo', [43.068, 141.35], { startTime: '17:00', durationMinutes: 45, role: 'backup', verification: 'verify-before-trip' }),
+      place('sapporo-evening-meal', 'Early dinner · central Sapporo', 'food', 'Have a proper meal near the hotel before heading to Mt Moiwa; do not rely on finding dinner after the summit.', 'Susukino Sapporo restaurant', c.sapporo, { startTime: '18:00', durationMinutes: 60, mealContext: 'dinner', cuisine: 'Hokkaido comfort food', priceBand: '€€', role: 'primary', verification: 'research' }),
+      place('sapporo-moiwa-transfer', 'Tram + shuttle · central Sapporo → Mt Moiwa', 'transit', 'Leave central Sapporo around 19:30 for the ropeway base; budget 35–45 minutes each way including the tram and shuttle/walk. The summit visit is additional time.', 'Susukino Sapporo to Mount Moiwa Ropeway', [43.047, 141.343], { startTime: '19:30', durationMinutes: 45, travelMode: 'tram', verification: 'verify-before-trip' }),
+      place('sapporo-moiwa-return', 'Tram + shuttle · Mt Moiwa → central Sapporo', 'transit', 'Allow 35–45 minutes from the ropeway base back to Susukino/central Sapporo; check the final services before starting the ascent.', 'Mount Moiwa Ropeway to Susukino Sapporo', [43.035, 141.323], { startTime: '22:00', durationMinutes: 45, travelMode: 'tram', verification: 'verify-before-trip' }),
+      place('sapporo-late-ramen', 'Late miso ramen · Susukino', 'food', 'Only if still hungry after returning from Mt Moiwa; check the shop is open late and choose a nearby alternative.', 'Ganso Ramen Yokocho Sapporo', [43.055, 141.354], { startTime: '23:00', durationMinutes: 45, mealContext: 'dinner', cuisine: 'Miso ramen', priceBand: '€€', role: 'backup', verification: 'verify-before-trip' }),
+    ],
+  },
+  '2026-10-26': { replace: { tanukikoji: { startTime: '11:00', durationMinutes: 120, description: 'An intentionally slow covered-arcade wander; stop for coffee and return to the hotel between outings rather than treating the day as back-to-back sightseeing.' } } },
+  '2026-10-27': {
+    replace: {
+      'noboribetsu-bus-out': { endTime: '08:50', durationMinutes: 27, description: 'The operator lists about 27 minutes station to onsen town; 08:23–08:50 is a planning estimate, not a guaranteed service. Walk to luggage storage after it opens at 09:00. If the 08:03 train or bus connection is late, skip the stop.' },
+      'noboribetsu-luggage': { startTime: '09:10', description: 'Walk from the bus stop to the Tourist Association and store bags after its published 09:00 opening. Allow at least 15–20 minutes; keep valuables and train essentials with you.' },
+      jigokudani: { startTime: '09:30', durationMinutes: 75, description: 'Focused boardwalk/viewpoint visit, 60–75 minutes. The path and nearby town are walkable; do not add Oyunuma on this luggage-and-rail day.' },
+      'noboribetsu-lunch': { startTime: '11:00', durationMinutes: 60, description: 'Early lunch near the bus terminal; keep a 20-minute walk/buffer to collect bags and reach the correct stop.' },
+      'noboribetsu-bus-return': { startTime: '14:15', endTime: '14:42', durationMinutes: 27, description: 'Planning window only: target an onsen-town bus around 14:15; operator journey estimate is about 27 minutes. Confirm the exact weekday service, arrive at the stop early, and retain about 75 minutes at the station before the 15:59 Hokuto.' },
+      'hakodate-arrival': { startTime: '18:45', durationMinutes: 15, description: 'Allow 10–15 minutes by taxi or on foot with luggage from Hakodate Station to Pension Puppy Tail; confirm the route with the hotel.' },
+    },
+  },
+  '2026-10-28': {
+    replace: {
+      'goryokaku-tram': { startTime: '08:45', durationMinutes: 35, description: 'Take the tram to Goryokaku-koen-mae, then allow a 10–15 minute walk to the tower. Door to door is about 30–40 minutes; verify the live tram.' },
+      goryokaku: { startTime: '09:30', durationMinutes: 105, description: 'Tower viewpoint plus a focused, mostly flat park / former magistrate-office visit. About 90–105 minutes is enough without a full perimeter loop.' },
+      'lucky-pierrot': { startTime: '11:30', durationMinutes: 60, description: 'Lunch near Goryokaku. This follows the fort visit; allow about an hour and check branch hours/queue.' },
+      'hakodate-tram-motomachi': { startTime: '12:45', durationMinutes: 35, description: 'Allow about 30–40 minutes by tram toward Jujigai plus walking from the stop into Motomachi; exact ride is subject to wait time.' },
+      motomachi: { startTime: '13:30', durationMinutes: 105, description: 'Compact downhill loop: Old Public Hall / churches / Hachiman-zaka. Allow 90–105 minutes including photo stops and hills.' },
+      kanemori: { startTime: '15:15', durationMinutes: 45, description: 'Optional 45-minute waterfront browse, a short walk downhill from Motomachi. Drop this if prioritizing the summit view.' },
+      'hakodate-summit': { startTime: '16:30', durationMinutes: 150, description: 'Optional sunset outing only after checking the October 2026 bus/ropeway timetable and weather. Allow around 2–2.5 hours return from town; choose this OR a long Kanemori visit, not both.' },
+    },
+  },
+  '2026-10-29': {
+    replace: {
+      'sendai-arrival': { startTime: '13:45', durationMinutes: 30, description: 'From the platform, allow 15–30 minutes to reach KOKO HOTEL, check in or leave bags, and orient yourselves. Asaichi is a separate 5–10 minute walk from the station and is optional only if stalls remain open.' },
+      'sendai-asaichi': { startTime: '14:30', durationMinutes: 30, description: 'Optional short market browse/snack; verify hours because this is afternoon, not a breakfast visit. Skip and rest if the train is delayed.' },
+      'aji-tasuke': { startTime: '18:00', durationMinutes: 90, description: 'Dinner near the hotel; allow for a walk-in queue and keep the evening local after the rail day.' },
+    },
+    add: [place('sendai-hotel-walk', 'Walk · Sendai Station → KOKO HOTEL', 'transit', 'Allow 10–15 minutes on foot with luggage from the station area, plus check-in/bag-drop time.', 'Sendai Station to KOKO HOTEL Sendai Kotodai Park', [38.266, 140.876], { startTime: '13:30', durationMinutes: 15, travelMode: 'walk', verification: 'research' })],
+  },
+  '2026-10-30': {
+    replace: {
+      'senseki-outbound': { startTime: '08:30', durationMinutes: 45, description: 'Choose a live Senseki Line departure that reaches Matsushima-Kaigan by about 09:15. Ride is roughly 40 minutes; leave time to navigate Sendai Station and walk to the pier.' },
+      'matsushima-cruise': { startTime: '09:45', durationMinutes: 50, description: 'Select a sailing that allows station-to-pier walking and boarding buffer; this 09:45 slot is a planning target, not a fixed departure. Verify same-day October sailings.' },
+      zuiganji: { startTime: '10:45', durationMinutes: 75, description: 'Walk from the pier (about 10 minutes) to the temple; allow 60–75 minutes for the grounds and interior.' },
+      godaido: { startTime: '12:05', durationMinutes: 30, description: 'Short walk from Zuiganji to the bay-side hall; allow 20–30 minutes including photos.' },
+      'anago-lunch': { startTime: '12:45', durationMinutes: 60, description: 'Lunch near the waterfront. Allow a queue; if it runs late, skip the optional island/temple add-on and take a later train.' },
+      entsuin: { startTime: '14:00', durationMinutes: 45, description: 'Optional adjacent temple garden only if lunch ends on time; otherwise skip. Do not add both Entsuin and Fukuurajima.' },
+      'senseki-return': { startTime: '15:30', durationMinutes: 45, description: 'Target a live train around 15:30–16:00 (roughly 40 minutes to Sendai). Keep the departure flexible; verify timetable and return before dinner.' },
+    },
+  },
+  '2026-10-31': {
+    day: { title: 'Sendai → Tokyo, Ikebukuro + Halloween', summary: 'Optional Sendai morning-market breakfast, then the reserved train to Tokyo; allow a proper transfer and rest before any Halloween evening plans.' },
+    add: [
+      place('sendai-asaichi-breakfast', 'Sendai Asaichi · breakfast', 'food', 'Optional early market breakfast before checkout; keep it to about an hour so you can retrieve bags and reach the shinkansen platform with time.', 'Sendai Asaichi', [38.258, 140.88], { startTime: '07:30', durationMinutes: 60, mealContext: 'breakfast', cuisine: 'Sendai market food', role: 'primary', verification: 'verify-before-trip' }),
+      place('sendai-station-walk', 'Walk · Sendai Asaichi → Sendai Station', 'transit', 'Return to the hotel if needed, collect luggage and reach the shinkansen platform. Allow about 20–30 minutes total plus a 15–20 minute boarding buffer.', 'Sendai Asaichi to Sendai Station', [38.26, 140.882], { startTime: '08:45', durationMinutes: 20, travelMode: 'walk', verification: 'research' }),
+      place('tokyo-ikebukuro-transfer', 'JR · Tokyo Station → Ikebukuro', 'transit', 'Allow 25–35 minutes platform-to-platform by JR, plus 10–15 minutes to navigate with bags; check in or leave bags before the festival.', 'Tokyo Station to Sakura Hotel Ikebukuro', [35.709, 139.711], { startTime: '11:15', durationMinutes: 35, travelMode: 'train', verification: 'research' }),
+    ],
+  },
+  '2026-11-02': {
+    replace: {
+      'nikko-asakusa-transfer': { startTime: '08:30', durationMinutes: 45, description: 'Allow 35–45 minutes door-to-door from Ikebukuro to Tobu Asakusa, plus 20 minutes to find the limited-express platform and board.' },
+      'nikko-arrival': { startTime: '10:00', durationMinutes: 110, description: 'Choose a reserved limited express around 10:00; the ride is about 110 minutes. Allow 20–30 minutes at Tobu-Nikko for taxi coordination before the inn transfer.' },
+      'nikko-hotel-taxi': { startTime: '12:15', durationMinutes: 15, description: 'The inn is about 2.6 km from the station: prearrange a taxi (typically a short ride) or confirmed pickup. This is not a walk-with-luggage transfer.' },
+      kanmangafuchi: { startTime: '16:00', durationMinutes: 60, description: 'Optional only if checked in and a return taxi is confirmed. Otherwise rest at the inn; do not assume a taxi will be immediately available.' },
+    },
+  },
+  '2026-11-03': {
+    replace: {
+      toshogu: { startTime: '09:00', durationMinutes: 120, description: 'Arrive by taxi before the 09:00 opening; allow two hours for the main Toshogu complex and queues.' },
+      'taiyuin-rinnoji': { startTime: '11:20', durationMinutes: 45, description: 'Choose Taiyuin OR Rinnoji (not both). Walk between the shrine complex sites and allow 45 minutes; skip if Toshogu is slow.' },
+      'yuba-lunch': { startTime: '12:20', durationMinutes: 60, description: 'Lunch near the shrine area. Keep the restaurant flexible and finish by about 13:30 to protect taxi and station time.' },
+      'tobu-return': { startTime: '14:30', durationMinutes: 120, description: 'Reserve a return that departs no earlier than about 14:30–15:00, allowing 30–45 minutes for taxi to Tobu-Nikko and station boarding. Exact holiday service is unverified; if none fits, shorten the visit rather than rely on a guessed 15:30 train.' },
+    },
+    add: [place('nikko-station-taxi', 'Taxi · shrine area → Tobu-Nikko Station', 'transit', 'Prearrange pickup or ask a staffed hotel/restaurant to call. Allow 20–30 minutes in the vehicle plus 15 minutes for pickup/traffic; reach the station at least 20 minutes before the reserved train.', 'Nikko Toshogu Shrine to Tobu-Nikko Station', [36.75, 139.625], { startTime: '13:35', durationMinutes: 30, travelMode: 'taxi', verification: 'verify-before-trip' })],
+  },
+  '2026-11-04': { replace: { 'fukagawa-edo': { startTime: '11:45', durationMinutes: 90, description: 'Walk from Fukagawa Fudo-do via the neighbourhood (about 15–20 minutes); allow 75–90 minutes inside the museum.' }, 'fukagawa-meshi': { startTime: '13:45', durationMinutes: 60, description: 'Lunch near Monzen-Nakacho; allow a 10–20 minute return walk from the museum and check restaurant hours.' } } },
+  '2026-11-05': {
+    day: { title: 'Kamakura temples + optional Enoshima', summary: 'Great Buddha and Hasedera, lunch near Hase, then Komachi-dori and Tsurugaoka Hachimangu. Enoshima is a short optional extension only if the day is on time.', pacing: 'full', tiredPlan: 'Stay around Hase/Kamakura: Great Buddha, Hasedera, lunch and one local walk; skip Enoshima and return earlier.' },
+    replace: {
+      'jr-kamakura': { startTime: '08:00', durationMinutes: 75, description: 'From the Kiyosumi-Shirakawa hotel, allow 15–20 minutes to Tokyo Station, transfer/navigation time, then about 55–60 minutes by JR to Kamakura. Use the actual timetable.' },
+      'kamakura-buddha': { startTime: '09:45', durationMinutes: 45, description: 'From Kamakura Station, take Enoden to Hase (about 5 minutes) plus 7–10 minutes on foot; allow 45 minutes at the Great Buddha.' },
+      shirasu: { startTime: '12:00', durationMinutes: 60, description: 'Lunch near Hase after the adjacent Hasedera visit. Allow a queue; boiled shirasu is the reliable alternative if raw is unavailable.' },
+      'enoden-coast': { name: 'Komachi-dori + Tsurugaoka Hachimangu', mapsQuery: 'Komachi Street to Tsurugaoka Hachimangu Kamakura', coordinates: [35.325, 139.553], startTime: '13:30', durationMinutes: 75, description: 'Return from Hase to Kamakura by Enoden (about 20 minutes door-to-door), then walk Komachi-dori to Tsurugaoka Hachimangu; allow about 75 minutes.' },
+      enoshima: { startTime: '15:00', durationMinutes: 90, description: 'Optional extension only if you still have energy: allow 20–30 minutes from Kamakura by Enoden/walk and about 60 minutes on the island. Prioritize the waterfront and shrine; skip the Sea Candle if queues or daylight are tight.' },
+    },
+    add: [place('hasedera', 'Hasedera Temple', 'sight', 'Adjacent to the Great Buddha; allow 60–75 minutes for the temple, hillside paths and view. Skip or shorten Enoshima if you want a relaxed visit.', 'Hasedera Temple Kamakura', [35.312, 139.535], { startTime: '10:40', durationMinutes: 70, estimatedCostJPY: 400 }), place('kamakura-return', 'JR · Kamakura / Enoshima → Tokyo', 'transit', 'If visiting Enoshima, leave around 17:00; from Kamakura leave earlier. Allow about 75–90 minutes to Tokyo Station plus the onward hotel ride. Confirm the last suitable train.', 'Kamakura Station to Kiyosumi-Shirakawa Station', [35.6812, 139.7671], { startTime: '17:00', durationMinutes: 90, travelMode: 'train', verification: 'research' })],
+  },
+  '2026-11-06': {
+    replace: {
+      kuramae: { startTime: '10:00', durationMinutes: 90, description: 'Start with selected Kuramae craft shops; check individual opening hours (many do not open early). Keep the visit to about 90 minutes.' },
+      kappabashi: { startTime: '11:45', durationMinutes: 90, description: 'Walk 15–20 minutes north from Kuramae; allow 90 minutes and check shop closing times. Do not assume every knife shop is open.' },
+      'edo-kiriko': { startTime: '14:30', durationMinutes: 120, description: 'Reserved workshop. Lunch ends about 13:55; allow roughly 30 minutes to reach the confirmed studio and arrive 10–15 minutes early. Confirm exact address and session length.' },
+      jimbocho: { startTime: '18:30', durationMinutes: 90, description: 'Optional evening only after workshop location/end time is confirmed. Allow 30–45 minutes cross-city travel; skip if tired.' },
+    },
+    add: [place('kuramae-lunch', 'Lunch · Kuramae / Kappabashi', 'food', 'Eat near Kappabashi before the reserved workshop. Keep lunch to 35–45 minutes and verify the studio address so there is enough time to walk or ride there.', 'Kuramae restaurant Tokyo', [35.707, 139.79], { startTime: '13:15', durationMinutes: 40, mealContext: 'lunch', cuisine: 'Tokyo café / soba', role: 'primary', verification: 'research' })],
+  },
+  '2026-11-07': {
+    replace: { shimokitazawa: { startTime: '13:00', durationMinutes: 120, description: 'Allow 20–30 minutes door-to-door by train from Shinjuku, then browse the vintage streets for about two hours.' }, 'vintage-izakaya': { startTime: '17:30', durationMinutes: 90, description: 'Dinner near Shimokitazawa station before the return ride; no second cross-city evening trip.' } },
+    add: [place('shimokitazawa-lunch', 'Lunch · Shimokitazawa', 'food', 'After the Shinjuku-to-Shimokitazawa train transfer, take a relaxed lunch near the station before browsing; keep the rest of the afternoon in this neighbourhood.', 'Shimokitazawa lunch restaurant', [35.661, 139.668], { startTime: '15:15', durationMinutes: 60, mealContext: 'lunch', cuisine: 'Tokyo café', role: 'primary', verification: 'research' })],
+  },
+  '2026-11-08': { replace: { akabane: { startTime: '10:00', durationMinutes: 120, description: 'Allow 30–40 minutes from Kiyosumi-Shirakawa by metro/JR, then explore the compact alleys.' }, 'akabane-izakaya': { startTime: '12:00', durationMinutes: 120, description: 'Daytime food/drinks. Treat this as the day’s main meal and finish early; a second Monzen-Nakacho trip is unnecessary.' }, 'monzen-evening': { startTime: '16:30', durationMinutes: 45, description: 'Optional only: allow roughly 35–45 minutes back across Tokyo. Prefer dinner near the hotel or rest after Akabane.' } } },
+  '2026-11-09': {
+    replace: {
+      wanariya: { startTime: '10:00', durationMinutes: 90, description: 'Confirm whether the booked session is 90 or 120 minutes. Allow 35–45 minutes cross-city travel from the Iriya area to Azabudai after it ends.' },
+      'azabudai-lunch': { startTime: '12:50', durationMinutes: 40, description: 'After the workshop and transfer, have a quick lunch near the venue; finish by 13:30 and arrive 10–15 minutes before the 14:00 timed entry.' },
+      teamlab: { startTime: '14:00', durationMinutes: 150, description: 'Timed entry. Allow 2.5 hours inside; do not schedule another distant activity immediately afterwards.' },
+    },
+    add: [place('wanariya-azabudai-transfer', 'Metro · Wanariya → Azabudai Hills', 'transit', 'Allow 35–45 minutes door-to-door including station access, train transfer and walking. With a 10:00–12:00 workshop, go directly to Azabudai, then have a quick lunch before the timed entry.', 'Wanariya Tokyo to teamLab Borderless Azabudai Hills', [35.692, 139.739], { startTime: '12:00', durationMinutes: 45, travelMode: 'train', verification: 'research' })],
+  },
+  '2026-11-10': { replace: { depachika: { startTime: '11:00', durationMinutes: 90, description: 'Travel from Tsukiji to Nihombashi in about 20–30 minutes door to door, then browse the food hall. Confirm opening time (department stores generally open later than the market).' }, 'luggage-shipping': { startTime: '14:00', durationMinutes: 60, description: 'Allow time to return to the hotel, pack and ask the property about airport forwarding cutoff; do not carry the full suitcase to Tokyo Station unless needed.' }, 'last-monzen': { startTime: '18:00', durationMinutes: 90, description: 'Optional nearby final dinner; allow about 15–25 minutes from Kiyosumi-Shirakawa on foot/metro. Pack before leaving.' } } },
+  '2026-11-11': {
+    replace: { 'tyo-nrt-bus': { startTime: '09:00', durationMinutes: 90, description: 'Leave the hotel around 07:45–08:00 for Tokyo Station and be at the Yaesu South Exit bus stop 15–20 minutes before departure. Target a 09:00 bus only after checking the current timetable; retain a rail alternative and generous Narita check-in buffer.' } },
+    add: [place('hotel-tokyo-station', 'Metro/taxi · hotel → Tokyo Station Yaesu', 'transit', 'Allow 25–35 minutes door-to-door from Kiyosumi-Shirakawa with luggage, plus time to find the bus stop. The bus departure time is not the hotel departure time.', 'Comfort Hotel Tokyo Kiyosumi Shirakawa to Tokyo Station Yaesu South Exit', [35.681, 139.767], { startTime: '07:45', durationMinutes: 35, travelMode: 'train', verification: 'research' })],
+  },
+};
+
+export const tripDays: TripDay[] = rawTripDays.map((day) => {
+  const update = timingUpdates[day.id];
+  const updatedPlaces = day.places
+    .filter((item) => item.type !== 'stay')
+    .map((item) => ({ ...item, ...update?.replace?.[item.id] }));
+  return {
+    ...day,
+    ...update?.day,
+    places: [...updatedPlaces, ...(update?.add ?? []), ...stayPlacesForDate(day.date)]
+      .sort((a, b) => (a.startTime ?? '99:99').localeCompare(b.startTime ?? '99:99')),
+  };
+});
 
 export const bookings: Booking[] = [
   { id: 'booking-hokuto', item: 'Hokuto 4 · Sapporo → Noboribetsu', date: '27 Oct', priority: 'required', status: 'unbooked', deadline: 'Before rail travel', destination: 'Sapporo → Noboribetsu', mapsQuery: 'Sapporo Station', notes: 'Planning target 06:53–08:03. Reserve this leg and verify that the ticket/pass permits the intended stopover.', dayId: '2026-10-27' },
