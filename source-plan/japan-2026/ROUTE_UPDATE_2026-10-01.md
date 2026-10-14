@@ -24,3 +24,13 @@ The website's canonical data, booking board, open items and budget use this rout
 
 The website and `RESERVATIONS_2026-10-14.md` are the current snapshot. Older research notes remain preserved but are not proof of live October/November departures.
 
+## Route correction — 14 October 2026
+
+This later traveller instruction supersedes the 1 October statement above that Noboribetsu is removed. On 27 October, plan a short Noboribetsu Jigokudani stop between separately reserved Hokuto legs: target Hokuto 4 Sapporo→Noboribetsu (06:53–08:03), Donan bus to the onsen town, luggage storage at the Tourist Association after its published 09:00 opening, Jigokudani only, target return bus around 14:15, then Hokuto 16 toward Hakodate (15:59–18:30). These are planning targets only: verify schedule, stopover/pass validity, reservations, bus connections, and luggage storage. Skip the stop rather than risk the onward connection. No bathing or long Oyunuma hike.
+
+Hakodate arrival night is deliberately low-effort at Pension Puppy Tail. On 28 October, do the Morning Market, Goryokaku Tower/park, lunch near the fort and a compact Motomachi loop by tram; summit bus is optional and weather/service dependent.
+
+For Sendai's second day (30 October), select the classic Matsushima excursion: Senseki Line, bay cruise, Zuiganji, nearby Godaido and local seafood (anago first choice). Do not combine this with long-distance Yamadera or Hiraizumi. In Nikko, use an arranged taxi for Gableview's 2 November station pickup and the 3 November Toshogu-at-opening and station-return legs only after the inn confirms availability, fare and Culture Day service.
+
+Research basis: [Tohoku Tourism Organization itinerary](https://www.tohokukanko.jp/en/itineraries/detail_19.html) describes Matsushima Bay and nearby Zuiganji/Godaido; [JNTO Noboribetsu Onsen guide](https://www.japan.travel/en/spot/1843/) describes the station-to-onsen-town transfer; [Donan Bus timetable](https://www.donanbus.co.jp/map/noboribetsu_ashiyu/?hp_lang=en) and [Noboribetsu Tourist Association luggage information](https://noboribetsu-spa.jp/en/usefulinfo/tenimotsu/) support the transit/luggage plan. Reconfirm all schedules and services near departure.
+
