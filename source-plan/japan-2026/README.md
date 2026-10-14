@@ -1,6 +1,6 @@
 # Japan 2026 — 23 Oct to 11 Nov, 18 nights, 2 adults
 
-> **Current route update — 14 Oct 2026:** no onsen visits and no Noboribetsu. Seven hotel reservations now cover all 18 nights (€1,738 displayed total). The 3–11 Nov Tokyo stay is Comfort Hotel Tokyo Kiyosumi Shirakawa. The 8 Sep Peach MM571 email shows 13:40–15:30 and ¥30,220 for two, but its 10-minute payment window means the hold likely expired unless a later receipt exists; check Manage Booking and rebook if necessary. The active plan includes intercity rail legs and a realistic Nikko hotel transfer. See `ROUTE_UPDATE_2026-10-01.md` and `RESERVATIONS_2026-10-14.md` for the current snapshot.
+> **Current route update — 14 Oct 2026:** no onsen bathing or overnight. Plan a short Noboribetsu Jigokudani sightseeing stop between Hokuto trains on 27 Oct only if bus, luggage storage, rail reservations and stopover ticket rules check out; otherwise continue directly to Hakodate. The following day is a manageable Hakodate city loop. Matsushima is the selected Sendai day trip. Seven hotels cover all 18 nights (€1,738 displayed total). Peach MM571 remains unconfirmed unless a later receipt exists; verify/rebook. See `OPEN-ITEMS.md`, `ROUTE_UPDATE_2026-10-01.md` and `RESERVATIONS_2026-10-14.md`.
 
 **Start here: `ITINERARY.md`.** Everything else is a topic file.
 
@@ -45,7 +45,7 @@
 
 ## The five constraints that shaped everything
 
-1. **No onsens.** The active route is city, food and shrine focused; the Nikko hotel is a confirmed overnight base, not an onsen anchor.
+1. **No onsen bathing or overnight.** Noboribetsu Jigokudani is a brief volcanic-valley sightseeing stop only, subject to confirmed workable connections.
 2. **No car, no serious hiking.** Everything is rail, bus or flat walking.
 3. **Halloween in Tokyo on Saturday 31 October** — a fixed anchor the whole itinerary is built around.
 4. **At least a week in Tokyo** — delivered as **10 nights** split either side of Nikko: 2 before (31 Oct Halloween + 1 Nov recovery), 8 after (3–10 Nov).
