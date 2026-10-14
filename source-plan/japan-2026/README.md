@@ -1,6 +1,6 @@
 # Japan 2026 — 23 Oct to 11 Nov, 18 nights, 2 adults
 
-> **Current route update — 14 Oct 2026:** no onsen bathing or overnight. Plan a short Noboribetsu Jigokudani sightseeing stop between Hokuto trains on 27 Oct only if bus, luggage storage, rail reservations and stopover ticket rules check out; otherwise continue directly to Hakodate. The following day is a manageable Hakodate city loop. Matsushima is the selected Sendai day trip. Seven hotels cover all 18 nights (€1,738 displayed total). Peach MM571 remains unconfirmed unless a later receipt exists; verify/rebook. See `OPEN-ITEMS.md`, `ROUTE_UPDATE_2026-10-01.md` and `RESERVATIONS_2026-10-14.md`.
+> **Current route update — 14 Oct 2026:** no onsen bathing or overnight. Plan a short Noboribetsu Jigokudani sightseeing stop between Hokuto trains on 27 Oct only if bus, luggage storage, rail reservations and stopover ticket rules check out; otherwise continue directly to Hakodate. The following day is a manageable Hakodate city loop. Matsushima is the selected Sendai day trip. Seven hotels cover all 18 nights (€1,738 displayed total). The traveller subsequently confirmed Peach MM571 is booked; the supplied tentative email is retained as historical evidence, superseded by that later confirmation. See `OPEN-ITEMS.md`, `ROUTE_UPDATE_2026-10-01.md` and `RESERVATIONS_2026-10-14.md`.
 
 **Start here: `ITINERARY.md`.** Everything else is a topic file.
 
@@ -71,4 +71,3 @@
 
 ---
 *Restructured 2026-08-04: two leg files merged into `ITINERARY.md`, topic files consolidated at root, evidence moved to `research/`, superseded drafts to `archive/`.*
-
