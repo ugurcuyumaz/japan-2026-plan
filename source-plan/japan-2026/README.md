@@ -1,6 +1,6 @@
 # Japan 2026 — 23 Oct to 11 Nov, 18 nights, 2 adults
 
-> **Current route update — 1 Oct 2026:** no onsens and no Noboribetsu. Stay in Sapporo through 27 Oct, travel directly to Hakodate, then use 2 Nov for a slow Nikko arrival and 3 Nov morning for Toshogu before returning to Tokyo. See `ROUTE_UPDATE_2026-10-01.md` and `RESERVATIONS_2026-10-01.md`.
+> **Current route update — 14 Oct 2026:** no onsen visits and no Noboribetsu. Seven hotel reservations now cover all 18 nights (€1,738 displayed total). The 3–11 Nov Tokyo stay is Comfort Hotel Tokyo Kiyosumi Shirakawa. The 8 Sep Peach MM571 email shows 13:40–15:30 and ¥30,220 for two, but its 10-minute payment window means the hold likely expired unless a later receipt exists; check Manage Booking and rebook if necessary. The active plan includes intercity rail legs and a realistic Nikko hotel transfer. See `ROUTE_UPDATE_2026-10-01.md` and `RESERVATIONS_2026-10-14.md` for the current snapshot.
 
 **Start here: `ITINERARY.md`.** Everything else is a topic file.
 
@@ -71,3 +71,4 @@
 
 ---
 *Restructured 2026-08-04: two leg files merged into `ITINERARY.md`, topic files consolidated at root, evidence moved to `research/`, superseded drafts to `archive/`.*
+
