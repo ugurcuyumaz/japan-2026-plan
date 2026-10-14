@@ -33,13 +33,13 @@ This is the **day-by-day plan**. Everything else lives in a topic file — see `
 | 9 | Sun 1 Nov | Tokyo | **Recovery day — nothing scheduled** |
 | 10 | **Mon 2 Nov** | **Nikko** | Travel in · check-in · Kanmangafuchi if energy allows |
 | 11 | Tue 3 Nov | **Tokyo** | **TOSHOGU AT 09:00 OPENING** ⭐ · choose **one** of Taiyuinbyo or Rinnoji · **Tobu express back to Tokyo** |
-| 12 | **Wed 4 Nov** | Tokyo *(Kiyosumi-Shirakawa)* | **FLEX DAY** — choose an outing from the Tokyo activity pool, or rest |
+| 12 | **Wed 4 Nov** | Tokyo *(Kiyosumi-Shirakawa)* | **OPEN DAY** — no fixed activities; optional pool only |
 | 13 | Thu 5 Nov | Tokyo | **KAMAKURA + ENOSHIMA** ⭐ — Great Buddha · Enoden coast |
-| 14 | Fri 6 Nov | Tokyo | **EAST DAY** — Sensoji · Kappabashi · **Edo kiriko** · optional Jimbocho |
-| 15 | Sat 7 Nov | Tokyo | **FLEX DAY** — choose one neighborhood outing; optional local izakaya evening |
-| 16 | Sun 8 Nov | Tokyo | **FLEX DAY** — choose one outing or keep the day open |
-| 17 | Mon 9 Nov | Tokyo | **Indigo dyeing** AM · **teamLab Borderless** PM |
-| 18 | Tue 10 Nov | Tokyo | **Tsukiji outer market** · depachika · pack · last evening |
+| 14 | Fri 6 Nov | Tokyo | **OPEN DAY** — no fixed activities; optional pool only |
+| 15 | Sat 7 Nov | Tokyo | **OPEN DAY** — no fixed activities; optional pool only |
+| 16 | Sun 8 Nov | Tokyo | **OPEN DAY** — no fixed activities; optional pool only |
+| 17 | Mon 9 Nov | Tokyo | **OPEN DAY** — no fixed activities; optional pool only |
+| 18 | Tue 10 Nov | Tokyo | **OPEN DAY** — no fixed activities; optional pool only |
 | — | Wed 11 Nov | *fly home* | 08:00 hotel departure · target 09:00 TYO-NRT bus from Tokyo Station · **IB282 14:10** |
 
 **Nights:** Tokyo 10 · Sapporo 3 · Hakodate 2 · Sendai 2 · Nikko **1** = **18**
@@ -58,10 +58,10 @@ Most important corrected sequence/buffers:
 | 27 Oct | Leave Sapporo View Hotel about 06:00 by taxi/walk (30 min), reach the platform before Hokuto 4 ~06:52–08:03 → target Donan bus 08:23–08:42 (scheduled leg; general journey estimate ~27 min) → luggage counter after 09:00 → walk to Jigokudani (15 min) → boardwalk (75 min) → early lunch (60 min) → Sengen Park/Gokuraku Street (60 min) → retrieve luggage → target bus 14:15–14:27 → Hokuto 16 15:59–18:30 → short taxi/walk to Pension Puppy Tail. Conditional: go directly to Hakodate if bus, luggage or rail stopover is not confirmed. [Donan route and journey estimate](https://www.donanbus.co.jp/map/noboribetsu_ashiyu/). |
 | 28 Oct | Morning Market → tram plus 10–15 min walk to Goryokaku (about 30–40 min door-to-door) → tower/park (90–105 min) → lunch → tram/walk to Motomachi (about 30–40 min) → historic-quarter walk (90–105 min) → dinner near the station hotel. The summit is **unscheduled and outside the day plan**: the ropeway is closed 20 Oct–8 Nov, while the replacement climbing bus is crowded and would require a deliberate itinerary change. Published station departures are 15:40–19:00 and summit returns 16:20–19:40; do not treat this as a reliable drop-in optional stop. Skip it unless you separately rework and verify the connection. [Hakodate ropeway-closure access notice](https://www.hakobura.jp/news/437) · [Hakodate Bus 2026 timetable notice](https://hakobus.co.jp/info/operation/4579/). |
 | 29–31 Oct | On 29 Oct: breakfast 07:00–08:00 → hotel/station transfer 08:15–08:40 → Liner target 09:41–10:03 → 50-minute shinkansen connection → Hayabusa target 10:53–13:29 → 15-minute station-to-hotel walk → bag drop. On 31 Oct: easy hotel-area breakfast 07:00–07:40, check out/collect stored luggage and allow 60 min to Sendai Station (reach gates by 08:45), Hayabusa 09:31–11:04, then Tokyo Station-to-Ikebukuro 35 min plus bag drop, lunch and event. |
-| 30 Oct | Hotel breakfast (40 min) and hotel-to-Sendai Station transfer (allow 35 min door-to-door); take a live Senseki train that reaches Matsushima-Kaigan by **09:15**. Be at the pier by 09:15 for the **10:00–10:50** cruise; the train departure is not itself a 09:15 arrival. Then allow 15 min to Zuiganji (75 min), a short walk to Godaido (30 min), and lunch (60 min). Entsuin is optional only if lunch ends on time: **leave Entsuin by 15:10**, walk to Matsushima-Kaigan Station and reach the platform by 15:40 for the **16:00 return-train planning target**; if the actual service is earlier or the buffer is lost, skip Entsuin and take an earlier train. [Official cruise times](https://www.matsushima.or.jp/en/timesheet/) · [model course](https://www.matsushima.or.jp/en/charm/model_course.html). |
+| 30 Oct | Hotel breakfast (40 min) and hotel-to-Sendai Station transfer (allow 35 min door-to-door); choose a live Senseki train that reaches Matsushima-Kaigan Station around **09:15**, then walk to the pier and target arrival by **09:35** for the **10:00–10:50** cruise. Allow 15 min to Zuiganji (75 min), a short walk to Godaido (30 min), and lunch (60 min). Entsuin is optional only if lunch ends on time: **leave by 15:10**, walk to Matsushima-Kaigan Station and reach the platform by 15:40 for the **16:00 return-train planning target**; if the actual service is earlier or the buffer is lost, skip Entsuin and take an earlier train. [Official cruise times](https://www.matsushima.or.jp/en/timesheet/) · [model course](https://www.matsushima.or.jp/en/charm/model_course.html). |
 | 2–3 Nov | Ikebukuro–Asakusa cross-city transfer (35–45 min plus boarding buffer); Tobu limited express about 110 min; lunch (60 min) at Tobu-Nikko, then prearranged 15-minute taxi to the inn and check-in/rest. Confirm an inn dinner reservation/cutoff for 19:00. On 3 Nov, leave by prearranged taxi at 08:00 (40 min + 20 min opening buffer), visit Toshogu (2 h) and **choose exactly one** nearby site—Taiyuin **or** Rinnoji (about 45 min; skip if the morning slips)—then lunch (60 min), taxi back (35 min; target 14:20 arrival) and reserve a return with at least 30 min at the station. Allow 35–45 min from Asakusa to the Tokyo hotel. Confirm the Culture Day timetable; do not treat planning times as booked departures. [Tobu timetable](https://www.tobu.co.jp/en/express_info/timetable.html) · [Nikko access](https://www.nikko-kotsu.co.jp/en/access/). |
-| 5 Nov | Leave the hotel by 07:45; allow 75 min door-to-door to Kamakura and target arrival around 09:00. Keep 15 minutes to find the Enoden platform, then budget 25 min for the train and walk to Hase; Great Buddha from 10:00 (45 min) → Hasedera (70 min) → lunch (60 min) → Hase-to-Kamakura Enoden (25 min) → Komachi/Tsurugaoka from 14:10 (75 min). Optional Enoshima only if on time: walk back to the station, allow 35 min for the Enoden/connection/walk, island visit (60 min), then about 115 min back to the hotel. Skip Enoshima if the morning slips; the Kamakura-only version remains the priority. |
-| 6–9 Nov | On 6 Nov: hotel→Asakusa about 35 min; Sensoji (75 min) → walk to Kappabashi (20 min) → browse (120 min) → Asakusa tempura lunch (50 min; Aoi Marushin backup) → transfer to the still-to-be-confirmed kiriko studio (35 min) → check-in buffer → workshop (120 min). On 7 Nov, choose one outing from the website’s activity pool (Akihabara, Shibuya/Harajuku shopping, Costco Kawasaki, Yokohama, Kawagoe or Deep Fukagawa) or leave the day open; optional izakaya is a separate local evening add-on. On 8 Nov, choose one different pool outing or rest. Each pool route is separately timed with hotel transfers, mapped stops and food suggestions; do not combine two day-outing themes. On 9 Nov, budget 120 min for Wanariya, 45 min to Azabudai, lunch (40 min), arrive early for the 14:00 entry, allow 150 min inside, then dinner nearby and 45 min back to the Tokyo hotel. Confirm workshop duration and addresses. |
+| 5 Nov | Leave the hotel by 07:45; allow 75 min door-to-door to Kamakura and target arrival around 09:00. Keep 15 minutes to find the Enoden platform, then budget 25 min for the train and walk to Hase; Great Buddha from 10:00 (45 min) → Hasedera (70 min) → lunch (60 min) → Hase-to-Kamakura Enoden (25 min) → Komachi/Tsurugaoka from 14:10 (75 min). Optional Enoshima only if on time: walk back to the station, allow **45 min** for the station return, Enoden ride/connection and walk to the island, then an hour there and about 115 min back to the hotel. Skip Enoshima if the morning slips; the Kamakura-only version remains the priority. |
+| 6–9 Nov | Full Tokyo days remain open; no fixed activities, workshop, or timed ticket is assigned. The optional activity pool can inform a later choice, but does not schedule one. Kamakura on 5 Nov is the only fixed full-day Tokyo-base outing. The Asakusa/kiriko and Wanariya/teamLab timings below are retained as historical research options only. |
 | 11 Nov | Leave the hotel around 08:00 for Tokyo Station; the TYO-NRT bus time is **not** the hotel departure time. Target the 09:00 departure, reach the stop about 25 min early, and keep a rail alternative for road disruption. The bus is frequent and seats are not reserved; verify the live schedule. |
 
 Tokyo local transfer estimates in the website are deliberately approximate; use current station routing and allow extra time for luggage, station navigation, queues and accessibility needs.
@@ -221,12 +221,14 @@ These are planning windows, not reserved transport or a guaranteed cruise depart
 
 | | |
 |---|---|
-| 07:30–08:30 | **SENDAI ASAICHI BREAKFAST** — **this is when the market is actually a market.** ✅ **07:30 opening verified.** Grilled fish, tamago-yaki, miso soup, standing sushi. ¥1,000–2,000 for two, 3 min from the west exit. Fills what was otherwise a dead hotel-breakfast hour |
-| 08:45 | Walk to the station, collect the cases |
+| 07:00–07:40 | Simple breakfast near the hotel; use hotel breakfast if available or buy takeaway the evening before. Avoid carrying luggage to the market and back before the train. |
+| 07:45–08:45 | Check out, collect stored cases, walk to Sendai Station and reach the Shinkansen gates with a 46-minute buffer. |
 | 09:31 | **HAYABUSA Sendai → Tokyo 11:04 — PASS, last covered leg.** ⚠️ **Oversized-baggage reservation** |
-| 11:04–11:45 | Arrive Tokyo, then JR to Ikebukuro and walk to Sakura Hotel. Allow **25–35 minutes** plus station navigation; drop bags/check in if available. |
-| 12:00–13:00 | Lunch close to Ikebukuro; keep it flexible in case the train or hotel bag drop runs late. |
-| 13:00–16:00 | Ikebukuro Halloween Cosplay Festival / Otome Road at an easy pace. Festival programme is subject to its official 2026 schedule; leave room for crowd movement and breaks. |
+| 11:04 | Hayabusa arrives at Tokyo Station. Allow 15–20 minutes to leave the Shinkansen platform and reach the JR transfer. |
+| 11:25–12:05 | JR to Ikebukuro and walk to Sakura Hotel. Allow 25–35 minutes riding plus station navigation with luggage. |
+| 12:10–12:25 | Drop bags at Sakura Hotel (ask reception to store them if the room is not ready). |
+| 12:30–13:15 | Lunch near Ikebukuro Station. Keep the optional costume shop skippable and protect the festival start. |
+| 14:00–17:00 | Ikebukuro Halloween Cosplay Festival / Otome Road at an easy pace. Festival programme is subject to its official 2026 schedule; leave room for crowd movement and breaks. |
 | | ⚠️⚠️ **PHOTO ETIQUETTE — this is not optional.** 無断撮影は禁止: **photographing a cosplayer without asking first is treated as 盗撮 (voyeurism)** and is the one thing that gets you reported to staff. You must **speak to them** — a nod from across the street is not consent. Say **「写真撮ってもいいですか？」** *(shashin totte mo ii desu ka)*, then **「ありがとうございます！素敵です！」** *(arigatō gozaimasu, suteki desu)*. **Posting to social media needs a SECOND, separate permission**: 「SNSに載せてもいいですか？」 *(SNS ni nosete mo ii desu ka)*. If they decline: 「わかりました、ありがとうございます」. Wide crowd shots are fine; close-ups of individuals are not. No flash. Keep it to a few frames |
 | | ⚠️ **RE-CENTRE THIS WINDOW ON THE PARADE once the timetable publishes in October.** The parade is the 30–45 min highlight and historically runs **mid-afternoon (≈14:00–15:30)**, so 13:15–14:45 is a guess at bracketing its start. If it turns out to be 15:00, shift the whole block an hour later — the 90 minutes is the point, not the clock time |
 | **14:45–16:00** | **ANIMATE IKEBUKURO + OTOME ROAD** — the planned second half, not a fallback. **Animate flagship**, the world's largest anime store, **10 floors, 3 min walk, free**: manga, figures, artbooks, gashapon. Good for cheap souvenirs. Then **Otome Road (乙女ロード)**, the 200 m second-hand strip north of Sunshine City — Mandarake, K-Books, butler cafés. **Pokémon Center Mega Tokyo** inside Sunshine City is free and recognisable without any anime knowledge |
@@ -252,9 +254,9 @@ The app keeps the late Shinjuku venue optional; do not combine a full cross-city
 | Afternoon | Rest, laundry and pack; a short nearby walk only if you feel refreshed. |
 | Evening | Early night before the Nikko transfer. |
 
-Keep both large cases with you for the reserved Tobu train unless the inn confirms a luggage-forwarding/early-drop arrangement. Confirm the last-mile taxi and luggage plan directly with Gableview; do not send bags to the Tokyo hotel before the Nikko night.
+Default: keep both large cases with you for the reserved Tobu train. The proposed alternative—leave them at Gableview after checkout, retrieve them after lunch on 3 Nov, then taxi to Tobu-Nikko Station—is **not confirmed**. Ask the inn whether it will store both cases after checkout and accommodate the return-to-inn taxi. If not, arrange forwarding or revise the sightseeing/return plan; do not assume the Tokyo hotel can receive bags early.
 
-**Do not put teamLab Borderless here.** It needs a timed ticket, it's crowded and it's overwhelming — it belongs on Monday the 9th when you're rested. Same for anything requiring a booking, a queue or a decision.
+**Historical research note, not an active plan:** an earlier draft said not to put teamLab Borderless on this day and assigned it to Monday the 9th. That assignment is superseded; no Tokyo day currently has teamLab or another timed-ticket activity scheduled.
 
 ---
 
@@ -265,9 +267,9 @@ Keep both large cases with you for the reserved Tobu train unless the inn confir
 | Morning | Check out from Sakura Hotel Ikebukuro and travel cross-city to Tobu Asakusa. Allow **35–45 minutes door-to-door**, plus at least 20 minutes for station navigation and boarding. |
 | Late morning | Reserved Tobu limited express to Tobu-Nikko, about **110 minutes**; confirm the exact service and seats. |
 | 12:05–13:00 | Lunch near Tobu-Nikko Station (55 min), after allowing time to exit the limited express and reach a nearby restaurant. |
-| 13:15–13:30 | Meet the **prearranged taxi/pickup** to Gableview Forest Inn (about 2.6 km; allow 15 min). Check-in starts at 15:00; ask the property about early luggage drop. |
-| Afternoon | Rest. Kanmangafuchi is optional only if the inn confirms both outbound and return transport; otherwise do not add it. |
-| 19:00 | Dinner at the inn **only if reserved and confirmed**; verify its meal cutoff. If it cannot serve dinner, arrange food in town before the taxi to the inn. Confirm next morning’s taxi and ask whether an early breakfast is possible. **No onsen bathing is planned.** |
+| 14:45–15:00 | Take the **prearranged taxi** from Tobu-Nikko Station to Gableview Forest Inn (roughly 2.8 km by map estimate; allow 15 min), targeting the 15:00 check-in. Stay near the station after lunch; confirm pickup and luggage handling with the property. |
+| Afternoon | Rest at the inn. Keep sightseeing optional only if the inn confirms both outbound and return transport; otherwise do not add it. |
+| 19:00 | Dinner at the inn **only if reserved and confirmed**; verify its meal cutoff. If it cannot serve dinner, pick up takeaway/convenience food near Tobu-Nikko Station during the lunch stop, before the 14:45 taxi; do not plan a return trip to town. Confirm next morning’s taxi and ask whether an early breakfast is possible. **No onsen bathing is planned.** |
 
 **Taxi dependency:** confirm with Gableview the actual pickup point, availability and fare for arrival, Toshogu opening and station return. The inn transfer has not been independently confirmed; do not assume the older shuttle timetable or walk-time notes apply.
 
@@ -275,7 +277,7 @@ Keep both large cases with you for the reserved Tobu train unless the inn confir
 
 ## Tue 3 Nov — Toshogu at opening, then Tokyo *(Culture Day)*
 
-One night only: check out from Gableview and leave luggage as arranged with the inn. Arrange an **08:00 taxi** the previous evening; allow 40 minutes and arrive with about 20 minutes before Toshogu opens at 09:00. Spend about **two hours** at Toshogu, then choose **Taiyuin or Rinnoji**, not both (about 45 minutes), followed by lunch nearby (12:20–13:20). Leave at **13:45** in a prearranged taxi to Tobu-Nikko Station (35 minutes including pickup/traffic slack) and target station arrival around **14:20** for a reserved train at or after 15:00. The Culture Day timetable is not confirmed; shorten sightseeing rather than rely on a guessed departure. Tobu-Nikko–Asakusa takes about 110–120 minutes; allow another 35–45 minutes from Asakusa to the Tokyo hotel.
+One night only: check out and leave the large cases at Gableview **only if the inn confirms post-checkout storage**. Arrange an **08:00 taxi** the previous evening; allow 40 minutes and arrive about 20 minutes before Toshogu opens at 09:00. Spend about **two hours** at Toshogu, then choose **Taiyuin or Rinnoji** (not both, about 45 minutes, 11:00–11:45). Walk to Myogetsubo for early lunch **12:00–12:45**; its operator lists Wednesday closure, but Culture Day holiday service still needs confirmation. If Toshogu is slow, skip the optional temple and preserve the lunch/taxi buffer. At **13:00**, take a prearranged taxi from the restaurant/shrine area back to Gableview. Collect the cases and finish checkout from **13:30–13:45**, then take a second arranged taxi at **13:45** to Tobu-Nikko Station, targeting arrival around **14:20** for a reserved train at or after 15:00. The Culture Day timetable, lunch opening and luggage arrangement are not confirmed; if the inn cannot store the bags, arrange forwarding or revise the plan before relying on these times. Tobu-Nikko–Asakusa takes about 110–120 minutes; allow another 35–45 minutes from Asakusa to the Tokyo hotel.
 
 > **Timing authority:** the two compact Nikko paragraphs immediately above are the active plan. The detailed table and research notes below are retained from an earlier draft for provenance; their station-locker, shuttle, multi-site circuit and exact train/ticket claims are superseded and must not be followed. Use the single optional-site plan and verified holiday train/taxi arrangements described above.
 
@@ -326,8 +328,8 @@ The **1h54 travel time is consistent** with the route — Tobu limited expresses
 
 **Base from 3–11 Nov: Comfort Hotel Tokyo Kiyosumi Shirakawa** (confirmed booking). Allow extra cross-city transfer time from this eastern Tokyo base; the previous Tokyu Stay Monzen-Nakacho references are superseded. See `ACCOMMODATION.md` and `RESERVATIONS_2026-10-14.md`.
 
-**Two hands-on workshops:** Edo kiriko (Fri 6), indigo dyeing (Mon 9) — **€63–98 for both of you combined**, now that Wanariya's per-item prices are confirmed. **Both require reservations.**
-**Four drinking districts:** Monzen-Nakacho (base), Jimbocho (**weekdays only**), Kitasenju (Sat), Akabane (Sun morning).
+**Current pacing:** the full Tokyo days are deliberately open apart from the Kamakura day trip on Thu 5 Nov. The activity pool is optional inspiration, not an assigned schedule. The workshop and teamLab details later in this file are retained as historical research only; none is selected or needs booking. Hotels and necessary intercity/airport logistics remain in the plan.
+**Optional research themes:** hands-on crafts, neighborhood food/drink and day trips may be considered from the pool, but are not reservations or commitments.
 
 **Your home izakayas — all confirmed still trading:**
 
@@ -415,19 +417,19 @@ The **Odakyu Enoshima-Kamakura Freepass** was also checked and correctly rejecte
 
 ---
 
-## Fri 6 Nov — Asakusa, Kappabashi + glass craft
+## Historical option — Asakusa, Kappabashi + glass craft (not scheduled)
 
-**Active website route:** leave the Kiyosumi-Shirakawa hotel about 07:45 (allow 35 min) → Sensoji / Kaminarimon (08:20, 75 min) → walk west to Kappabashi (about 20 min) → knife/kitchenware browsing (10:00–12:00) → lunch at Tempura Nakasei (12:10–13:00; Aoi Marushin is the nearby backup) → travel to the exact Edo-kiriko studio (about 35 min; address still needs confirmation) → arrive early/check in → workshop target 14:30 (120 min). Jimbocho is optional after the workshop; if it is skipped, eat near the studio and head back rather than forcing a late cross-city dinner.
+This researched sample route is **not assigned to 6 Nov or any other day**: leave the Kiyosumi-Shirakawa hotel about 07:45 (allow 35 min) → Sensoji / Kaminarimon (08:20, 75 min) → walk west to Kappabashi (about 20 min) → knife/kitchenware browsing (10:00–12:00) → lunch at Tempura Nakasei (12:10–13:00; Aoi Marushin is the nearby backup) → optional travel to an Edo-kiriko studio (about 35 min; address needs confirmation). Jimbocho was another researched possibility. Nothing in this sample is scheduled or reserved.
 
 Sensoji and Kappabashi make a sensible walking pair: the official Tokyo guide describes Asakusa around Sensoji and Nakamise, and notes nearby Kappabashi as the kitchenware district. Check Kappabashi shop-specific hours before going knife shopping; shop opening times vary. [GO TOKYO: Asakusa](https://www.gotokyo.org/en/destinations/eastern-tokyo/asakusa/index.html) · [Tempura Nakasei official hours/menu](https://asakusa-nakasei.com/en/) · [Aoi Marushin listing by Asakusa Tourism Federation](https://e-asakusa.jp/en/spot/306).
 
-**Workshop is not yet booked.** The 14:30 slot is a planning target, not a confirmed reservation; replace it with the actual studio address, time and duration as soon as booked. The 35-minute transfer and arrival buffer are conservative until that address is known.
+**Historical booking status:** the former 14:30 slot was only a planning target and was never a confirmed reservation. Edo kiriko is not currently selected; no reservation action remains.
 
 ---
 
 ## Flexible Tokyo days — selectable activity pool
 
-The long Tokyo stay intentionally leaves 4, 7 and 8 November flexible. The website’s pool can assign one daytime plan to each date and an optional Monzen-Nakacho izakaya evening; a selection is saved in this browser and added to that date’s map, directions and timed route. Options include Akihabara games/electronics, Shibuya/Harajuku clothing and shoes, Costco Kawasaki, Yokohama harbor/Chinatown, Kawagoe old town and Deep Fukagawa. Kamakura (5 Nov), the Asakusa craft day (6 Nov), and Wanariya/teamLab (9 Nov) remain fixed anchors. Keep one main outing per flex day; Costco is a remote warehouse trip with membership and bulky-bag considerations.
+The full Tokyo days are intentionally open except Kamakura on 5 November. The website’s activity pool is optional; its cards describe choices, not dates already assigned. Expand the board and an individual card to review its researched route, food options and map links. Ten curated daytime options cover Akihabara games/electronics, Shibuya/Harajuku clothing and shoes, Costco Kawasaki, Yokohama harbor/Chinatown, Kawagoe old town, Kawaguchiko/Fuji, Deep Fukagawa, Asakusa/Ueno, Shinjuku Gyoen/city views and Odaiba bay. The detailed workshop and other day narratives in this document remain research context only. Costco is a remote warehouse trip with membership and bulky-bag considerations; Kawaguchiko is a long weather-dependent trip and rail/bus connections must be confirmed if chosen.
 
 This uses the official tourism guide’s west-Tokyo grouping of Meiji Shrine, Harajuku and Shibuya; GO TOKYO describes Meiji Shrine as a forested site between Shinjuku and Shibuya and Shibuya Crossing as an iconic city highlight. Check seasonal Meiji Shrine opening/closing times and Saturday shop hours. [GO TOKYO: Meiji Shrine](https://www.gotokyo.org/en/spot/76/index.html) · [GO TOKYO: Shibuya](https://www.gotokyo.org/en/destinations/western-tokyo/shibuya/index.html) · [GO TOKYO: Tokyo highlights itinerary](https://www.gotokyo.org/en/story/walks-and-tours/best-of-tokyo/index.html).
 
@@ -448,11 +450,11 @@ This uses the official tourism guide’s west-Tokyo grouping of Meiji Shrine, Ha
 
 ---
 
-## Mon 9 Nov — indigo dyeing, then teamLab Borderless
+## Historical option — Wanariya indigo + teamLab Borderless (not scheduled)
 
-**Active timing:** 09:00 hotel departure → 45 min to Wanariya → 10:00 workshop (allow up to 120 min) → 45 min transfer to Azabudai → quick lunch 13:00–13:40, with a 20 min ticket-entry buffer before 14:00. Allow 150 min inside, then dinner at 18:00 and about 45 min back to the hotel. Confirm the booked workshop end time before keeping the timed-entry reservation.
+The timings below are historical research for a possible combination only. This itinerary is **not assigned to 9 Nov**; no workshop or teamLab ticket is selected or booked.
 
-**Both fit cleanly in one day** — morning workshop, afternoon immersive art, no rush. Confirmed: **9 Nov 2026 is a normal Monday**, not a holiday (Culture Day falls on Tuesday the 3rd and generates no substitute day), so teamLab is at the **weekday** rate and its 1st/3rd-Tuesday maintenance closures can't apply.
+The researched timings suggested both could fit in one day. Calendar notes below are retained for provenance, not as a recommendation to reserve or as an active plan.
 
 | | |
 |---|---|
@@ -472,7 +474,7 @@ This uses the official tourism guide’s west-Tokyo grouping of Meiji Shrine, Ha
 
 ---
 
-## Tue 10 Nov — food shopping, pack, last evening
+## Historical option — Tsukiji, depachika and last-evening ideas (not scheduled)
 
 | | |
 |---|---|
@@ -518,3 +520,4 @@ Tax-refund mechanics: `TRANSPORT.md`.
 **Hokkaido:** Otaru, Jozankei, Lake Toya. **Sapporo:** Moerenuma, Maruyama Zoo, Hokkaido Shrine, the art museums.
 
 ---
+

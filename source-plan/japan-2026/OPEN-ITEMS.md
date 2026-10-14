@@ -1,31 +1,31 @@
-# Open Items — active checklist (14 October 2026)
+# Open items — current decisions and verifications (14 October 2026)
 
-Everything below is an unresolved action or verification. Prior research decisions are retained in the archive/history section at the end; the active route is the later traveller instruction and the latest itinerary update.
+Only unresolved actions appear in the active list below. Confirmed hotel/Peach reservations and settled itinerary constraints are recorded separately, not repeated as open tasks. Yen/euro conversions are approximate at the ECB 14 Oct reference **€1 = ¥177.39**; see `BUDGET.md` for arithmetic and caveats.
 
-## Do before departure
+## Before departure
 
-| Priority | Open item | Next action |
-|---|---|---|
-| High | 27 Oct Hokuto reservations and stopover ticket rules | Confirm Hokuto 4 Sapporo→Noboribetsu (planning target ~06:52–08:03 per JR Hokkaido timetable current as of Mar 2026) and Hokuto 16 Noboribetsu→Hakodate (target 15:59–18:30), seat reservations, and whether tickets/pass permit alighting and reboarding. These are planning targets, not tickets or guaranteed October services. No onsen visit or overnight is planned. |
-| High | 27 Oct Donan buses + luggage | Recheck weekday bus targets (~08:23 station→Jigokudani; ~14:15 return) and Noboribetsu Tourist Association storage hours (published 09:00–16:30); confirm storage acceptance/cost for the actual bags. The only planned stop is daytime Jigokudani sightseeing, with no bathing. If bus/train/luggage buffers do not hold, skip Noboribetsu and travel directly to Hakodate. |
-| High | Nikko taxis | Ask Gableview to arrange/confirm 2 Nov Tobu-Nikko Station pickup, 3 Nov early taxi to Toshogu, and return taxi to the station. Confirm availability, fare, pickup location and holiday operation; do not assume a hotel shuttle. |
-| High | Gableview dinner / early breakfast | Confirm dinner reservation and latest dinner check-in directly with the inn for 2 Nov. Ask whether breakfast can be served before the 08:00 taxi on 3 Nov; if not, buy takeaway breakfast on arrival. Arrange dinner in town if the inn cannot serve you. |
-| High | Nikko rail | Reserve Asakusa→Tobu-Nikko and the 3 Nov return on the Culture Day holiday timetable. Choose the return only after allowing time for Toshogu, one nearby site and lunch. |
-| High | Hakodate→Sendai / Sendai→Tokyo | Confirm Hakodate Liner + Hayabusa 18 on 29 Oct and Hayabusa 10 on 31 Oct, seats, transfer buffers and oversized-baggage rules. Website times are planning patterns, not confirmed reservations. |
-| High | Tokyo timed activities | Buy teamLab Borderless timed entry for 9 Nov; reserve Wanariya indigo workshop that morning and the Edo kiriko workshop on 6 Nov. Check exact start times and travel between venues. |
-| Medium | Restaurant/shop opening hours | Recheck Hakodate lunch/dinner, Matsushima seafood, Sendai gyutan, Nikko yuba and workshop hours close to travel; keep nearby alternatives rather than making a closure spoil the day. |
-| Medium | Luggage for rail days | Confirm suitcase dimensions and reserve oversized-baggage-area seats if either shinkansen bag exceeds 160 cm total dimensions. Decide whether forwarding makes the 27 Oct stopover manageable; do not leave large cases unattended. |
-| Low | 10 Nov → Narita luggage | Decide whether to forward bags to the airport or carry them on the morning bus; keep passport, medication and flight essentials with you. |
+| Priority | Open item | Decision / verification needed | Cost status |
+|---|---|---|---|
+| High | **JR pass purchase status and value** | First establish whether either pass was bought. If not, verify passport eligibility and current sale/terms, then compare exact dated separate-ticket totals with a six-day JR East–South Hokkaido pass starting 27 Oct. Exact Hakodate Liner ticketing and 27 Oct stopover construction remain unclear; the published fare table is not a checkout quote. | Candidate pass ¥40,000 pp / ¥80,000 for two (≈€450.98). Published Noboribetsu route-table illustration ¥45,620 pp / ¥91,240 for two (≈€514.35), not an exact fare or verified saving. |
+| High | **27 Oct Sapporo–Noboribetsu–Hakodate** | Check actual Hokuto services/seats, ticket/pass validity when leaving and reboarding, station-to-Jigokudani bus times, luggage acceptance for both cases, and adequate return buffer. Skip the sightseeing stop and continue to Hakodate if any connection/storage condition is uncertain. | No complete current cost. ¥4,890 + ¥7,790 are route-table references only; bus and storage charges unknown. |
+| High | **29 Oct Hakodate–Sendai** | Verify Hakodate Liner + Hayabusa 18 timetable, transfer margin, seat availability, exact Hakodate-origin ticket/fare construction and pass coverage. | JR Hokkaido lists ¥18,280 Shin-Hakodate-Hokuto–Sendai and a distinct ¥21,530 Hakodate–Sendai route-table component sum; these overlap and must not be added together. Exact planned-ticket total unresolved. |
+| High | **31 Oct Sendai–Tokyo** | Confirm/reserve the planned Hayabusa 10 or suitable service, check hotel luggage drop at Sakura Ikebukuro, and leave enough time before afternoon plans. | ¥11,410 is a published reference, not a dated reservation quote. |
+| High | **2–3 Nov Tobu Nikko transport** | Reserve outbound and return limited expresses; check the 3 Nov Culture Day holiday timetable. Confirm Gableview arrival pickup and both 3 Nov taxi legs, plus post-checkout storage for two large cases. If hotel storage/taxis cannot be confirmed, revise the return plan before committing to the morning sightseeing schedule. | No dependable two-adult rail/taxi total recorded. Obtain live prices; do not reuse historical ¥6,000/¥3,000 approximations as confirmed totals. |
+| Medium | **Meals at Gableview** | Confirm dinner/latest arrival on 2 Nov and whether breakfast is served early enough on 3 Nov. Otherwise buy food near the station/inn. | Meal inclusion and any charge unknown. |
+| Medium | **24 Oct CTS–Sapporo** | Check the Rapid Airport departure after MM571 lands; choose reserved or non-reserved seats. | JR Hokkaido reference: ¥1,230 pp non-reserved or ¥2,230 pp reserved (≈€13.87 / €25.14 for two). Not booked. |
+| Medium | **11 Nov hotel–Narita** | Choose TYO-NRT bus or N'EX after verifying current timetable, exact pickup/station route from Comfort Hotel Tokyo Kiyosumi Shirakawa, fare, luggage and buffer. | Older research references ¥1,500 pp bus or ¥3,140 pp N'EX; recheck before relying on either. Neither is booked. |
+| Medium | **Noboribetsu contingency** | Keep the short Jigokudani stop sightseeing-only, without bathing or an overnight. Proceed only when trains, buses, luggage and stopover rules fit; otherwise go directly to Hakodate. | Bus/storage cost not verified. |
 
-## Route decisions now settled
+## Settled — not open decisions
 
-- All seven hotels are confirmed for all 18 nights (€1,738 displayed total). No lodging search remains open.
-- No onsen bathing or onsen overnight. On 27 Oct, Noboribetsu is a short daytime **Jigokudani sightseeing** stop only; skip bathing and long hikes.
-- 27 Oct: early train from Sapporo, Hell Valley visit, continue to the already-booked Pension Puppy Tail in Hakodate. If connections are tight, skip the stop rather than risk the onward train.
-- 28 Oct: Hakodate Morning Market, Goryokaku, local lunch and a compact Motomachi visit by tram. The ropeway is closed 20 Oct–8 Nov 2026; the replacement climbing bus is a crowded, **unscheduled alternative**, not an actionable optional stop in the daily itinerary. Keep the summit off the timed route unless the afternoon is deliberately reworked and the exact bus connection is verified.
-- 30 Oct Sendai day trip: reach the Matsushima cruise pier by **09:15** for the **10:00–10:50** sailing; do not confuse a train departure with pier arrival. Continue to Zuiganji, Godaido and lunch. Entsuin is optional only with a **15:10 leave-by**, **15:40 platform** and **16:00 return-train target**; verify the actual train and skip Entsuin if any buffer is lost. Do not combine Matsushima with a distant Yamadera or Hiraizumi excursion.
-- 2 Nov in Nikko is a deliberately gentle travel/check-in day: lunch after the late-morning limited express, prearranged taxi to Gableview, rest, and inn dinner only if confirmed in advance. On 3 Nov leave by 08:00 taxi for Toshogu opening, visit Toshogu and **at most one** nearby site (Taiyuin or Rinnoji, never both), have lunch, then take a prearranged station taxi and reserved return to Tokyo; taxi is preferred for the remote inn transfers if the inn can arrange them.
+- **Hotels:** all seven stays/18 nights confirmed, displayed total **€1,738** for two. See `RESERVATIONS_2026-10-14.md` and `ACCOMMODATION.md`.
+- **Peach:** MM571 NRT T1 13:40 → CTS 15:30 on 24 Oct, **¥30,220 for two**, confirmed by traveller. The supplied email's tentative-payment language is historical and superseded by the later direct confirmation. Check only the practical connection and ticket-specific baggage/cutoff conditions; do not reopen the flight booking as unconfirmed.
+- **No onsen:** no onsen bathing or overnight is planned. Noboribetsu is a conditional short sightseeing stop only.
+- **Tokyo:** full Tokyo days remain unassigned except Kamakura on 5 Nov. The optional activity pool is not a commitment; no Tokyo workshop, teamLab or other timed ticket is selected.
+- **Nikko shape:** arrive 2 Nov, keep that day gentle, visit Toshogu on 3 Nov morning, then return to Tokyo that day. A taxi is currently the practical plan if it fits; confirm logistics above.
+- **Exchange-rate basis:** ECB reference of 14 Oct 2026 is ¥177.39 per euro. It is a planning conversion, not a card quote.
 
-## Historic notes (superseded; preserved for provenance)
+## Explicitly excluded from current decisions
 
-Earlier drafts explored private onsen baths, a Noboribetsu overnight, direct Sapporo–Hakodate, Tokyu Stay, and other lodging candidates. These are not current choices or actions. They remain in `archive/` and historical research documents; do not revive them unless the travellers explicitly change the plan. The former mid-August hotel-booking deadlines and earlier Peach 15:00+ recommendation are also superseded by the actual reservation details in `RESERVATIONS_2026-10-14.md`. Peach MM571 is confirmed by the traveller and is no longer an open booking action.
+Old candidate hotels, Noboribetsu overnight/onsen booking, Tokyu Stay luggage handoff, old Tokyo workshops and activity reservations, old trip-wide budget totals, and previous oversized-baggage fee warnings are superseded. Do not reactivate them without a new traveller decision. See `BOOKINGS.md` and the clearly labelled historical accommodation material.
+

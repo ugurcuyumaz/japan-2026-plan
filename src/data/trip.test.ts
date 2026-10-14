@@ -22,11 +22,12 @@ describe('canonical itinerary data', () => {
     expect(tripDays.find((day) => day.id === '2026-11-10')?.places.some((place) => place.id === 'stay-tokyo-long')).toBe(true);
     expect(googleDirectionsUrl('Gableview Forest Inn', 'Tobu-Nikko Station', 'taxi')).toContain('travelmode=driving');
     expect(googleDirectionsUrl('Sapporo Station', 'Sapporo View Hotel', 'walk')).toContain('travelmode=walking');
+    expect(googleDirectionsUrl('Shinjuku Gyoen')).toContain('travelmode=walking');
   });
 
   it('derives action and budget summaries from structured data', () => {
-    expect(openItems).toHaveLength(10);
-    expect(bookings.filter((booking) => booking.status !== 'booked')).toHaveLength(12);
+    expect(openItems).toHaveLength(8);
+    expect(bookings.filter((booking) => booking.status !== 'booked')).toHaveLength(10);
     expect(confirmedHotelTotalEUR).toBe(1738);
     expect(stays).toHaveLength(7);
     expect(stays.every((stay) => stay.status === 'booked')).toBe(true);
@@ -55,6 +56,77 @@ describe('canonical itinerary data', () => {
     expect(tripDays.find((day) => day.id === '2026-10-30')?.places.some((place) => place.id === 'godaido')).toBe(true);
   });
 
+  it('keeps every booked hotel and overnight pin tied to its confirmed property coordinates', () => {
+    for (const day of tripDays) {
+      const expectedStays = stays.filter((stay) => stay.checkIn <= day.date && day.date <= stay.checkOut);
+      const mappedStays = day.places.filter((place) => place.type === 'stay');
+      expect(mappedStays.map((place) => place.id).sort(), day.date).toEqual(expectedStays.map((stay) => stay.id).sort());
+      for (const stay of expectedStays) {
+        const pin = mappedStays.find((place) => place.id === stay.id)!;
+        expect(pin.bookingState, `${day.date}/${stay.id} must remain confirmed`).toBe('booked');
+        expect(pin.coordinates, `${day.date}/${stay.id} must use the stored property pin`).toEqual(stay.coordinates);
+      }
+    }
+  });
+
+  it('keeps the Noboribetsu food and rail stopover feasible and avoids overloading the Sapporo hotel-change evening', () => {
+    const byId = (date: string, id: string) => tripDays.find((day) => day.id === date)?.places.find((place) => place.id === id);
+    const hokutoIn = byId('2026-10-27', 'hokuto-noboribetsu')!;
+    const busOut = byId('2026-10-27', 'noboribetsu-bus-out')!;
+    const lunch = byId('2026-10-27', 'noboribetsu-lunch')!;
+    const luggage = byId('2026-10-27', 'noboribetsu-luggage-return')!;
+    const busBack = byId('2026-10-27', 'noboribetsu-bus-return')!;
+    const hokutoOut = byId('2026-10-27', 'hokuto-hakodate')!;
+    expect(hokutoIn.endTime).toBe('08:03');
+    expect(busOut.startTime).toBe('08:23');
+    expect(lunch.name).toContain('Onsen Ichiba');
+    expect(lunch.startTime).toBe('12:00');
+    expect(lunch.sourceUrl).toBe('https://noboribetsu-spa.jp/en/spot/spot0169/');
+    expect(byId('2026-10-27', 'noboribetsu-lunch-backup-rikka')?.role).toBe('backup');
+    expect(byId('2026-10-27', 'noboribetsu-lunch-backup-rikka')?.sourceUrl).toBe('https://noboribetsu-spa.jp/en/spot/spot0233/');
+    expect(byId('2026-10-27', 'noboribetsu-town-walk')?.startTime).toBe('13:00');
+    expect(luggage.startTime).toBe('13:30');
+    expect(busBack.startTime).toBe('14:15');
+    expect(hokutoOut.startTime).toBe('15:59');
+    expect(Number(busBack.endTime!.slice(0, 2)) * 60 + Number(busBack.endTime!.slice(3)) + 90).toBeLessThanOrEqual(Number(hokutoOut.startTime!.slice(0, 2)) * 60 + Number(hokutoOut.startTime!.slice(3)));
+
+    const sapporo = tripDays.find((day) => day.id === '2026-10-25')!;
+    for (const id of ['sapporo-beer', 'mt-moiwa']) {
+      expect(sapporo.places.find((place) => place.id === id)?.type).toBe('optional');
+      expect(sapporo.places.find((place) => place.id === id)?.startTime).toBeUndefined();
+    }
+    expect(sapporo.places.find((place) => place.id === 'garaku-beer-transfer')).toBeUndefined();
+    expect(sapporo.places.find((place) => place.id === 'beer-central-return')).toBeUndefined();
+  });
+
+  it('keeps the Nikko overnight arrival gentle and the Toshogu visit inside its Nov 3 morning plan', () => {
+    const byId = (date: string, id: string) => tripDays.find((day) => day.id === date)?.places.find((place) => place.id === id);
+    const arrivalLunch = byId('2026-11-02', 'nikko-arrival-lunch')!;
+    expect(arrivalLunch.name).toContain('Asahiya');
+    expect(arrivalLunch.sourceUrl).toBe('https://www.nikko-kankou.org/product/369');
+    expect(arrivalLunch.startTime).toBe('12:05');
+    expect(byId('2026-11-02', 'nikko-hotel-taxi')?.startTime).toBe('14:45');
+    expect(byId('2026-11-03', 'toshogu')?.startTime).toBe('09:00');
+    expect(byId('2026-11-03', 'toshogu')?.durationMinutes).toBe(120);
+    expect(byId('2026-11-03', 'tobu-return')?.startTime).toBe('15:00');
+  });
+
+  it('makes the Kamakura day a returnable central-Kamakura route with named lunch choices', () => {
+    const day = tripDays.find((item) => item.id === '2026-11-05')!;
+    const byId = (id: string) => day.places.find((place) => place.id === id);
+    expect(byId('shirasu')?.name).toContain('Harumi');
+    expect(byId('shirasu')?.sourceUrl).toContain('city.kamakura.kanagawa.jp');
+    expect(byId('hasedera-kaikoan-lunch-backup')?.role).toBe('backup');
+    expect(byId('hase-shokudo-lunch-backup')?.role).toBe('backup');
+    expect(byId('hase-arrival-transfer')?.mapsQuery).toBe('Hase Station Kamakura');
+    expect(byId('hase-arrival-transfer')?.originQuery).toBe('Kamakura Station');
+    expect(byId('hase-kamakura-transfer')?.startTime).toBe('13:30');
+    expect(byId('enoden-coast')?.name).toContain('Tsurugaoka');
+    expect(byId('kamakura-return')?.startTime).toBe('16:00');
+    expect(byId('kamakura-return')?.originQuery).toBe('Kamakura Station');
+    expect(day.places.some((place) => /enoshima/i.test(`${place.id} ${place.name}`))).toBe(false);
+  });
+
   it('keeps each day in chronological order and exposes cross-area transfer estimates', () => {
     for (const day of tripDays) {
       const scheduled = day.places.flatMap((place) => place.startTime ? [place.startTime] : []);
@@ -69,7 +141,7 @@ describe('canonical itinerary data', () => {
     expect(placeById('2026-11-05', 'kamakura-return')?.durationMinutes).toBeGreaterThanOrEqual(60);
     expect(placeById('2026-11-05', 'hasedera')?.durationMinutes).toBe(70);
     expect(placeById('2026-11-05', 'enoden-coast')?.name).toContain('Tsurugaoka');
-    expect(placeById('2026-11-09', 'wanariya-azabudai-transfer')?.durationMinutes).toBeGreaterThanOrEqual(35);
+    expect(placeById('2026-11-09', 'wanariya-azabudai-transfer')).toBeUndefined();
     expect(placeById('2026-11-11', 'hotel-tokyo-station')?.startTime).toBe('08:00');
   });
 
@@ -125,36 +197,49 @@ describe('canonical itinerary data', () => {
     expect(byId('2026-10-30', 'matsushima-cruise')?.startTime).toBe('10:00');
     expect(byId('2026-10-30', 'senseki-return')?.startTime).toBe('16:00');
     expect(byId('2026-10-30', 'entsuin')?.role).toBe('backup');
-    expect(byId('2026-11-06', 'kiriko-transfer')?.durationMinutes).toBe(35);
+    expect(byId('2026-11-06', 'kiriko-transfer')).toBeUndefined();
     expect(byId('2026-11-07', 'harajuku-shibuya-transfer')).toBeUndefined();
     expect(byId('2026-11-08', 'akabane-transfer')).toBeUndefined();
-    expect(byId('2026-11-10', 'tsukiji-nihombashi-transfer')?.originQuery).toBe('Tsukiji Outer Market');
+    expect(byId('2026-11-10', 'tsukiji-nihombashi-transfer')).toBeUndefined();
     expect(byId('2026-10-27', 'sapporo-hotel-station-transfer')?.durationMinutes).toBe(30);
     expect(byId('2026-10-27', 'hokuto-noboribetsu')?.startTime).toBe('06:52');
     expect(byId('2026-10-27', 'sapporo-hotel-station-transfer')?.startTime).toBe('06:00');
     expect(byId('2026-10-30', 'sendai-hotel-station-transfer')?.startTime).toBe('07:45');
     expect(byId('2026-11-02', 'gableview-dinner')?.startTime).toBe('19:00');
+    expect(byId('2026-11-02', 'nikko-hotel-taxi')?.startTime).toBe('14:45');
+    expect(byId('2026-11-02', 'nikko-shokudo-suziki-lunch-backup')?.role).toBe('backup');
+    expect(byId('2026-11-02', 'nikko-shokudo-suziki-lunch-backup')?.sourceUrl).toContain('nikko-kankou.org');
+    expect(byId('2026-11-02', 'nikko-dinner-takeaway-backup')?.role).toBe('backup');
+    expect(byId('2026-11-03', 'yuba-lunch')?.durationMinutes).toBe(45);
     expect(byId('2026-11-03', 'toshogu-taxi')?.startTime).toBe('08:00');
     expect(byId('2026-11-03', 'nikko-tokyo-hotel-transfer')?.durationMinutes).toBe(45);
     expect(byId('2026-11-05', 'jr-kamakura')?.startTime).toBe('07:45');
     expect(byId('2026-11-05', 'hase-arrival-transfer')?.startTime).toBe('09:15');
     expect(byId('2026-11-05', 'kamakura-buddha')?.startTime).toBe('10:00');
     expect(byId('2026-11-05', 'hase-arrival-transfer')?.durationMinutes).toBe(25);
-    expect(byId('2026-10-31', 'sendai-station-walk')?.durationMinutes).toBe(60);
-    expect(byId('2026-11-09', 'hotel-wanariya-transfer')?.startTime).toBe('09:00');
-    expect(byId('2026-11-09', 'azabudai-lunch')?.startTime).toBe('13:00');
+    expect(byId('2026-10-31', 'sendai-station-walk')).toBeUndefined();
+    expect(byId('2026-11-09', 'hotel-wanariya-transfer')).toBeUndefined();
+    expect(byId('2026-11-09', 'azabudai-lunch')).toBeUndefined();
   });
 
-  it('covers Tokyo first-visit highlights with linked, realistic neighborhood routes', () => {
-    const asakusa = tripDays.find((day) => day.id === '2026-11-06')!;
-    const asakusaIds = new Set(asakusa.places.map((place) => place.id));
-    expect(asakusaIds.has('asakusa-sensoji')).toBe(true);
-    expect(asakusaIds.has('asakusa-kappabashi-walk')).toBe(true);
-    expect(asakusa.places.find((place) => place.id === 'kuramae-lunch')?.mapsQuery).toBe('Tempura Nakasei Asakusa');
-    expect(asakusa.places.find((place) => place.id === 'tempura-nakasei-backup')?.role).toBe('backup');
-    expect(asakusa.places.find((place) => place.id === 'hotel-asakusa-transfer')?.originQuery).toContain('Comfort Hotel');
-    expect(asakusa.places.find((place) => place.id === 'kiriko-transfer')?.verification).toBe('verify-before-trip');
-    expect(tokyoFlexibleDays.map((day) => day.id)).toEqual(['2026-11-04', '2026-11-07', '2026-11-08']);
+  it('keeps all full Tokyo days open except Kamakura and retains essential arrival logistics', () => {
+    const openDates = ['2026-11-01', '2026-11-04', '2026-11-06', '2026-11-07', '2026-11-08', '2026-11-09', '2026-11-10'];
+    for (const date of openDates) {
+      const day = tripDays.find((item) => item.id === date)!;
+      expect(day.title).toContain('open day');
+      expect(day.base).toBe('Tokyo · open choice');
+      expect(day.dailyEstimateJPY).toBeUndefined();
+      expect(day.places.map((place) => place.id), `${date} should have only its correct booked hotel marker`).toEqual([
+        date === '2026-11-01' ? 'stay-tokyo-halloween' : 'stay-tokyo-long',
+      ]);
+    }
+    const arrival = tripDays.find((day) => day.id === '2026-10-31')!;
+    expect(arrival.title).toContain('travel day');
+    expect(arrival.places.map((place) => place.id)).toEqual(expect.arrayContaining(['hayabusa-sendai-tokyo', 'tokyo-station-arrival', 'stay-tokyo-halloween']));
+    expect(arrival.places.some((place) => ['sight', 'food', 'optional'].includes(place.type))).toBe(false);
+    const kamakura = tripDays.find((day) => day.id === '2026-11-05')!;
+    expect(kamakura.places.some((place) => place.id === 'kamakura-buddha')).toBe(true);
+    expect(tokyoFlexibleDays.map((day) => day.id)).toEqual(['2026-11-01', '2026-11-04', '2026-11-06', '2026-11-07', '2026-11-08', '2026-11-09', '2026-11-10']);
     const westOption = tokyoPoolActivities.find((activity) => activity.id === 'shibuya-shopping')!;
     expect(westOption.places.some((place) => place.name.includes('Shibuya Scramble'))).toBe(true);
     expect(westOption.places.some((place) => place.name.includes('Shoes'))).toBe(true);
@@ -171,9 +256,10 @@ describe('canonical itinerary data', () => {
     expect(get(sapporo, 'routeinn-view-transfer')?.originQuery).toBe('Hotel Route-Inn Sapporo Chuo');
     expect(get(sapporo, 'sapporo-view-checkin')?.startTime).toBe('15:10');
     expect(get(sapporo, 'garaku-backup')?.role).toBe('backup');
-    expect(get(sapporo, 'beer-central-return')?.startTime).toBe('17:15');
+    expect(get(sapporo, 'beer-central-return')).toBeUndefined();
     expect(sendai.places.find((place) => place.id === 'jozenji-dori')).toBeTruthy();
     expect(sendai.places.find((place) => place.id === 'date-no-gyutan-backup')?.role).toBe('backup');
     expect(sendai.places.find((place) => place.id === 'hotel-jozenji-transfer')?.originQuery).toContain('KOKO HOTEL');
   });
 });
+
