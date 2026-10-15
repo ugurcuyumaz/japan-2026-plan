@@ -4,12 +4,21 @@ export interface TokyoPoolActivity {
   id: string;
   title: string;
   kind: 'outing' | 'evening';
+  categoryId: TokyoPoolCategoryId;
   area: string;
   durationLabel: string;
   summary: string;
   routeNote: string;
   places: Place[];
   sources: { label: string; url: string }[];
+}
+
+export type TokyoPoolCategoryId = 'neighborhood' | 'shopping-gaming' | 'day-trip' | 'local-easy' | 'culture' | 'waterfront' | 'special-purpose' | 'evening';
+
+export interface TokyoPoolCategory {
+  id: TokyoPoolCategoryId;
+  label: string;
+  activities: TokyoPoolActivity[];
 }
 
 const stop = (id: string, name: string, type: Place['type'], description: string, mapsQuery: string, coordinates: [number, number], extra: Partial<Place> = {}): Place => ({
@@ -20,7 +29,7 @@ const hotel = 'Comfort Hotel Tokyo Kiyosumi Shirakawa';
 const akihabara = [35.6984, 139.7731] as [number, number];
 const tokyoPool: TokyoPoolActivity[] = [
   {
-    id: 'akihabara', title: 'Akihabara games + electronics', kind: 'outing', area: 'Tokyo neighborhood · Akihabara · Kanda', durationLabel: 'about 7½ hours door to door',
+    id: 'akihabara', title: 'Akihabara games + electronics', kind: 'outing', categoryId: 'shopping-gaming', area: 'Tokyo neighborhood · Akihabara · Kanda', durationLabel: 'about 7½ hours door to door',
     summary: 'Best for games and electronics: arcades, retro games, a relaxed lunch and nearby Kanda Myojin. Choose a few priority shops; opening times vary, so start mid-morning.',
     routeNote: 'Allow 30–40 minutes each way from the hotel by metro/train; this is a compact east-central Tokyo day, not a cross-city combination.',
     sources: [{ label: 'GO TOKYO · Akihabara', url: 'https://www.gotokyo.org/en/spot/55/' }, { label: 'Gyukatsu Ichi Ni San · official site', url: 'https://gyukatsu123.studio.site/' }, { label: 'Tonkatsu Wako · Yodobashi Akiba store', url: 'https://wako-group.co.jp/shop/detai/shop_1176/' }],
@@ -36,7 +45,7 @@ const tokyoPool: TokyoPoolActivity[] = [
     ],
   },
   {
-    id: 'shibuya-shopping', title: 'Shoes + clothing shopping', kind: 'outing', area: 'Tokyo neighborhood · Shibuya · Harajuku', durationLabel: 'about 8¼ hours door to door',
+    id: 'shibuya-shopping', title: 'Shoes + clothing shopping', kind: 'outing', categoryId: 'shopping-gaming', area: 'Tokyo neighborhood · Shibuya · Harajuku', durationLabel: 'about 8¼ hours door to door',
     summary: 'Best for shoes and clothing: focus on a few Shibuya stores, then browse Harajuku/Omotesando only if you still have energy. Hachiko and the crossing are a short orientation stop.',
     routeNote: 'Keep to the west-side neighborhoods; allow 35–50 minutes each way from Kiyosumi-Shirakawa, depending on the exact route and crowds.',
     sources: [{ label: 'GO TOKYO · Shibuya shopping', url: 'https://www.gotokyo.org/en/story/guide/shibuya-shop/index.html' }, { label: 'GO TOKYO · Shopping in Tokyo', url: 'https://www.gotokyo.org/en/see-and-do/shopping/index.html' }],
@@ -52,7 +61,7 @@ const tokyoPool: TokyoPoolActivity[] = [
     ],
   },
   {
-    id: 'costco-kawasaki', title: 'Costco warehouse trip', kind: 'outing', area: 'Special-purpose outing · Kawasaki', durationLabel: 'about 8 hours door to door',
+    id: 'costco-kawasaki', title: 'Costco warehouse trip', kind: 'outing', categoryId: 'special-purpose', area: 'Special-purpose outing · Kawasaki', durationLabel: 'about 8 hours door to door',
     summary: 'Best if Costco is a priority, not as a sightseeing day: shop Costco Kawasaki and plan for bulky bags. Membership is required; Costco Japan says Gold Star membership works worldwide, but confirm your exact active card. Treat the food court as conditional, not your only meal plan.',
     routeNote: 'This is a deliberately simple out-and-back via Kawasaki Station: allow about 50 minutes hotel→station, then roughly 30 minutes by bus plus the short walk to the warehouse. Allow about 30–40 minutes back to the station, with extra wait-time buffer. These are planning estimates, not a November 2026 timetable; check the live bus route and service before assigning, and consider a taxi if you expect bulky purchases.',
     sources: [{ label: 'Costco Japan · Gold Star membership', url: 'https://www.costco.co.jp/c/GOLDSTAR-PRIMARY-CARD/p/83' }, { label: 'Costco · Kawasaki Warehouse', url: 'https://www.costco.com/warehouse-locations/kawasaki-kawasaki-city-kanagawa-863.html' }, { label: 'Kawasaki City · bus routes to Rinkō Police Station', url: 'https://www.city.kawasaki.jp/840/page/0000019840.html' }, { label: 'Kawasaki City Bus · route map', url: 'https://www.city.kawasaki.jp/820/cmsfiles/contents/0000008/8524/20251201_S.pdf' }, { label: 'Kawasaki More’s · restaurants', url: 'https://kawasaki-mores.jp/restaurantcafe/' }, { label: 'Tonchin · Kawasaki More’s store', url: 'https://kawasaki-mores.jp/floor/detail/?cd=000295' }],
@@ -67,7 +76,7 @@ const tokyoPool: TokyoPoolActivity[] = [
     ],
   },
   {
-    id: 'yokohama', title: 'Yokohama harbor + Chinatown', kind: 'outing', area: 'Full day trip · Yokohama', durationLabel: 'about 10¾ hours door to door',
+    id: 'yokohama', title: 'Yokohama harbor + Chinatown', kind: 'outing', categoryId: 'day-trip', area: 'Full day trip · Yokohama', durationLabel: 'about 10¾ hours door to door',
     summary: 'Best for a full harbor day: Minato Mirai, Red Brick Warehouse, then Chinatown for an early dinner. This is the longest pool outing; keep to the central waterfront and skip a stop if you want an easier pace.',
     routeNote: 'Allow around 45–60 minutes each way from the hotel by rail plus station walks. Check the chosen train and attraction hours; no timed ticket is assumed.',
     sources: [{ label: 'GO TOKYO · Yokohama', url: 'https://www.gotokyo.org/en/destinations/beyond-tokyo/yokohama.html' }],
@@ -84,7 +93,7 @@ const tokyoPool: TokyoPoolActivity[] = [
     ],
   },
   {
-    id: 'kawagoe', title: 'Kawagoe historic town day trip', kind: 'outing', area: 'Full day trip · Kawagoe', durationLabel: 'about 8 hours door to door',
+    id: 'kawagoe', title: 'Kawagoe historic town day trip', kind: 'outing', categoryId: 'day-trip', area: 'Full day trip · Kawagoe', durationLabel: 'about 8 hours door to door',
     summary: 'Best for an old-town stroll: merchant streets, the bell tower and candy alley with a local lunch. Compact once there, but allow about an hour each way on trains and station transfers.',
     routeNote: 'Allow roughly 50–70 minutes each way from the hotel, including transfers; confirm the best rail station and return route before setting out.',
     sources: [{ label: 'GO TOKYO · Kawagoe', url: 'https://www.gotokyo.org/en/destinations/beyond-tokyo/kawagoe.html' }],
@@ -98,7 +107,7 @@ const tokyoPool: TokyoPoolActivity[] = [
     ],
   },
   {
-    id: 'kawaguchiko', title: 'Kawaguchiko + Mount Fuji views', kind: 'outing', area: 'Full day trip · Fuji Five Lakes', durationLabel: 'about 12 hours door to door',
+    id: 'kawaguchiko', title: 'Kawaguchiko + Mount Fuji views', kind: 'outing', categoryId: 'day-trip', area: 'Full day trip · Fuji Five Lakes', durationLabel: 'about 12 hours door to door',
     summary: 'A scenic, weather-dependent Fuji day: direct limited-express train to Kawaguchiko, a flat lakeside visit to Oishi Park, local hōtō lunch and a short lake cruise. Fuji visibility is never guaranteed; skip the extra lake activity if the train/bus connections feel tight.',
     routeNote: 'This is a long day with roughly four hours on the direct Fuji Excursion alone, plus hotel–Shinjuku and local-bus legs. Times below are planning blocks, not a promised November 2026 timetable: check JR East and Fujikyu, reserve the limited express when sales open, and shift the local plan around the confirmed trains.',
     sources: [{ label: 'JR East · Fuji Excursion route and train reservations', url: 'https://www.jreast.co.jp/en/multi/traininformation/azusa_kaiji/index.html' }, { label: 'Fujikyu Bus · Kawaguchiko sightseeing-bus routes, schedules and fares', url: 'https://bus.fujikyu.co.jp/en/fujitour/kawaguchiko/' }, { label: 'Houtou Laboratory · official restaurant and access', url: 'https://fuji.creative-r.com/en/pages/hoto-labo' }, { label: 'Yamanashi Tourism · Hoto Fudo listing', url: 'https://www.yamanashi-kankou.jp/kankou/eat/p3_0111.html' }],
@@ -116,7 +125,7 @@ const tokyoPool: TokyoPoolActivity[] = [
     ],
   },
   {
-    id: 'deep-fukagawa', title: 'Deep Fukagawa neighborhood day', kind: 'outing', area: 'Easy local day · Kiyosumi · Monzen-Nakacho', durationLabel: 'about 6½ hours, mostly on foot',
+    id: 'deep-fukagawa', title: 'Deep Fukagawa neighborhood day', kind: 'outing', categoryId: 'local-easy', area: 'Easy local day · Kiyosumi · Monzen-Nakacho', durationLabel: 'about 6½ hours, mostly on foot',
     summary: 'Best for an easy, nearby day: Kiyosumi Garden, Fukagawa Fudo-do, the Edo Museum and local clam rice. No long train ride; skip the ritual or museum if you want a lighter rest day.',
     routeNote: 'Most stops are 10–20 minutes apart on foot from your hotel area. Check the ritual session and museum hours for the exact date before choosing this.',
     sources: [{ label: 'Fukagawa Edo Museum · official visitor information', url: 'https://www.kcf.or.jp/fukagawa/outline/' }],
@@ -134,7 +143,7 @@ const tokyoPool: TokyoPoolActivity[] = [
     ],
   },
   {
-    id: 'asakusa-ueno', title: 'Asakusa old town + Ueno museums', kind: 'outing', area: 'Tokyo culture day · Asakusa · Ueno', durationLabel: 'about 8 hours door to door',
+    id: 'asakusa-ueno', title: 'Asakusa old town + Ueno museums', kind: 'outing', categoryId: 'culture', area: 'Tokyo culture day · Asakusa · Ueno', durationLabel: 'about 8 hours door to door',
     summary: 'Senso-ji and Nakamise in the morning, Kappabashi kitchen street, a tempura lunch, then choose one Ueno museum or a park walk. Skip the museum if crowds or walking add up.',
     routeNote: 'Compact east-Tokyo routing from Kiyosumi-Shirakawa. Check the selected museum’s closure day and entry hours; no timed ticket is assumed.',
     sources: [{ label: 'GO TOKYO · Asakusa', url: 'https://www.gotokyo.org/en/destinations/eastern-tokyo/asakusa/index.html' }, { label: 'Tokyo National Museum · visitor information', url: 'https://www.tnm.jp/modules/r_free_page/index.php?id=113' }],
@@ -152,7 +161,7 @@ const tokyoPool: TokyoPoolActivity[] = [
     ],
   },
   {
-    id: 'shinjuku-green', title: 'Shinjuku Gyoen + city views', kind: 'outing', area: 'Tokyo neighborhood · Shinjuku', durationLabel: 'about 7¼ hours door to door',
+    id: 'shinjuku-green', title: 'Shinjuku Gyoen + city views', kind: 'outing', categoryId: 'neighborhood', area: 'Tokyo neighborhood · Shinjuku', durationLabel: 'about 7¼ hours door to door',
     summary: 'A slower city-and-garden day: Shinjuku Gyoen, nearby lunch, then the free Metropolitan Government observatory if open. One garden and one view, without overpacking the day.',
     routeNote: 'Allow 35–50 minutes each way from the hotel. Confirm Shinjuku Gyoen closure/admission and observatory hours before assigning this day.',
     sources: [{ label: 'Shinjuku Gyoen · official visitor information', url: 'https://www.env.go.jp/garden/shinjukugyoen/english/index.html' }, { label: 'Tokyo Metropolitan Government observatories', url: 'https://www.yokoso.metro.tokyo.lg.jp/en/tenbou/' }],
@@ -167,7 +176,7 @@ const tokyoPool: TokyoPoolActivity[] = [
     ],
   },
   {
-    id: 'odaiba-bay', title: 'Odaiba waterfront + one museum', kind: 'outing', area: 'Tokyo bay day · Odaiba', durationLabel: 'about 7 hours door to door',
+    id: 'odaiba-bay', title: 'Odaiba waterfront + one museum', kind: 'outing', categoryId: 'waterfront', area: 'Tokyo bay day · Odaiba', durationLabel: 'about 7 hours door to door',
     summary: 'An easy bay-side walk with one indoor attraction of your choice. Keep it weather-flexible; choose the science museum or another venue, not a packed list of timed attractions.',
     routeNote: 'Allow 45–60 minutes each way by metro/Yurikamome. Check current opening days and any timed-entry requirements; no tickets are assumed.',
     sources: [{ label: 'GO TOKYO · Odaiba', url: 'https://www.gotokyo.org/en/destinations/southern-tokyo/odaiba/index.html' }, { label: 'Miraikan · visitor information', url: 'https://www.miraikan.jst.go.jp/en/visit/' }],
@@ -183,7 +192,66 @@ const tokyoPool: TokyoPoolActivity[] = [
     ],
   },
   {
-    id: 'izakaya-evening', title: 'Izakaya evening near the hotel', kind: 'evening', area: 'Optional evening · Monzen-Nakacho', durationLabel: 'about 2½–3 hours',
+    id: 'tsukiji-ginza', title: 'Tsukiji food market + Ginza shopping', kind: 'outing', categoryId: 'neighborhood', area: 'Tokyo neighborhood · Tsukiji · Ginza', durationLabel: 'about 8¾ hours door to door',
+    summary: 'A food-and-shopping day with an early Tsukiji Outer Market visit, then a relaxed walk into Ginza for department stores, stationery, design shops and cafés. Market stalls can close early or sell out; arrive in the morning and bring cash as a backup.',
+    routeNote: 'From Kiyosumi-Shirakawa, allow 35–50 minutes to Tsukiji by subway and station walks. Tsukiji and Ginza are an easy walk between districts; return from Ginza by metro in roughly 30–40 minutes. This is a central-Tokyo outing, not a second long day trip.',
+    sources: [{ label: 'GO TOKYO · Tsukiji Outer Market', url: 'https://www.gotokyo.org/en/spot/65/index.html' }, { label: 'GO TOKYO · Ginza guide', url: 'https://www.gotokyo.org/en/destinations/central-tokyo/ginza/' }],
+    places: [
+      stop('pool-tsukiji-out', 'Metro · hotel → Tsukiji Outer Market', 'transit', 'Allow 35–50 minutes including station access; go in the morning while more stalls are operating.', 'Tsukiji Outer Market Tokyo', [35.6654, 139.7707], { startTime: '08:30', durationMinutes: 45, originQuery: hotel, travelMode: 'train' }),
+      stop('pool-tsukiji-market', 'Tsukiji Outer Market · browse + breakfast bites', 'sight', 'Explore a small selection of food and kitchenware stalls; allow about 90 minutes. Opening days and individual stall hours vary, so check the market’s official notices and bring cash as a backup.', 'Tsukiji Outer Market Tokyo', [35.6654, 139.7707], { startTime: '09:30', durationMinutes: 90, verification: 'verify-before-trip' }),
+      stop('pool-tsukiji-ginza-walk', 'Walk · Tsukiji → Ginza', 'transit', 'Allow about 20 minutes on foot; take a rest or use local transit if your legs need it.', 'Ginza 4-chome Crossing Tokyo', [35.6717, 139.765], { startTime: '11:15', durationMinutes: 20, originQuery: 'Tsukiji Outer Market Tokyo', travelMode: 'walk' }),
+      stop('pool-ginza-shopping', 'Ginza · department stores + back streets', 'sight', 'Choose two or three priorities—such as Ginza Six, stationery, boutiques or the main street—rather than trying to cover the whole district.', 'Ginza Six Tokyo', [35.6695, 139.7648], { startTime: '11:45', durationMinutes: 150 }),
+      stop('pool-ginza-lunch', 'Lunch · Ginza restaurant streets', 'food', 'Pick an open restaurant or department-store dining floor after browsing; check the current venue directory and weekend queues. No restaurant or reservation is assumed.', 'Ginza restaurants Tokyo', [35.6702, 139.7649], { startTime: '14:15', durationMinutes: 60, mealContext: 'lunch', cuisine: 'Ginza restaurant choice', role: 'primary', sourceUrl: 'https://www.gotokyo.org/en/destinations/central-tokyo/ginza/', sourceLabel: 'GO TOKYO · Ginza guide' }),
+      stop('pool-ginza-lunch-backup', 'Lunch backup · Tsukiji Outer Market', 'food', 'If Ginza is too busy, return toward Tsukiji for an open stall or casual restaurant; check the day’s operating hours before relying on a particular shop.', 'Tsukiji Outer Market restaurants Tokyo', [35.6654, 139.7707], { mealContext: 'lunch', cuisine: 'Market stalls and casual Japanese dining', role: 'backup', sourceUrl: 'https://www.gotokyo.org/en/spot/65/index.html', sourceLabel: 'GO TOKYO · Tsukiji Outer Market', verification: 'verify-before-trip' }),
+      stop('pool-ginza-return', 'Metro · Ginza → hotel', 'transit', 'Allow about 35–45 minutes door to door; use the nearest station for your final shopping stop.', hotel, [35.682, 139.798], { startTime: '16:30', durationMinutes: 45, originQuery: 'Ginza Station Tokyo', travelMode: 'train' }),
+    ],
+  },
+  {
+    id: 'koenji-vintage', title: 'Koenji vintage + record shops', kind: 'outing', categoryId: 'shopping-gaming', area: 'Tokyo neighborhood · Koenji', durationLabel: 'about 8½ hours door to door',
+    summary: 'A relaxed west-Tokyo browse for vintage clothing, independent shops, records and cafés, with an early dinner option if you want to stay out. It is more local and alternative than the big-brand shopping in Shibuya; choose a few streets and shops rather than planning a store-by-store march.',
+    routeNote: 'Allow around 45–60 minutes each way from the hotel by subway/JR, including transfers and station walks. Shops are spread around Koenji Station and some open later in the day, so use the morning for a café or neighborhood walk and check individual shop hours.',
+    sources: [{ label: 'GO TOKYO · Koenji', url: 'https://www.gotokyo.org/en/destinations/western-tokyo/koenji/index.html' }, { label: 'GO TOKYO · Tokyo shopping guide', url: 'https://www.gotokyo.org/en/see-and-do/shopping/index.html' }],
+    places: [
+      stop('pool-koenji-out', 'Rail · hotel → Koenji', 'transit', 'Allow 45–60 minutes door to door with a transfer and station walks; check a live route for the selected day.', 'Koenji Station Tokyo', [35.7054, 139.6499], { startTime: '09:30', durationMinutes: 55, originQuery: hotel, travelMode: 'train' }),
+      stop('pool-koenji-coffee', 'Coffee + neighborhood start', 'sight', 'Take a slow start near the station; select a café that is open rather than relying on a specific venue before shop hours are confirmed.', 'Koenji Station cafes Tokyo', [35.7054, 139.6499], { startTime: '10:30', durationMinutes: 45 }),
+      stop('pool-koenji-shopping', 'Vintage clothing + independent shops', 'sight', 'Browse the Koenji shotengai and side streets for vintage clothing and small independent shops. Keep purchases manageable for the train ride back.', 'Koenji vintage clothing shops Tokyo', [35.7054, 139.6499], { startTime: '11:30', durationMinutes: 150 }),
+      stop('pool-koenji-lunch', 'Lunch · Koenji neighborhood', 'food', 'Choose an open curry, ramen or set-meal restaurant near the shopping streets; opening days and queues vary, so keep this flexible.', 'Koenji restaurants Tokyo', [35.7054, 139.6499], { startTime: '14:15', durationMinutes: 60, mealContext: 'lunch', cuisine: 'Local café, curry or Japanese set meal', role: 'primary', sourceUrl: 'https://www.gotokyo.org/en/destinations/western-tokyo/koenji/index.html', sourceLabel: 'GO TOKYO · Koenji area guide' }),
+      stop('pool-koenji-lunch-backup', 'Lunch backup · Koenji Station area', 'food', 'Stay near Koenji Station and pick another open casual restaurant if the first choice has a queue; this fallback avoids an extra cross-city trip.', 'Koenji Station restaurants Tokyo', [35.7054, 139.6499], { mealContext: 'lunch', cuisine: 'Casual restaurant cluster', role: 'backup', sourceUrl: 'https://www.gotokyo.org/en/destinations/western-tokyo/koenji/index.html', sourceLabel: 'GO TOKYO · Koenji area guide' }),
+      stop('pool-koenji-records', 'Records + final shotengai browse', 'sight', 'Use the remaining time for record shops or a second pass through the shopping streets; individual store hours may start late.', 'Koenji record stores Tokyo', [35.7054, 139.6499], { startTime: '15:30', durationMinutes: 75, verification: 'verify-before-trip' }),
+      stop('pool-koenji-return', 'JR · Koenji → hotel', 'transit', 'Allow about 50–60 minutes door to door; avoid carrying bulky shopping at rush hour.', hotel, [35.682, 139.798], { startTime: '17:00', durationMinutes: 55, originQuery: 'Koenji Station Tokyo', travelMode: 'train' }),
+    ],
+  },
+  {
+    id: 'teamlab-toyosu', title: 'teamLab Planets + Toyosu', kind: 'outing', categoryId: 'waterfront', area: 'Tokyo bay day · Toyosu', durationLabel: 'about 6 hours door to door',
+    summary: 'A focused immersive-art experience paired with an easy Toyosu waterfront lunch. Buy a timed admission ticket in advance if you choose this option; the visit is barefoot/water-based in parts, so check the venue guidance and wear practical clothing.',
+    routeNote: 'Toyosu is close to your hotel: allow roughly 25–40 minutes by subway/Yurikamome and station walks. The official access guide recommends the rail stations rather than depending on public buses, which can be congested. This is a half-day-plus outing, not a full Odaiba day.',
+    sources: [{ label: 'teamLab Planets · official ticket store and visitor guide', url: 'https://teamlabplanets.dmm.com/en/guide' }, { label: 'teamLab Planets · official access guide', url: 'https://teamlabplanets.dmm.com/en/guide/access_method' }],
+    places: [
+      stop('pool-teamlab-out', 'Metro / Yurikamome · hotel → Toyosu', 'transit', 'Allow 25–40 minutes door to door; use rail rather than relying on a public bus, and check the live route.', 'teamLab Planets TOKYO Toyosu', [35.6492, 139.7894], { startTime: '09:15', durationMinutes: 35, originQuery: hotel, travelMode: 'train' }),
+      stop('pool-teamlab-visit', 'teamLab Planets TOKYO', 'sight', 'Allow about 2½ hours for entry, the immersive route and changing areas. Buy an official timed ticket in advance and check current visitor guidance; dates and entry slots are not booked by this planner.', 'teamLab Planets TOKYO Toyosu', [35.6492, 139.7894], { startTime: '10:00', durationMinutes: 150, sourceUrl: 'https://teamlabplanets.dmm.com/en/guide', sourceLabel: 'teamLab Planets · official visitor guide', verification: 'verify-before-trip' }),
+      stop('pool-teamlab-lunch-walk', 'Walk · teamLab Planets → Toyosu lunch', 'transit', 'Allow around 15 minutes to reach the selected Toyosu restaurant cluster; check current access and weather.', 'Urban Dock LaLaport Toyosu', [35.6552, 139.789], { startTime: '12:45', durationMinutes: 15, originQuery: 'teamLab Planets TOKYO Toyosu', travelMode: 'walk' }),
+      stop('pool-teamlab-lunch', 'Lunch · Urban Dock LaLaport Toyosu', 'food', 'Choose an open restaurant from the current center directory; this keeps lunch close to the venue without assuming a specific booking.', 'Urban Dock LaLaport Toyosu restaurants', [35.6552, 139.789], { startTime: '13:15', durationMinutes: 60, mealContext: 'lunch', cuisine: 'Toyosu restaurant cluster', role: 'primary', sourceUrl: 'https://mitsui-shopping-park.com/lalaport/toyosu/en/shopguide/', sourceLabel: 'LaLaport Toyosu · shop guide' }),
+      stop('pool-teamlab-lunch-backup', 'Lunch backup · Toyosu Station area', 'food', 'If the mall is busy, choose another open restaurant near Toyosu Station before heading back; check current hours on the day.', 'Toyosu Station restaurants Tokyo', [35.6552, 139.795], { mealContext: 'lunch', cuisine: 'Casual restaurant cluster', role: 'backup', sourceUrl: 'https://mitsui-shopping-park.com/lalaport/toyosu/en/shopguide/', sourceLabel: 'LaLaport Toyosu · shop guide', verification: 'verify-before-trip' }),
+      stop('pool-teamlab-return', 'Rail · Toyosu → hotel', 'transit', 'Allow about 30–40 minutes door to door, including station walks.', hotel, [35.682, 139.798], { startTime: '14:30', durationMinutes: 35, originQuery: 'Urban Dock LaLaport Toyosu', travelMode: 'train' }),
+    ],
+  },
+  {
+    id: 'hakone-gora', title: 'Hakone Open-Air Museum day trip', kind: 'outing', categoryId: 'day-trip', area: 'Full day trip · Hakone · Gora', durationLabel: 'about 11¾ hours door to door',
+    summary: 'A scenic, art-focused alternative day trip: ride to Hakone-Yumoto, continue by mountain railway to Gora, and spend the main visit at the Hakone Open-Air Museum. Keep the loop simple rather than trying to add Lake Ashi and every ropeway stop; weather or service disruption can make a reduced Gora-only day more comfortable.',
+    routeNote: 'Allow about 45–60 minutes from the hotel to Shinjuku, then around 75–90 minutes on a reserved Odakyu Romancecar to Hakone-Yumoto; the Hakone Tozan mountain train takes roughly 40–45 minutes onward to Gora. Return the same way, allowing about 3 hours from Gora to the hotel including transfers. Times are planning allowances, not a November 2026 timetable. Check service status and reserve the Romancecar; the Hakone Freepass may suit the area transport, but compare the current fare and inclusions before buying.',
+    sources: [{ label: 'Odakyu · Romancecar and Hakone access', url: 'https://www.odakyu.jp/english/transport/timetable/' }, { label: 'Hakone Open-Air Museum · official visitor information', url: 'https://www.hakone-oam.or.jp/en/' }, { label: 'Odakyu · Hakone Freepass', url: 'https://www.odakyu.jp/english/passes/hakone/' }],
+    places: [
+      stop('pool-hakone-out', 'Rail · hotel → Shinjuku → Hakone-Yumoto', 'transit', 'Allow about 2½ hours door to door using a reserved Romancecar from Shinjuku; confirm date-specific connections and seat availability.', 'Hakone-Yumoto Station', [35.2324, 139.1069], { startTime: '07:30', durationMinutes: 150, originQuery: hotel, travelMode: 'train', verification: 'verify-before-trip' }),
+      stop('pool-hakone-mountain-rail', 'Hakone Tozan Railway · Yumoto → Gora', 'transit', 'Allow about 45 minutes for the mountain railway plus connection time; check service status before setting out.', 'Gora Station Hakone', [35.2507, 139.0489], { startTime: '10:15', durationMinutes: 45, originQuery: 'Hakone-Yumoto Station', travelMode: 'train', verification: 'verify-before-trip' }),
+      stop('pool-hakone-museum', 'Hakone Open-Air Museum', 'sight', 'Allow about 2–2½ hours for the outdoor sculpture grounds and indoor galleries. Wear comfortable shoes and check current opening/admission information.', 'Hakone Open-Air Museum', [35.2478, 139.0513], { startTime: '11:15', durationMinutes: 150, sourceUrl: 'https://www.hakone-oam.or.jp/en/', sourceLabel: 'Hakone Open-Air Museum · official visitor information', verification: 'verify-before-trip' }),
+      stop('pool-hakone-lunch', 'Lunch · Gora area', 'food', 'Choose an open restaurant near Gora after the museum; check operating days and allow for a queue rather than relying on a specific small venue.', 'Gora Station restaurants Hakone', [35.2507, 139.0489], { startTime: '14:00', durationMinutes: 60, mealContext: 'lunch', cuisine: 'Hakone local restaurant choice', role: 'primary', sourceUrl: 'https://www.hakone-oam.or.jp/en/', sourceLabel: 'Hakone Open-Air Museum · access and visitor guide' }),
+      stop('pool-hakone-lunch-backup', 'Lunch backup · Hakone-Yumoto Station area', 'food', 'If Gora options are closed or busy, use an open casual restaurant near Hakone-Yumoto on the return; leave enough time for the train connection.', 'Hakone-Yumoto Station restaurants', [35.2324, 139.1069], { mealContext: 'lunch', cuisine: 'Station-area casual dining', role: 'backup', sourceUrl: 'https://www.odakyu.jp/english/transport/timetable/', sourceLabel: 'Odakyu · Hakone rail access', verification: 'verify-before-trip' }),
+      stop('pool-hakone-gora-stroll', 'Gora · short garden or town stroll', 'optional', 'Optional 30–45 minute nearby stroll only if the museum visit and return connection leave comfortable time; skip first if tired or service is delayed.', 'Gora Park Hakone', [35.2492, 139.0474], { startTime: '15:15', durationMinutes: 45, verification: 'verify-before-trip' }),
+      stop('pool-hakone-return', 'Rail · Gora → Hakone-Yumoto → Shinjuku → hotel', 'transit', 'Allow about 3 hours door to door, including mountain railway, Romancecar and Tokyo rail transfer. Reserve a suitable return and keep a buffer; do not depend on a last train.', hotel, [35.682, 139.798], { startTime: '16:15', durationMinutes: 180, originQuery: 'Gora Station Hakone', travelMode: 'train', verification: 'verify-before-trip' }),
+    ],
+  },
+  {
+    id: 'izakaya-evening', title: 'Izakaya evening near the hotel', kind: 'evening', categoryId: 'evening', area: 'Optional evening · Monzen-Nakacho', durationLabel: 'about 2½–3 hours',
     summary: 'Optional local dinner to pair with any flex day: Kyushu seafood, motsunabe and shared plates, then a nearby return instead of a late cross-city bar hop. Restaurant hours, last order and reservation availability can change; confirm for the chosen date.',
     routeNote: 'Monzen-Nakacho is close to your hotel; allow 15–25 minutes each way by walking/metro, depending on the chosen restaurant.',
     sources: [{ label: 'GO TOKYO · Tokyo food and izakaya guide', url: 'https://www.gotokyo.org/en/see-and-do/index.html' }],
@@ -197,6 +265,21 @@ const tokyoPool: TokyoPoolActivity[] = [
 ];
 
 export const tokyoPoolActivities = tokyoPool;
+const categoryDefinitions: Omit<TokyoPoolCategory, 'activities'>[] = [
+  { id: 'neighborhood', label: 'Tokyo neighborhoods' },
+  { id: 'shopping-gaming', label: 'Shopping + gaming' },
+  { id: 'day-trip', label: 'Optional day trips' },
+  { id: 'local-easy', label: 'Easy local day' },
+  { id: 'culture', label: 'Culture + museums' },
+  { id: 'waterfront', label: 'Waterfront + indoor option' },
+  { id: 'special-purpose', label: 'Special-purpose outing' },
+  { id: 'evening', label: 'Evening add-on' },
+];
+/** Stable category groups for a compact, expandable activity-board presentation. */
+export const tokyoPoolCategories: TokyoPoolCategory[] = categoryDefinitions
+  .map((category) => ({ ...category, activities: tokyoPool.filter((activity) => activity.categoryId === category.id) }))
+  .filter((category) => category.activities.length > 0);
+
 export interface TokyoFlexibleDay {
   id: string;
   label: string;
@@ -214,4 +297,3 @@ export const tokyoFlexibleDays: TokyoFlexibleDay[] = [
   { id: '2026-11-09', label: 'Mon 9 Nov · open Tokyo day', outing: null, evening: null },
   { id: '2026-11-10', label: 'Tue 10 Nov · open Tokyo day', outing: null, evening: null },
 ];
-
