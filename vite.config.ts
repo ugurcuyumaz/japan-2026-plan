@@ -9,7 +9,7 @@ export default defineConfig({
       output: {
         manualChunks(id) {
           if (id.indexOf('node_modules') === -1) return;
-          if (id.indexOf('/leaflet/') !== -1 || id.indexOf('/react-leaflet/') !== -1) return 'map-vendor';
+          if (id.indexOf('/maplibre-gl/') !== -1) return 'map-vendor';
           if (id.indexOf('/react-dom/') !== -1) return 'react-vendor';
           if (id.indexOf('/react/') !== -1) return 'react-vendor';
           if (id.indexOf('/lucide-react/') !== -1) return 'icons';

@@ -1,9 +1,9 @@
 {
-  "name": "Japan, slowly — 2026 itinerary",
+  "name": "Japan, slowly â€” 2026 itinerary",
   "short_name": "Japan 2026",
   "start_url": "/japan-2026-plan/",
   "display": "standalone",
-  "background_color": "#f6f3ec",
-  "theme_color": "#163630",
+  "background_color": "#f5f3ee",
+  "theme_color": "#19373a",
   "icons": [{ "src": "/japan-2026-plan/favicon.svg", "sizes": "any", "type": "image/svg+xml" }]
 }

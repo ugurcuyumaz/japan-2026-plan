@@ -2,7 +2,7 @@
 
 **[Open the live planner](https://ugurcuyumaz.github.io/japan-2026-plan/)** · 23 October–11 November 2026 · two adults · 18 hotel nights
 
-The site is the current day-by-day plan. It includes booked stays, travel days, a map, reservation actions, budget estimates, Tokyo activity choices, and a printable day view. Tokyo activity choices are saved in the browser you use.
+The site is the current day-by-day plan. It includes booked stays, travel days, a vector map with named pins and place details, reservation actions, budget estimates, Tokyo activity choices, and a printable day view. Tokyo activity choices are saved in the browser you use. The itinerary is searchable by place and base; backup meals and optional stops are kept apart from the main timeline. Maps use MapLibre with OpenFreeMap vector tiles, with street and calm styles, English labels where available, grouped nearby stops, and a place list that remains usable if the map cannot load. Dashed lines show stop order, not a walking or rail route.
 
 ## Current route
 
