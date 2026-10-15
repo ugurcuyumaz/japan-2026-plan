@@ -230,3 +230,51 @@ footer { padding-inline:max(24px,calc((100vw - 1180px)/2)); font-size:10px; }
 }
 @media (max-width:390px) { .hero { padding-inline:18px; }.section { padding-inline:16px; }.hero h1 { font-size:54px; }.hero-actions { gap:8px 14px; }.hero-actions .primary-button { padding-inline:12px; font-size:11px; }.hero-booking-link { font-size:11px; }.overview-travel-map .map-place-list { grid-template-columns:1fr; }.day-search-controls { flex-wrap:wrap; }.day-search { flex-basis:100%; }.filter-bar { width:100%; }.filter-bar select { max-width:none; width:100%; }.map-selection-label { padding:9px; }.map-selection-label strong { font-size:11px; }.vector-map-controls { inset:9px 9px auto; }.vector-map-controls > button { padding:0 8px; }.pool-day-strip { grid-template-columns:1fr; } }
 @media print { .mobile-bottom-nav,.vector-map-controls,.map-details-panel,.maplibregl-control-container { display:none !important; }.day-detail { max-height:none; overflow:visible; }.day-notes:not([open]) > :not(summary),.day-alternatives:not([open]) > :not(summary) { display:block !important; }.day-travel-map .vector-map-stage { height:180px; }.day-detail-summary { color:#333; } }
+
+/* The daily plan should be usable before opening a map or another section. */
+.day-essentials { margin:0 0 16px; padding:15px; border:1px solid #c5d2c7; border-radius:11px; background:#edf2e9; }
+.day-essentials > h3 { margin:0 0 12px; font:600 13px 'DM Sans',sans-serif; }
+.day-hotel-brief { display:flex; align-items:flex-start; gap:9px; }
+.day-hotel-brief > svg { flex-shrink:0; margin-top:2px; }
+.day-hotel-brief > div { min-width:0; }
+.day-hotel-brief .eyebrow { display:block; font-size:9px; }
+.day-hotel-brief strong { display:block; margin-top:4px; font-size:13px; line-height:1.4; }
+.day-hotel-links { display:flex; flex-wrap:wrap; gap:4px 16px; margin-top:5px; }
+.day-hotel-links a { display:inline-flex; align-items:center; gap:4px; min-height:36px; font-size:11px; font-weight:600; text-decoration:underline; text-underline-offset:3px; }
+.day-checkout,.day-onsite { margin:8px 0 0; color:var(--muted); font-size:11px; line-height:1.6; }
+.day-booking-brief { margin-top:10px; border-top:1px solid #cdd8ca; }
+.day-booking-brief > summary { display:flex; align-items:center; gap:7px; min-height:44px; cursor:pointer; font-size:11px; font-weight:600; }
+.day-booking-brief > summary::after { content:'+'; margin-left:auto; font-size:18px; }
+.day-booking-brief[open] > summary::after { content:'−'; }
+.day-booking-brief ul { margin:0; padding:0; list-style:none; }
+.day-booking-brief li + li { border-top:1px solid #d4ddcf; }
+.day-booking-brief button { display:flex; align-items:center; gap:8px; width:100%; min-height:50px; padding:8px 0; border:0; background:transparent; color:var(--ink); text-align:left; }
+.day-booking-brief button > span { flex:1; }.day-booking-brief button strong,.day-booking-brief button small { display:block; font-size:11px; line-height:1.5; }.day-booking-brief button small { color:var(--muted); font-size:10px; font-weight:400; }
+.day-map-section { margin:0 0 20px; }
+.day-map-toggle { display:flex; align-items:center; gap:9px; width:100%; min-height:54px; padding:10px 12px; border:1px solid var(--line); border-radius:9px; background:var(--cream); color:var(--ink); text-align:left; scroll-margin-top:20px; }
+.day-map-toggle > span { flex:1; font-size:12px; font-weight:600; }.day-map-toggle small { display:block; margin-top:3px; color:var(--muted); font-size:10px; font-weight:400; }.day-map-toggle[aria-expanded="true"] > svg:last-child { transform:rotate(180deg); }
+#day-map-content { margin-top:12px; }
+.pool-planning-day { display:flex; align-items:center; flex-wrap:wrap; gap:8px 14px; margin-bottom:13px; font-size:12px; font-weight:600; }
+.pool-planning-day select { width:min(100%,310px); min-height:44px; padding:8px 12px; border:1px solid #b9cbbb; border-radius:8px; background:var(--cream); color:var(--ink); font:inherit; font-weight:400; }
+.tokyo-sharing { margin:18px 0; }
+.sharing-disclosure { padding:0 15px; border:1px solid var(--line); border-radius:10px; background:var(--cream); }
+.sharing-disclosure > summary { display:flex; align-items:center; gap:9px; min-height:50px; cursor:pointer; font-size:12px; font-weight:600; }
+.sharing-disclosure p,.shared-picks-review p { max-width:720px; font-size:12px; line-height:1.65; color:var(--muted); }
+.sharing-disclosure > button { margin:0 10px 14px 0; }.sharing-disclosure > small { font-size:11px; color:var(--muted); }
+.shared-picks-review { padding:20px; margin-bottom:15px; background:#edf2e9; border:1px solid #bdcdbb; border-radius:12px; }
+.shared-picks-review h3 { margin:0 0 8px; font-size:25px; }
+.shared-picks-review ul { list-style:none; margin:15px 0; padding:0; }
+.shared-picks-review li { display:grid; grid-template-columns:105px minmax(0,1fr); gap:12px; padding:9px 0; border-top:1px solid #d2dccd; font-size:12px; line-height:1.5; }
+.shared-picks-review li strong { font-size:11px; }.sharing-actions { display:flex; flex-wrap:wrap; gap:8px; }
+.share-link-row { display:flex; gap:8px; margin:0 0 15px; }.share-link-row label { min-width:0; flex:1; }.share-link-row input { width:100%; min-height:44px; padding:9px; border:1px solid var(--line); border-radius:7px; background:#fffdf8; color:var(--muted); font-size:11px; }.share-link-row button { flex-shrink:0; }
+.sharing-notice { margin:10px 0; font-size:12px; line-height:1.5; color:var(--ink); }
+@media (max-width:767px) { .day-detail.mobile-dialog .detail-top { align-items:flex-start; }.shared-picks-review { padding:16px; }.pool-planning-day { align-items:flex-start; flex-direction:column; }.pool-planning-day select { width:100%; } }
+@media print { .day-map-toggle,.day-booking-brief button > svg,.sharing-disclosure { display:none !important; }.day-booking-brief:not([open]) > :not(summary) { display:block !important; }.day-essentials { break-inside:avoid; background:white; }.day-map-section { margin:0; } }
+
+.map-find-controls { display:flex; align-items:center; flex-wrap:wrap; gap:9px; grid-column:1/-1; padding:12px; border-bottom:1px solid var(--line); background:var(--cream); }
+.map-find-controls label:first-child { flex:1; min-width:180px; }.map-find-controls input,.map-find-controls select { width:100%; min-height:44px; padding:9px 12px; border:1px solid var(--line); border-radius:8px; background:#fffdf8; color:var(--ink); font-size:12px; }.map-find-controls > span { font-size:11px; color:var(--muted); }
+@media (max-width:1023px) { .day-detail.mobile-dialog .detail-top { padding-right:43px; }.day-detail.mobile-dialog .close-detail { position:fixed; top:calc(12px + env(safe-area-inset-top)); right:max(16px,calc((100vw - 800px)/2 + 16px)); background:var(--cream); border:1px solid var(--line); z-index:3; } }
+
+.planning-warning { display:flex; align-items:flex-start; gap:8px; margin:0 0 16px; padding:12px; border:1px solid #e0c8a0; border-radius:9px; background:#faf0df; color:#73512b; font-size:12px; line-height:1.6; }.planning-warning > svg { flex-shrink:0; margin-top:2px; }.pool-timing-warning { display:block; margin-top:6px; color:#8b4c24; font-size:10px; font-weight:600; }
+
+.pool-route-base { color:var(--muted); font-size:11px; line-height:1.5; margin:0 0 14px; }
