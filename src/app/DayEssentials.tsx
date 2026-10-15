@@ -6,7 +6,7 @@ import type { TripDay } from '../types/trip';
 export function DayEssentials({ day, onOpenBooking }: { day: TripDay; onOpenBooking: (id: string) => void }) {
   const { tonight, leaving, advance, onSite } = dayBrief(day, stays, bookings);
   return <section className="day-essentials" aria-label="Day essentials">
-    <h3>At a glance</h3>
+    <h3 tabIndex={-1}>At a glance</h3>
     {(tonight || leaving) && <div className="day-hotel-brief"><BedDouble size={18} /><div>
       {tonight && <><span className="eyebrow">{tonight.checkIn === day.id ? 'Check in tonight · confirmed' : 'Tonight · confirmed'}</span><strong>{tonight.property}</strong><div className="day-hotel-links"><a href={googleDirectionsUrl(tonight.property)} target="_blank" rel="noopener noreferrer">Directions to hotel <ExternalLink size={12} /></a><a href={googleMapsUrl(tonight.property)} target="_blank" rel="noopener noreferrer">Hotel details <ExternalLink size={12} /></a></div></>}
       {leaving && <p className="day-checkout">Check out of {leaving.property}. Check the booking for checkout time and luggage arrangements.</p>}
