@@ -1,7 +1,7 @@
 import { describe, expect, it } from 'vitest';
 import type { Place } from '../types/trip';
 import { bookings, googleDirectionsUrl, googleMapsUrl, openItems, tripDays } from './trip';
-import { tokyoPoolActivities } from './tokyoPool';
+import { tokyoFlexibleDays, tokyoPoolActivities } from './tokyoPool';
 
 const allPlaces: { scope: string; place: Place }[] = [
   ...tripDays.flatMap((day) => day.places.map((place) => ({ scope: day.date, place }))),
@@ -13,7 +13,7 @@ const dateFromId = (date: string) => {
   return new Date(Date.UTC(year, month - 1, day));
 };
 const openTokyoDates = new Set(['2026-11-01', '2026-11-04', '2026-11-06', '2026-11-07', '2026-11-08', '2026-11-09', '2026-11-10']);
-const unplannedMealDates = new Set([...openTokyoDates, '2026-10-31']);
+const unplannedMealDates = new Set([...openTokyoDates, '2026-10-31', '2026-11-11']);
 
 describe('canonical itinerary completeness', () => {
   it('covers the complete 20-date trip window', () => {
@@ -184,6 +184,15 @@ describe('canonical itinerary completeness', () => {
     }
   });
 
+  it('keeps the Tokyo choice pool unassigned and Kamakura as the only planned full Tokyo outing', () => {
+    expect(new Set(tokyoFlexibleDays.map((day) => day.id))).toEqual(openTokyoDates);
+    expect(tokyoFlexibleDays.every((day) => day.outing === null && day.evening === null)).toBe(true);
+    const kamakura = tripDays.find((day) => day.date === '2026-11-05')!;
+    expect(kamakura.title).toMatch(/Kamakura/i);
+    expect(kamakura.places.some((place) => place.id === 'kamakura-buddha')).toBe(true);
+    expect(kamakura.places.some((place) => place.id === 'hasedera')).toBe(true);
+  });
+
   it('keeps meal records categorized, mapped and honest about unverified menu details', () => {
     for (const day of tripDays) {
       for (const place of day.places.filter((item) => item.type === 'food' && item.mealContext)) {
@@ -222,4 +231,3 @@ describe('canonical itinerary completeness', () => {
     }
   });
 });
-
