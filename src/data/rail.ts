@@ -1,7 +1,7 @@
 /**
  * JR pass comparison for the confirmed itinerary as of 14 October 2026.
- * Published route-table figures below are illustrations, not dated checkout quotes.
- * The exact fare/ticket construction for the Hakodate–Sendai route remains unresolved.
+ * Published route-table figures below are arithmetic illustrations, not dated checkout quotes.
+ * The exact fare/ticket construction for the planned travel dates remains unresolved.
  */
 export const railDecision = {
   passName: 'JR East–South Hokkaido Rail Pass',
@@ -11,6 +11,7 @@ export const railDecision = {
   // 26 Oct was an unnecessary early start in the previous version.
   validFrom: '2026-10-27',
   validThrough: '2026-11-01',
+  // No supplied booking record confirms or disproves a purchase; verify before buying again.
   purchaseStatus: 'unknown',
   segments: [
     { date: '27 Oct', route: 'Sapporo → Noboribetsu (Ltd. Exp. Hokuto)', fareJPY: 4_890 },
@@ -44,8 +45,12 @@ export const railDecision = {
     includedInCoreTotal: false,
   },
   comparison: {
-    // Not savings: the point-to-point side uses published route-table references,
-    // leaves the Senseki return as an estimate, and is not a live ticket quote.
+    // The ¥5,620 is only the arithmetic difference between a ¥45,620 published
+    // route-table illustration and the ¥40,000 pass price. It is not guaranteed
+    // savings: dated separate-ticket construction, stopovers, reservations, and
+    // exact pass coverage/eligibility have not been verified. Matsushima is extra
+    // estimated local-fare arithmetic, not a settled point-to-point total.
+    comparisonBasis: 'published-route-table arithmetic vs pass product price; not a dated ticket quote or guaranteed saving',
     individualCoreJPY: 45_620,
     individualCorePlusMatsushimaJPY: [46_460, 46_500],
     passPriceJPY: 40_000,
@@ -89,4 +94,3 @@ export const individualRailTotalJPY = railDecision.segments.reduce((sum, segment
 
 // Compatibility point estimate for the existing UI; explicitly an illustration, not a saving.
 export const individualRailTotalWithMatsushimaJPY = individualRailTotalJPY + railDecision.additionalCoveredRide.fareJPY;
-
