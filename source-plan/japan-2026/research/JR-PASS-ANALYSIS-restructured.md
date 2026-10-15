@@ -22,7 +22,7 @@ These are itinerary targets only. A train number/time in the plan is not proof o
 
 The **JR East–South Hokkaido Rail Pass costs ¥40,000 per adult (about €225.49)** and is valid for six consecutive days. For this plan, a **27 Oct–1 Nov** window includes all planned JR legs on 27, 29, 30 and 31 Oct. It does not include the 24 Oct airport train or the planned Asakusa–Nikko Tobu trains. Official product page: [JR East–South Hokkaido Rail Pass](https://www.jreast.co.jp/en/multi/pass/easthokkaido.html).
 
-For two adults the candidate pass price is **¥80,000 (about €450.98)**. Whether either traveller has already purchased a pass is not recorded. Before any new purchase, confirm actual purchase status, each traveller's eligibility, current terms, covered services, and how to make seat reservations. The pass purchase itself is not a seat reservation.
+For two adults the candidate pass price is **¥80,000 (about €450.98)**. Pass purchase status is **unverified**: the available records neither confirm nor rule out that either traveller has already purchased one. Before any new purchase, check account, email and payment records, then confirm each traveller's eligibility, current terms, covered services, and how to make seat reservations. The pass purchase itself is not a seat reservation.
 
 ## Separate-fare references — per adult
 
@@ -37,7 +37,7 @@ JR Hokkaido's official regular-ticket table publishes the following component/re
 | **Itinerary route-table illustration** | **¥45,620** | **€257.17** | ¥4,890 + ¥7,790 + ¥21,530 + ¥11,410; arithmetic only, not verified checkout total |
 | Sendai ↔ Matsushima-Kaigan return | ~¥840–880 | ~€4.74–4.96 | Per person estimate; verify current fare; local cost may be pass-covered |
 
-The JR Hokkaido page separately presents the through-route sum **¥34,210** for Sapporo–Noboribetsu–Hakodate–Sendai, then lists **¥11,410** as its Sendai–Tokyo reference on another route. Adding these published references gives **¥45,620 per adult / ¥91,240 for two (≈€514.35)**. The pass-price comparison is ¥5,620 per adult (≈€31.68) or ¥11,240 for two (≈€63.36), before local Matsushima fare. Those differences are **not savings claims**: the page's route table is not a live checkout for these exact travel dates, reservations, and intermediate stop.
+The JR Hokkaido page separately presents the through-route sum **¥34,210** for Sapporo–Noboribetsu–Hakodate–Sendai, then lists **¥11,410** as its Sendai–Tokyo reference on another route. Adding these published references gives **¥45,620 per adult / ¥91,240 for two (≈€514.35)**—route-table arithmetic only. The candidate pass product price is **¥40,000 per adult / ¥80,000 for two (≈€450.98)**. Subtracting the two published figures yields ¥5,620 per adult / ¥11,240 for two, but that is **not a guaranteed saving** and should not be read as a like-for-like fare comparison. The ¥45,620 is not a live checkout for the exact dates, ticket construction, reserved seats, Hakodate stop/transfer pattern, and local rides; those remain unverified. The dated separate-ticket total and the pass's exact applicability therefore remain unresolved.
 
 For context, JR Hokkaido separately lists **¥18,280 (≈€103.05)** for Shin-Hakodate-Hokuto–Sendai. This is a different overlapping route/fare construction; **do not add it** to the ¥21,530 Hakodate–Sendai route-table component. The published table does not break its Hakodate-side ¥8,490 component into the actual Hakodate Liner and Shinkansen fare for the planned services.
 
@@ -67,4 +67,3 @@ The Nikko stay is confirmed at **Gableview Forest Inn** (2–3 Nov), not a histo
 - [JR-EAST luggage guidance](https://www.jreast.co.jp/en/multi/luggage-area/)
 
 Official pages checked 14 October 2026. Recheck current schedules, fares, pass terms, seat availability and purchase records before paying or travelling.
-
