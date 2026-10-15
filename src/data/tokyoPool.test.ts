@@ -56,7 +56,9 @@ describe('Tokyo choose-your-own pool', () => {
     expect(tokyoPoolCategories.find((category) => category.id === 'day-trip')?.activities.map((activity) => activity.id))
       .toEqual(expect.arrayContaining(['yokohama', 'kawagoe', 'kawaguchiko', 'hakone-gora']));
     expect(tokyoPoolCategories.find((category) => category.id === 'neighborhood')?.activities.map((activity) => activity.id))
-      .toEqual(expect.arrayContaining(['tsukiji-ginza', 'koenji-vintage']));
+      .toEqual(expect.arrayContaining(['shinjuku-green', 'tsukiji-ginza']));
+    expect(tokyoPoolCategories.find((category) => category.id === 'shopping-gaming')?.activities.map((activity) => activity.id))
+      .toContain('koenji-vintage');
     expect(tokyoPoolCategories.find((category) => category.id === 'waterfront')?.activities.map((activity) => activity.id))
       .toEqual(expect.arrayContaining(['teamlab-toyosu']));
   });
@@ -77,10 +79,10 @@ describe('Tokyo choose-your-own pool', () => {
   it('makes the pool scannable by effort and travel commitment', () => {
     const areas = tokyoPoolActivities.map((activity) => activity.area);
     expect(areas.filter((area) => area.startsWith('Easy local day'))).toHaveLength(1);
-    expect(areas.filter((area) => area.startsWith('Tokyo neighborhood'))).toHaveLength(3);
+    expect(areas.filter((area) => area.startsWith('Tokyo neighborhood'))).toHaveLength(5);
     expect(areas.filter((area) => area.startsWith('Tokyo culture day'))).toHaveLength(1);
-    expect(areas.filter((area) => area.startsWith('Tokyo bay day'))).toHaveLength(1);
-    expect(areas.filter((area) => area.startsWith('Full day trip'))).toHaveLength(3);
+    expect(areas.filter((area) => area.startsWith('Tokyo bay day'))).toHaveLength(2);
+    expect(areas.filter((area) => area.startsWith('Full day trip'))).toHaveLength(4);
     expect(areas.filter((area) => area.startsWith('Special-purpose outing'))).toHaveLength(1);
     expect(areas.filter((area) => area.startsWith('Optional evening'))).toHaveLength(1);
 
