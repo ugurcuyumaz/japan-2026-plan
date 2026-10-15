@@ -74,6 +74,7 @@ export interface Booking {
   status: 'unbooked' | 'booked' | 'verify' | 'on-site';
   deadline: string;
   estimatedCostJPY?: number;
+  priceBasis?: 'per-adult' | 'for-two';
   destination: string;
   mapsQuery?: string;
   purchaseUrl?: string;

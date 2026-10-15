@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest';
-import { baseCities, baseVisits, bookings, budgetTotals, confirmedHotelTotalEUR, googleDirectionsUrl, googleMapsUrl, openItems, stays, totalNights, tripDays } from './trip';
+import { baseCities, baseVisits, bookingPartyEstimateJPY, bookings, budgetCategories, budgetTotals, confirmedHotelTotalEUR, googleDirectionsUrl, googleMapsUrl, openItems, stays, totalNights, tripDays } from './trip';
 import { tokyoFlexibleDays, tokyoPoolActivities } from './tokyoPool';
 
 describe('canonical itinerary data', () => {
@@ -40,6 +40,20 @@ describe('canonical itinerary data', () => {
     const mappedBookings = bookings.filter((booking) => booking.mapsQuery);
     expect(mappedBookings.length).toBeGreaterThan(0);
     expect(mappedBookings.every((booking) => googleMapsUrl(booking.mapsQuery!).startsWith('https://www.google.com/maps/search/?api=1&query='))).toBe(true);
+  });
+
+  it('shows party prices without understating rail and pass costs', () => {
+    expect(bookings.filter((booking) => booking.estimatedCostJPY !== undefined).every((booking) => booking.priceBasis)).toBe(true);
+    expect(bookingPartyEstimateJPY(bookings.find((booking) => booking.id === 'booking-jr-east-south-hokkaido-pass')!)).toBe(80_000);
+    expect(bookingPartyEstimateJPY(bookings.find((booking) => booking.id === 'booking-hayabusa-tokyo')!)).toBe(22_820);
+    expect(bookingPartyEstimateJPY(bookings.find((booking) => booking.id === 'booking-flights')!)).toBe(30_220);
+    expect(budgetCategories.find((category) => category.id === 'transport')?.low).toBeGreaterThan(127_680);
+  });
+
+  it('keeps the return airport terminal and arrival transfer constraints visible', () => {
+    expect(bookings.find((booking) => booking.id === 'booking-narita-transfer')?.destination).toContain('Terminal 2');
+    expect(tripDays.find((day) => day.id === '2026-10-24')?.summary).toContain('13:10');
+    expect(tripDays.find((day) => day.id === '2026-11-11')?.summary).toContain('158 cm');
   });
 
   it('tracks researched admission tickets as on-site actions with official information links', () => {

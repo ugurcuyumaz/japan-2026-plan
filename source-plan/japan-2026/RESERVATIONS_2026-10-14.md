@@ -20,7 +20,7 @@ The supplied Peach email lists MM571, Narita Terminal 1 at 13:40 on 24 October a
 
 The traveller also confirmed the international flights. The itinerary identifies Iberia IB281 (Madrid–Narita, 23–24 Oct) and IB282 (Narita–Madrid, 11 Nov); ticket costs were not supplied and are excluded from budget totals. Recheck terminals, baggage and check-in details in the tickets.
 
-Arrival connection: the international flight is planned to land at Narita Terminal 2 at 09:30. That leaves 4h10 before the confirmed Peach departure. Allow for immigration, checked bags, terminal transfer to T1, check-in/bag drop and any delay; re-plan this connection if the international flight changes.
+Arrival connection: IB281 is planned to land at Narita Terminal 2 at 09:30 on a separate ticket. For confirmed Peach MM571 at 13:40 from T1 South 1F, finish check-in and checked-bag drop by 13:10 and pass security by 13:15 under Peach’s current rules. Allow for immigration, customs, bag retrieval and the T2→T1 transfer; if an inbound delay threatens the cutoff, contact Peach and check alternate travel rather than assuming protected rebooking. Source: https://www.flypeach.com/en/lm/ai/airports/airportguide_domestic/nrt
 
 ## Rail legs now visible in the itinerary
 
@@ -29,6 +29,8 @@ Arrival connection: the international flight is planned to land at Narita Termin
 - **31 Oct:** Hayabusa 10, Sendai 09:31 → Tokyo 11:04 is the researched schedule. Reserve both seats and check luggage dimensions against JR East’s allowance; no separate oversized-baggage seat reservation is required on this route. Allow time for hotel bag drop before the afternoon event.
 - **2 Nov:** Ikebukuro → Asakusa → reserved Tobu limited express → Tobu-Nikko. Gableview is roughly 2.8 km from the station by map estimate; ask the inn to arrange/confirm taxi pickup. Keep sightseeing optional on arrival day.
 - **3 Nov:** ask the inn to arrange a taxi to Toshogu for opening, visit the main shrine and at most one nearby site, have lunch, then take a confirmed taxi back to the station for a reserved service on the Culture Day holiday timetable. Confirm taxi and rail availability; do not treat the former 16:30 placeholder as booked.
+
+Return flight: Narita currently lists Iberia departures at Terminal 2, 3F. Confirm IB282’s terminal from the ticket before travel. Use the TYO-NRT bus only if each traveler’s one suitcase is within the operator’s approximately 158 cm three-dimension limit; otherwise use N’EX. Sources: https://www.narita-airport.jp/en/flight/airline-search/ibe/ and https://tyo-nrt.com/en/notes.
 
 For real-time departures and service changes, check the operator's timetable close to travel. This plan uses no onsen visits.
 
