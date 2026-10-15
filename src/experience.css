@@ -278,3 +278,21 @@ footer { padding-inline:max(24px,calc((100vw - 1180px)/2)); font-size:10px; }
 .planning-warning { display:flex; align-items:flex-start; gap:8px; margin:0 0 16px; padding:12px; border:1px solid #e0c8a0; border-radius:9px; background:#faf0df; color:#73512b; font-size:12px; line-height:1.6; }.planning-warning > svg { flex-shrink:0; margin-top:2px; }.pool-timing-warning { display:block; margin-top:6px; color:#8b4c24; font-size:10px; font-weight:600; }
 
 .pool-route-base { color:var(--muted); font-size:11px; line-height:1.5; margin:0 0 14px; }
+
+.planner-save-tools { display:flex; align-items:center; flex-wrap:wrap; gap:9px 18px; margin:18px 0; }
+.planner-save-tools > span { max-width:420px; color:var(--muted); font-size:11px; line-height:1.6; }
+.travel-pack-action { min-width:0; }.travel-pack-action.icon-only { display:contents; }
+.detail-actions { flex-wrap:wrap; }.detail-actions .travel-pack-action button { flex:0 0 auto; }
+.download-notice { flex:1 0 100%; max-width:650px; padding:11px 13px; margin:8px 0 0; border:1px solid #c4d0c2; border-radius:8px; background:#edf2e9; color:var(--ink); font-size:11px; line-height:1.6; }
+.day-view-toggle { display:flex; align-items:center; flex-wrap:wrap; gap:6px; margin:0 0 14px; }
+.day-view-toggle > span { margin-right:auto; font-size:12px; font-weight:600; }
+.day-view-toggle button { min-height:42px; padding:9px 12px; border:1px solid var(--line); border-radius:8px; background:var(--cream); color:var(--muted); font-size:11px; font-weight:600; }
+.day-view-toggle button[aria-pressed="true"] { background:var(--ink); color:var(--cream); border-color:var(--ink); }
+.stop-full-notes,.stop-notes > div { padding:0 13px 11px; color:var(--muted); font-size:12px; line-height:1.65; }.stop-full-notes p,.stop-notes p { margin:7px 0; }.stop-full-notes a,.stop-notes a { display:inline-flex; align-items:center; gap:5px; min-height:36px; text-decoration:underline; text-underline-offset:3px; }
+.stop-notes { border-top:1px solid var(--line); margin-top:7px; }.stop-notes > summary { min-height:42px; padding:10px 13px; cursor:pointer; font-size:11px; font-weight:600; color:var(--ink); }
+.stop-important-note { display:flex; align-items:flex-start; gap:6px; margin:7px 12px; color:var(--muted); font-size:11px; line-height:1.6; }.stop-important-note > svg { flex-shrink:0; margin-top:3px; }.stop-important-note.booking-note { color:#80522e; }.stop-travel-description { margin:9px 13px; color:var(--muted); font-size:12px; line-height:1.65; }
+.compact-place .place-main { padding-bottom:8px; }.compact-place .place-copy strong { font-size:13px; line-height:1.45; }.compact-place .place-meta a { min-height:36px; }.compact-place .place-meta { padding-top:0; row-gap:3px; }
+.pool-effort-filter { display:flex; align-items:center; flex-wrap:wrap; gap:9px; margin:12px 0 5px; font-size:12px; font-weight:600; }.pool-effort-filter select { min-height:44px; padding:8px 12px; border:1px solid var(--line); border-radius:8px; color:var(--ink); background:var(--cream); font:inherit; font-weight:400; }.pool-effort-explainer { display:block; max-width:620px; color:var(--muted); font-size:10px; line-height:1.6; }
+.pool-commitment { display:block; width:fit-content; max-width:100%; padding:5px 8px; margin:9px 0; border:1px solid var(--line); border-radius:6px; font-size:10px; line-height:1.5; font-weight:600; }.pool-commitment.pace-full { color:#7d472b; background:#f5e8db; }.pool-commitment.pace-light { background:#edf2e9; color:#3e604d; }
+@media(max-width:767px) { .planner-save-tools { align-items:flex-start; flex-direction:column; }.planner-save-tools > span { max-width:none; }.day-view-toggle { gap:5px; }.day-view-toggle button { padding-inline:10px; }.compact-place .place-main { padding-top:11px; }.pool-effort-filter { justify-content:space-between; } }
+@media print { .day-view-toggle,.planner-save-tools,.download-notice { display:none!important; }.stop-notes > summary { display:none; }.stop-notes:not([open]) > :not(summary) { display:block!important; }.stop-notes { border:0; } }

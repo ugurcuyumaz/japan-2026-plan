@@ -14,6 +14,7 @@
     <link rel="manifest" href="/japan-2026-plan/manifest.webmanifest" />
     <title>Japan, slowly — 2026 itinerary</title>
     <script>
+      try {
       const redirectTarget = sessionStorage.getItem('redirect');
       if (redirectTarget) {
         sessionStorage.removeItem('redirect');
@@ -22,6 +23,7 @@
           window.history.replaceState(null, '', `${redirectUrl.pathname}${redirectUrl.search}${redirectUrl.hash}`);
         }
       }
+      } catch { /* The planner still loads when browser storage is unavailable. */ }
     </script>
   </head>
   <body>
