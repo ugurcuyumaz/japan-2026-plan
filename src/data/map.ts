@@ -20,7 +20,7 @@ export const shortDate = (date: string) => new Date(`${date}T12:00:00Z`).toLocal
 export const isAlternative = (place: Place) => place.role === 'backup' || place.type === 'optional';
 export const cityDescriptions: Record<string, string> = {
   Sapporo: 'Ease into Japan with autumn walks, soup curry and a gentle start after the flight.',
-  Hakodate: 'Morning-market seafood, the star-shaped fort and Motomachiâ€™s hillside streets.',
+  Hakodate: 'Morning-market seafood, the star-shaped fort and Motomachi’s hillside streets.',
   Sendai: 'A relaxed city base for gyutan dinners and the Matsushima Bay day trip.',
   Tokyo: 'Two stays around the Nikko overnight, with one Kamakura day and room to choose the rest.',
   Nikko: 'Settle into the forest inn, then visit Toshogu early before returning to Tokyo.',
@@ -29,10 +29,10 @@ export const cityDescriptions: Record<string, string> = {
 export function mapEntries(days: TripDay[], filter: ItemType | 'all', day?: TripDay): MapEntry[] {
   if (!day && filter === 'all') return baseCities.map((city, index) => {
     const hotels = stays.filter((stay) => stay.city === city.name);
-    return { id: `base-${city.name}`, title: city.name, subtitle: `${city.nights} nights Â· ${hotels.map((stay) => `${shortDate(stay.checkIn)}â€“${shortDate(stay.checkOut)}`).join(' / ')}`, description: cityDescriptions[city.name], type: 'stay', coordinates: city.coordinates, label: `${index + 1}`, city: city.name };
+    return { id: `base-${city.name}`, title: city.name, subtitle: `${city.nights} nights · ${hotels.map((stay) => `${shortDate(stay.checkIn)}–${shortDate(stay.checkOut)}`).join(' / ')}`, description: cityDescriptions[city.name], type: 'stay', coordinates: city.coordinates, label: `${index + 1}`, city: city.name };
   });
-  if (!day && filter === 'stay') return stays.map((stay) => ({ id: stay.id, title: stay.property, subtitle: `${stay.city} Â· ${stay.dates} Â· ${stay.nights} nights`, description: stay.note, type: 'stay', coordinates: stay.coordinates, label: 'âŒ‚', stay }));
-  return (day ? [day] : days).flatMap((tripDay) => tripDay.places.filter((place) => place.coordinates && (filter === 'all' || place.type === filter)).map((place, index) => ({ id: `${tripDay.id}:${place.id}`, title: place.name, subtitle: `${shortDate(tripDay.id)}${place.startTime ? ` Â· ${place.startTime}${place.endTime ? `â€“${place.endTime}` : ''}` : ' Â· Flexible'}${isAlternative(place) ? ' Â· Alternative' : ''}`, description: place.description, type: place.type, coordinates: place.coordinates!, label: `${index + 1}`, day: tripDay, place })));
+  if (!day && filter === 'stay') return stays.map((stay) => ({ id: stay.id, title: stay.property, subtitle: `${stay.city} · ${stay.dates} · ${stay.nights} nights`, description: stay.note, type: 'stay', coordinates: stay.coordinates, label: '⌂', stay }));
+  return (day ? [day] : days).flatMap((tripDay) => tripDay.places.filter((place) => place.coordinates && (filter === 'all' || place.type === filter)).map((place, index) => ({ id: `${tripDay.id}:${place.id}`, title: place.name, subtitle: `${shortDate(tripDay.id)}${place.startTime ? ` · ${place.startTime}${place.endTime ? `–${place.endTime}` : ''}` : ' · Flexible'}${isAlternative(place) ? ' · Alternative' : ''}`, description: place.description, type: place.type, coordinates: place.coordinates!, label: `${index + 1}`, day: tripDay, place })));
 }
 
 export function distanceKm(a: [number, number], b: [number, number]) {

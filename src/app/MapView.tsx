@@ -23,13 +23,18 @@ export function MapView({ selectedDay, allDays = emptyDays, selectedPlaceId, onS
   const panelRef = useRef<HTMLDivElement>(null);
   useEffect(() => { setActiveIds([]); setFocusId(undefined); }, [filter, selectedDay?.id]);
   useEffect(() => {
+    if (!selectedPlaceId) return;
     const found = entries.find((entry) => entry.place?.id === selectedPlaceId);
     if (found) { setActiveIds([found.id]); setFocusId(found.id); }
   }, [selectedPlaceId, entries]);
+  useEffect(() => { if (panelRef.current) panelRef.current.scrollTop = 0; }, [activeIds]);
   const pick = useCallback((group: MapEntry[], keyboard: boolean) => {
     setActiveIds(group.map((entry) => entry.id));
     if (group.length === 1 && selectedDay && group[0].place) onSelectPlace(group[0].place);
-    if (keyboard) window.requestAnimationFrame(() => panelRef.current?.querySelector<HTMLElement>('h3')?.focus({ preventScroll: true }));
+    window.requestAnimationFrame(() => {
+      if (keyboard) panelRef.current?.querySelector<HTMLElement>('h3')?.focus({ preventScroll: true });
+      if (window.matchMedia('(max-width: 767px)').matches) panelRef.current?.scrollIntoView({ behavior: window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth', block: 'nearest' });
+    });
   }, [onSelectPlace, selectedDay]);
   const active = entries.filter((entry) => activeIds.includes(entry.id));
   const chooseFromList = (entry: MapEntry) => { pick([entry], false); setFocusId(entry.id); };
