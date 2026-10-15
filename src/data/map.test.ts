@@ -6,7 +6,7 @@ describe('map discovery', () => {
   it('gives every route pin a name, description and booked date range', () => {
     const entries = mapEntries(tripDays, 'all');
     expect(entries).toHaveLength(5);
-    for (const entry of entries) { expect(entry.title).toBeTruthy(); expect(entry.description.length).toBeGreaterThan(30); expect(entry.subtitle).toMatch(/nights/); expect(entry.subtitle).toMatch(/Oct|Nov/); }
+    for (const entry of entries) { expect(entry.title).toBeTruthy(); expect(entry.description.length).toBeGreaterThan(30); expect(entry.subtitle).toMatch(/nights?/); expect(entry.subtitle).toMatch(/Oct|Nov/); }
   });
   it('keeps all seven stays discoverable', () => { expect(mapEntries(tripDays, 'stay').map((entry) => entry.stay?.id)).toEqual(stays.map((stay) => stay.id)); });
   it('keeps primary flexible meals in the main plan and separates actual backups', () => {

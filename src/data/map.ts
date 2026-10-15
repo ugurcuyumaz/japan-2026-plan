@@ -29,7 +29,7 @@ export const cityDescriptions: Record<string, string> = {
 export function mapEntries(days: TripDay[], filter: ItemType | 'all', day?: TripDay): MapEntry[] {
   if (!day && filter === 'all') return baseCities.map((city, index) => {
     const hotels = stays.filter((stay) => stay.city === city.name);
-    return { id: `base-${city.name}`, title: city.name, subtitle: `${city.nights} nights · ${hotels.map((stay) => `${shortDate(stay.checkIn)}–${shortDate(stay.checkOut)}`).join(' / ')}`, description: cityDescriptions[city.name], type: 'stay', coordinates: city.coordinates, label: `${index + 1}`, city: city.name };
+    return { id: `base-${city.name}`, title: city.name, subtitle: `${city.nights} night${city.nights === 1 ? '' : 's'} · ${hotels.map((stay) => `${shortDate(stay.checkIn)}–${shortDate(stay.checkOut)}`).join(' / ')}`, description: cityDescriptions[city.name], type: 'stay', coordinates: city.coordinates, label: `${index + 1}`, city: city.name };
   });
   if (!day && filter === 'stay') return stays.map((stay) => ({ id: stay.id, title: stay.property, subtitle: `${stay.city} · ${stay.dates} · ${stay.nights} nights`, description: stay.note, type: 'stay', coordinates: stay.coordinates, label: '⌂', stay }));
   return (day ? [day] : days).flatMap((tripDay) => tripDay.places.filter((place) => place.coordinates && (filter === 'all' || place.type === filter)).map((place, index) => ({ id: `${tripDay.id}:${place.id}`, title: place.name, subtitle: `${shortDate(tripDay.id)}${place.startTime ? ` · ${place.startTime}${place.endTime ? `–${place.endTime}` : ''}` : ' · Flexible'}${isAlternative(place) ? ' · Alternative' : ''}`, description: place.description, type: place.type, coordinates: place.coordinates!, label: `${index + 1}`, day: tripDay, place })));

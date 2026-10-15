@@ -16,7 +16,7 @@ export function MapView({ selectedDay, allDays = emptyDays, selectedPlaceId, onS
     return selectedDay.places.filter((place) => place.coordinates && place.startTime && place.type !== 'stay' && place.role !== 'backup' && !place.fallback).map((place) => place.coordinates!).filter((point) => !anchor || distanceKm(point, anchor) <= 30);
   }, [points, selectedDay, filter]);
   const [activeIds, setActiveIds] = useState<string[]>([]);
-  const [style, setStyle] = useState<'liberty' | 'positron'>('liberty');
+  const [style, setStyle] = useState<'liberty' | 'positron'>(() => selectedDay ? 'liberty' : 'positron');
   const [reset, setReset] = useState(0);
   const [failed, setFailed] = useState(false);
   const [focusId, setFocusId] = useState<string>();
@@ -64,13 +64,15 @@ export function MapView({ selectedDay, allDays = emptyDays, selectedPlaceId, onS
 
 function EntryDetails({ entry, allDays, onOpenDay, onShowOnDay }: { entry: MapEntry; allDays: TripDay[]; onOpenDay?: (day: TripDay) => void; onShowOnDay: () => void }) {
   const cityStays = entry.city ? stays.filter((stay) => stay.city === entry.city) : [];
-  const cityDays = entry.city ? allDays.filter((day) => day.base === entry.city || (entry.city === 'Nikko' && day.base.startsWith('Nikko'))) : [];
+  const cityDays = entry.city ? allDays.filter((day) => day.base.startsWith(entry.city!)) : [];
   const place = entry.place;
   return <div className="map-entry-details">
     <span className={`type-chip type-${entry.type}`}>{entry.city ? 'Trip base' : mapTypeLabel[entry.type]}</span>
     <h3 tabIndex={-1}>{entry.title}</h3><p className="map-entry-date">{entry.subtitle}</p><p>{entry.description}</p>
     {place?.cuisine && <p className="map-entry-fact"><strong>Food:</strong> {place.cuisine}{place.signature ? ` · ${place.signature}` : ''}</p>}
     {place?.durationMinutes && <p className="map-entry-fact"><strong>Allow:</strong> {place.durationMinutes} minutes</p>}
+    {(place?.priceBand || place?.estimatedCostJPY) && <p className="map-entry-fact"><strong>Budget:</strong> {place.priceBand ? `${place.priceBand} price level` : ''}{place.priceBand && place.estimatedCostJPY ? ' · ' : ''}{place.estimatedCostJPY ? `¥${place.estimatedCostJPY.toLocaleString('en-GB')} estimate` : ''}</p>}
+    {place?.bookingState && place.bookingState !== 'not-needed' && <p className={`status status-${place.bookingState}`}>Reservation: {place.bookingState}</p>}
     {place?.travelNote && <p className="map-entry-fact"><strong>Getting there:</strong> {place.travelNote}</p>}
     {place?.bookingNote && <p className="map-entry-warning">{place.bookingNote}</p>}
     {place?.verification !== undefined && place.verification !== 'confirmed' && <p className="map-entry-warning">{place.verification === 'research' ? 'Research option · check details before going.' : 'Recheck the current details before travel.'}</p>}

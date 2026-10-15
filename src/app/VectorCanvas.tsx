@@ -40,7 +40,7 @@ export default function VectorCanvas(props: Props) {
     } catch { latest.current.onError(true); return; }
     mapRef.current = map;
     map.addControl(new NavigationControl({ showCompass: false }), 'bottom-right');
-    map.addControl(new AttributionControl({ compact: true, customAttribution: '<a href="https://openfreemap.org" target="_blank" rel="noopener">OpenFreeMap</a>' }), 'bottom-right');
+    map.addControl(new AttributionControl({ compact: true }), 'bottom-right');
     map.getCanvas().setAttribute('aria-label', latest.current.day ? 'Interactive day map. Use the place list for all stop details.' : 'Interactive Japan route map. Select a labeled pin or use the place list.');
     const fit = () => {
       const points = latest.current.points;
