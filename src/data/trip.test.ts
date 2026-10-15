@@ -28,6 +28,7 @@ describe('canonical itinerary data', () => {
   it('derives action and budget summaries from structured data', () => {
     expect(openItems).toHaveLength(0);
     expect(bookings.filter((booking) => booking.status !== 'booked')).toHaveLength(21);
+    expect(bookings.filter((booking) => booking.status === 'booked').map((booking) => booking.id)).toEqual(['booking-international-flights', 'booking-flights']);
     expect(confirmedHotelTotalEUR).toBe(1738);
     expect(stays).toHaveLength(7);
     expect(stays.every((stay) => stay.status === 'booked')).toBe(true);
