@@ -26,8 +26,8 @@ describe('canonical itinerary data', () => {
   });
 
   it('derives action and budget summaries from structured data', () => {
-    expect(openItems).toHaveLength(8);
-    expect(bookings.filter((booking) => booking.status !== 'booked')).toHaveLength(10);
+    expect(openItems).toHaveLength(0);
+    expect(bookings.filter((booking) => booking.status !== 'booked')).toHaveLength(21);
     expect(confirmedHotelTotalEUR).toBe(1738);
     expect(stays).toHaveLength(7);
     expect(stays.every((stay) => stay.status === 'booked')).toBe(true);
@@ -39,6 +39,17 @@ describe('canonical itinerary data', () => {
     const mappedBookings = bookings.filter((booking) => booking.mapsQuery);
     expect(mappedBookings.length).toBeGreaterThan(0);
     expect(mappedBookings.every((booking) => googleMapsUrl(booking.mapsQuery!).startsWith('https://www.google.com/maps/search/?api=1&query='))).toBe(true);
+  });
+
+  it('tracks researched admission tickets as on-site actions with official information links', () => {
+    for (const id of ['booking-mt-moiwa-ticket', 'booking-goryokaku-admission', 'booking-matsushima-cruise', 'booking-zuiganji-admission', 'booking-toshogu-admission', 'booking-kotokuin-admission', 'booking-hasedera-admission', 'booking-rapid-airport']) {
+      const item = bookings.find((booking) => booking.id === id);
+      expect(item?.status).toBe('on-site');
+      expect(item?.purchaseUrl).toMatch(/^https:\/\//);
+      expect(item?.estimatedCostJPY).toBeGreaterThan(0);
+      expect(item?.dayId).toMatch(/^2026-/);
+    }
+    expect(bookings.find((item) => item.id === 'booking-narita-transfer')?.extraLinks?.map((link) => link.url)).toContain('https://tyo-nrt.com/en/notes');
   });
 
   it('keeps the traveler-confirmed Peach booking and includes the intercity rail legs', () => {
@@ -262,4 +273,3 @@ describe('canonical itinerary data', () => {
     expect(sendai.places.find((place) => place.id === 'hotel-jozenji-transfer')?.originQuery).toContain('KOKO HOTEL');
   });
 });
-
