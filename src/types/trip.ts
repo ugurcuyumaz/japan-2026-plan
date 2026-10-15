@@ -71,7 +71,7 @@ export interface Booking {
   item: string;
   date: string;
   priority: 'required' | 'recommended' | 'research';
-  status: 'unbooked' | 'booked' | 'verify';
+  status: 'unbooked' | 'booked' | 'verify' | 'on-site';
   deadline: string;
   estimatedCostJPY?: number;
   destination: string;
@@ -80,6 +80,7 @@ export interface Booking {
   purchaseLabel?: string;
   referenceUrl?: string;
   referenceLabel?: string;
+  extraLinks?: { label: string; url: string }[];
   notes: string;
   dayId?: string;
 }
@@ -103,4 +104,3 @@ export interface OpenItem {
   relatedId?: string;
   action: string;
 }
-

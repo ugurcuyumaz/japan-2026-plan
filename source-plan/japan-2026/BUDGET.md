@@ -10,7 +10,7 @@ All amounts are for **two adults** unless marked *per person*. The ECB reference
 | Peach MM571, NRT T1 → CTS, 24 Oct 13:40–15:30 | Traveller-confirmed; email states total for two | ¥30,220 | ≈€170.36 |
 | **Known booked subtotal** | **Hotels + Peach only** | **≈¥338,524 equivalent** | **≈€1,908.36** |
 
-Hotel EUR display totals are not necessarily the exact amount charged in yen. The ¥308,304 hotel conversion is only a comparison equivalent. The Peach email records ¥30,220 for two (≈€170.36); the traveller later confirmed the booking, superseding the email's tentative-payment warning. International Iberia flights are not included because their paid amounts were not supplied. See `RESERVATIONS_2026-10-14.md` for the seven properties and reservation evidence.
+Hotel EUR display totals are not necessarily the exact amount charged in yen. The ¥308,304 hotel conversion is only a comparison equivalent. The Peach email records ¥30,220 for two (≈€170.36); the traveller later confirmed the booking, superseding the email's tentative-payment warning. International Iberia flights are not included because their paid amounts were not supplied. This is the known booked subtotal, not total trip spend. See `RESERVATIONS_2026-10-14.md` for the seven properties and reservation evidence.
 
 ## Major unbooked transport — comparison, not a trip total
 
@@ -32,7 +32,7 @@ JR Hokkaido's route table illustrates ¥45,620 per person for the proposed long-
 - Food, admission tickets, the Kamakura day trip, optional Tokyo activity-pool choices, eSIM, travel insurance, shopping, and luggage forwarding.
 - International flights, except that no paid amount was provided.
 
-The Tokyo full days remain open except the Kamakura day trip on 5 Nov. No optional workshop, teamLab ticket or other Tokyo activity is currently selected, so none is included as committed spend. Budget those choices only when selected. There is **no defensible whole-trip total yet**: the booked subtotal above is the only consolidated confirmed-spend figure, and material transport and day-to-day categories remain unpriced.
+The Tokyo full days remain open except the Kamakura day trip on 5 Nov. No optional workshop, teamLab ticket or other Tokyo activity is currently selected, so none is included as committed spend. Budget those choices only when selected. Category ranges shown in the website are a rough planning envelope, not a defensible whole-trip forecast: some transport and daily categories remain estimates, local transfers and several practical costs are not fully priced, and shopping is excluded. The booked subtotal above is the only consolidated confirmed-spend figure.
 
 ## Currency and arithmetic notes
 
@@ -47,4 +47,3 @@ The Tokyo full days remain open except the Kamakura day trip on 5 Nov. No option
 ## Superseded estimate archive
 
 Former leg budgets were built around unbooked hotel candidates, onsen stays, fixed Tokyo activities and other itinerary assumptions that have since changed. They are retired from the active budget and should not be used or added to the confirmed-spend subtotal. In particular, the former €3,007–4,590 whole-trip estimate is not a current forecast.
-

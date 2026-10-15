@@ -1,6 +1,6 @@
 # Bookings and reservations — current action list (14 October 2026)
 
-This page distinguishes confirmed reservations from route targets. **All seven hotels are booked and Peach MM571 is confirmed by the traveller. The listed trains, taxis and local transfers are not confirmed bookings.** See `RESERVATIONS_2026-10-14.md` for reservation evidence and `OPEN-ITEMS.md` for the complete unresolved-decision register.
+This page is the reservation and ticket status ledger; it distinguishes confirmed reservations from route targets. **All seven hotels are booked and Peach MM571 is confirmed by the traveller. The listed trains, taxis and local transfers are not confirmed bookings.** See `RESERVATIONS_2026-10-14.md` for reservation evidence. `OPEN-ITEMS.md` is the complete action register; use it for the practical checks behind these reservation tasks rather than treating the same task as a second booking.
 
 ## Confirmed — no booking action outstanding
 
@@ -27,9 +27,8 @@ This page distinguishes confirmed reservations from route targets. **All seven h
 
 ## Pass and cost guardrails
 
-The current plan's candidate pass is the JR East–South Hokkaido Pass at **¥40,000 per adult** for six consecutive days. A 27 Oct start would cover the planned JR travel through 1 Nov, not the Tobu Nikko legs or 24 Oct airport train. Its purchase status is unknown. Published fare tables are not dated ticket quotes; the exact Hakodate Liner/Hayabusa construction and Noboribetsu stopover remain open. See `TRANSPORT.md`, `BUDGET.md` and `research/JR-PASS-ANALYSIS-restructured.md`. Do not describe an estimated arithmetic difference as savings.
+The current plan's candidate pass is the JR East–South Hokkaido Pass at **¥40,000 per adult** (≈€225) for six consecutive days. A 27 Oct start would cover the planned JR travel through 1 Nov, not the Tobu Nikko legs or 24 Oct airport train. Its purchase status is unknown—not confirmed and not assumed unpurchased. Published fare tables are not dated ticket quotes; the exact Hakodate Liner/Hayabusa construction and Noboribetsu stopover remain open. Check purchase status first, then eligibility and exact checkout totals before deciding. See `TRANSPORT.md`, `BUDGET.md` and `research/JR-PASS-ANALYSIS-restructured.md`. Do not describe an estimated arithmetic difference as savings.
 
 ## Superseded tasks — do not follow
 
 Earlier booking-calendar rows below this current list have been removed because their hotel candidates, 26 Oct onsen booking, Tokyu Stay luggage plan, workshop/timed-ticket choices and advance deadlines do not match the confirmed reservations or present itinerary. The current confirmed properties are in `ACCOMMODATION.md`; the old proposal to carry bags to a former Tokyo hotel on 2 Nov is not active. Historical research may remain elsewhere, but it is not an open booking list.
-
