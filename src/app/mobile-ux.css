@@ -87,4 +87,6 @@
   }
 
   .day-mobile-bar > span { margin-inline-end: auto; align-self: center; font-size: 13px; font-weight: 650; }
+
+  .place-copy strong { white-space: normal; overflow: visible; text-overflow: clip; overflow-wrap: anywhere; }
 }

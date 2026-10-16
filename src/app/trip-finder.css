@@ -48,6 +48,7 @@
   .trip-finder-form { margin: 0 16px 8px; }
   .trip-finder-form kbd { display: none; }
   .trip-finder-content { padding: 0 16px 12px; }
+  .trip-finder-result strong, .trip-finder-result small { white-space: normal; overflow-wrap: anywhere; }
   .trip-finder-shortcuts { grid-template-columns: 1fr; }
   .trip-finder-footer { padding-inline: 16px; }
 }

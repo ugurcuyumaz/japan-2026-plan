@@ -85,3 +85,13 @@ Interaction references checked on 16 October 2026: [W3C native modal dialog tech
 ## Scope held for later
 
 Accounts/live collaboration, geolocation, live weather, booking-confirmation toggles, expense tracking, new transport recommendations and a service-worker/PWA layer need separate product and data decisions. The current round strengthens the existing planner and preserves honest reservation, price and snapshot boundaries.
+
+## Verification results
+
+- Automated regression suite: 91 tests across 14 files passed. TypeScript and the production Vite build passed. The separately loaded MapLibre vendor chunk still produces a bundle-size warning.
+- Live desktop: trip finder searched accented food names, opened an exact stop, opened the exact confirmed hotel and flight record, and supported Escape/focus restoration and Ctrl+K. Direct-link close, date changes, repeated selection and Back/Forward were checked.
+- Live planning: assigning teamLab created the dated unconfirmed ticket task; move removed the old task; undo restored the date. Moving onto an occupied date and undoing restored both choices. Removal undo worked. The original blank Tokyo selections were restored afterward.
+- Live maps: the Alternatives layer included a backup gyutan restaurant with food details and directions; the day Alternatives layer included the Toyosu lunch backup. Module/render failure containment and retry were inspected in code; a live network failure was not forced.
+- Live phone checks at 390px and 320px: finder, five-item quick navigation, 16px search input, day focus, 44px Close control and long-plan scrolling were checked without horizontal overflow. Final polish wraps long phone place/result names and corrects undo feedback.
+- Actual browser downloads: the selected day contained one day, and the full pack all 20 days; both included the assigned teamLab task, food context and reservation prices. Neither required external rendering assets. Directions and official links still need internet.
+- The final map-loading adjustment observes 180px below the viewport, while avoiding preloading a map that is already above a direct day link.

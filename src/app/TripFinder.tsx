@@ -9,7 +9,7 @@ import './trip-finder.css';
 const kindLabel: Record<TripSearchKind, string> = {
   day: 'Day',
   place: 'Stop',
-  booking: 'To do',
+  booking: 'Reservation',
   stay: 'Stay',
   idea: 'Tokyo idea',
   section: 'Section',

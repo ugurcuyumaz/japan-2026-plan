@@ -48,7 +48,7 @@ export function MapView({ selectedDay, allDays = emptyDays, selectedPlaceId, onS
       window.removeEventListener('scrollend', observe);
       observer = new IntersectionObserver((records) => {
         if (records.some((record) => record.isIntersecting)) { setRendererVisible(true); observer?.disconnect(); }
-      }, { rootMargin: '180px 0px' });
+      }, { rootMargin: '0px 0px 180px 0px' });
       observer.observe(stage);
     };
     const requestedDay = new URLSearchParams(window.location.search).get('day');
@@ -114,7 +114,7 @@ export function MapView({ selectedDay, allDays = emptyDays, selectedPlaceId, onS
         <EntryDetails entry={active[0]} allDays={allDays} inDay={Boolean(selectedDay)} onOpenDay={onOpenOverviewDay} onShowOnDay={() => showOnDay(active[0])} />
       </> : <>
         <span className="eyebrow">{active.length > 1 ? 'Nearby places' : selectedDay ? 'Explore this day' : 'Your autumn route'}</span>
-        <h3 tabIndex={-1}>{active.length > 1 ? `${active.length} stops in this area` : selectedDay ? `${entries.length} mapped stops` : filter === 'all' ? 'Five bases. One easy journey.' : `${entries.length} ${mapTypeLabel[filter].toLowerCase()} places`}</h3>
+        <h3 tabIndex={-1}>{active.length > 1 ? `${active.length} stops in this area` : selectedDay ? `${entries.length} mapped ${entries.length === 1 ? 'stop' : 'stops'}` : filter === 'all' ? 'Five bases. One easy journey.' : `${entries.length} ${filter === 'optional' ? 'alternative' : mapTypeLabel[filter].toLowerCase()} ${entries.length === 1 ? 'place' : 'places'}`}</h3>
         <p className="map-panel-intro">{active.length > 1 ? 'Some stops share a location. Choose one to see the full details.' : 'Select a labeled pin or choose a place here for dates, details and directions.'}</p>
         {entries.length === 0 && <p className="inline-empty">No matching places. Try a different search, base or map layer.</p>}
         <div className="map-place-list">{(active.length > 1 ? active : entries).map((entry) => <button type="button" key={entry.id} onClick={() => chooseFromList(entry)}><span className={`map-list-icon icon-${entry.type}`}>{entry.city ? <BedDouble size={15} /> : entry.label}</span><span><strong>{entry.title}</strong><small>{entry.subtitle}</small></span><ArrowRight size={14} /></button>)}</div>
