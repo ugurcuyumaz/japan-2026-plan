@@ -27,9 +27,15 @@ The budget is an indicative Japan-cost range for two. It excludes international 
 
 ## Source of truth and development
 
-Use **Save offline travel pack** above the daily explorer to download the current plan as a standalone HTML file, or the download icon in day focus for one date. Keep it in Downloads / Files and open it before travel. It includes the current Tokyo choices and full notes; save again after edits. Text works offline, while directions and official links require internet. The website itself does not cache an offline copy.
+Use **Save offline travel pack** above the daily explorer to download the current plan as a standalone HTML file, or the download icon in day focus for one date. Keep it in Downloads / Files and open it before travel. It includes the current Tokyo choices and full notes; save again after edits. Text works offline, while directions and official links require internet. The full pack includes saved ideas and action progress; single-day files include saved places for that date. The website itself does not cache an offline copy.
 
 Day focus offers Quick view and Full notes. Transport instructions and booking warnings stay visible in Quick view. Tokyo ideas can be filtered by the sample route’s total time commitment; pace includes the selected evening as well as the main outing. Assigned ideas with known ticket or seat requirements create dated preparation tasks in the reservation board, day essentials and saved travel pack. Moving or removing an idea updates those tasks; it never confirms a reservation.
+
+The **Travel desk** previews any date with its hotel/directions, checkout context, outstanding preparation and the next day's first planned transfer. The clock uses Japan time; previews do not change the itinerary. Use **Saved ideas** to shortlist Tokyo ideas or dated alternatives without assigning them. Their Open controls reveal the exact dated place, or the original Tokyo idea if that place is no longer in the selected plan.
+
+Preparation tasks now have **Mark handled / Reopen** controls. Progress is saved locally, updates outstanding counts and offline references, and stays separate from the source-confirmed hotels/flights. Moving an idea creates a different dated task, which starts open. Use **Keep your decisions safe** near the bottom to download a JSON backup of all choices, saves and progress. Imports are validated and reviewed before replacing all three lists, with undo until the next edit. JSON backups transfer decisions; HTML packs are readable offline snapshots. Later edits are not automatically synchronized.
+
+The [travel-use review and implementation](docs/ON-TRIP-CX-PLAN-2026-10-16.md) records this round's decisions, source-plan correction and verification.
 
 The full component review and implementation decisions are recorded in [`docs/WEBSITE-REVIEW-2026-10-16.md`](docs/WEBSITE-REVIEW-2026-10-16.md). It covers navigation, discovery, day plans, Tokyo choices, maps, reservations, hotels, budget, accessibility and offline references.
 

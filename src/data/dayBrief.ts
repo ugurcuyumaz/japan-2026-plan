@@ -1,10 +1,12 @@
 import type { Booking, Stay, TripDay } from '../types/trip';
+import { isOpenBooking } from './bookingProgress';
 
 export function dayBrief(day: TripDay, stays: Stay[], bookings: Booking[]) {
   return {
     tonight: stays.find((stay) => stay.checkIn <= day.id && day.id < stay.checkOut),
     leaving: stays.find((stay) => stay.checkOut === day.id),
-    advance: bookings.filter((booking) => booking.dayId === day.id && ['unbooked', 'verify'].includes(booking.status)),
+    advance: bookings.filter((booking) => booking.dayId === day.id && isOpenBooking(booking)),
+    handled: bookings.filter((booking) => booking.dayId === day.id && booking.handledAt && ['unbooked', 'verify'].includes(booking.status)),
     onSite: bookings.filter((booking) => booking.dayId === day.id && booking.status === 'on-site'),
   };
 }

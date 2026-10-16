@@ -26,6 +26,11 @@ describe('trip-wide finder index', () => {
     expect(searchTripIndex(index, 'Hakone Open-Air').results[0]).toMatchObject({ target: { kind: 'idea', ideaId: 'hakone-gora' } });
     expect(searchTripIndex(index, 'budget').results[0]).toMatchObject({ target: { kind: 'section', sectionId: 'budget' } });
   });
+  it('labels handled bookings in the finder subtitle', () => {
+    const booking = buildPlannerBookings(emptyTokyoChoices()).find((item) => item.status === 'unbooked')!;
+    const handledIndex = buildTripSearchIndex(tripDays, [{ ...booking, handledAt: '2026-10-15T10:00:00.000Z' }], []);
+    expect(handledIndex.find((item) => item.kind === 'booking')?.subtitle).toContain('Handled by you');
+  });
 
   it('reports the full match count while capping the visible list', () => {
     const matches = searchTripIndex(index, 'Tokyo', 16);

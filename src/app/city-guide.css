@@ -12,6 +12,8 @@
 .city-guide-filters { display:grid; grid-template-columns:repeat(auto-fit,minmax(min(100%,180px),1fr)); align-items:end; gap:12px; padding:14px 0; }
 .city-guide-filters label { display:grid; gap:5px; color:var(--muted); font-size:.78rem; font-weight:650; }
 .city-guide-filters select { width:100%; min-height:44px; padding:0 10px; border:1px solid var(--line); border-radius:var(--control-radius); background:white; color:var(--ink); }
+.city-guide-saved-only { display:flex!important; align-items:center; grid-template-columns:auto 1fr!important; gap:9px!important; min-height:44px; padding:0 10px; color:var(--ink)!important; }
+.city-guide-saved-only input { width:18px; height:18px; accent-color:var(--ink); }
 .city-guide-filters p { margin:0; color:var(--muted); font-size:.82rem; }
 .city-guide-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(min(100%,275px),1fr)); gap:12px; }
 .city-guide-card { display:flex; flex-direction:column; align-items:flex-start; min-width:0; padding:16px; border:1px solid var(--line); border-radius:var(--radius); background:var(--paper); }
@@ -28,6 +30,8 @@
 .city-guide-links { display:flex; flex-wrap:wrap; gap:4px 12px; margin-top:auto; }
 .city-guide-links a { display:inline-flex; align-items:center; gap:4px; min-height:44px; color:var(--ink); font-size:.79rem; font-weight:700; }
 .city-guide-card .text-button { min-height:44px; margin-top:4px; }
+.city-guide-place-actions { display:flex; flex-wrap:wrap; align-items:center; gap:4px 12px; margin-top:8px; }
+.city-guide-place-actions button { min-height:44px; }
 .city-guide-empty { padding:16px; color:var(--muted); background:var(--paper); }
 .city-guide-summary:focus-visible,.city-guide-card a:focus-visible,.city-guide-card button:focus-visible,.city-guide-visit-notes summary:focus-visible { outline:3px solid var(--focus-color); outline-offset:2px; box-shadow:0 0 0 5px var(--focus-halo); }
 @media(max-width:600px) { .city-guide-section { padding-top:28px; } .city-guide-summary { align-items:flex-start; flex-direction:column; padding:14px; } .city-guide-toggle { width:100%; justify-content:space-between; } .city-guide-content { padding:0 10px 10px; } }

@@ -1,0 +1,9 @@
+.pool-saved-only { display:flex; align-items:center; gap:9px; min-height:44px; padding:0 10px; color:var(--ink); font-size:.85rem; font-weight:650; }
+.pool-saved-only input { width:18px; height:18px; accent-color:var(--ink); }
+.pool-secondary-filters { grid-column:1/-1; min-width:0; }
+.pool-secondary-filters > summary { display:flex; align-items:center; min-height:44px; width:max-content; max-width:100%; padding:0 12px; border:1px solid var(--line); border-radius:var(--control-radius); background:white; color:var(--ink); font-size:.84rem; font-weight:700; cursor:pointer; }
+.pool-secondary-filter-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(min(100%,180px),1fr)); align-items:end; gap:12px; padding:12px 0 2px; }
+.pool-idea-wrap > .pool-save-toggle,.pool-idea-wrap > .pool-compare-toggle { min-height:44px; margin:0 0 6px; }
+.pool-idea-wrap > .pool-save-toggle { margin-left:6px; }
+.pool-secondary-filters:focus-within > summary,.pool-secondary-filters > summary:focus-visible,.pool-saved-only:focus-within,.pool-idea-wrap > button:focus-visible { outline:3px solid var(--focus-color); outline-offset:2px; box-shadow:0 0 0 5px var(--focus-halo); }
+@media(max-width:480px) { .pool-idea-wrap > .pool-save-toggle,.pool-idea-wrap > .pool-compare-toggle { min-height:44px; } }

@@ -1,0 +1,14 @@
+.saved-ideas-list { display:grid; gap:8px; margin:0; padding:0; list-style:none; }
+.saved-ideas-list li { display:flex; align-items:center; justify-content:space-between; gap:16px; padding:12px 14px; border:1px solid var(--line); border-radius:var(--control-radius); background:rgba(255,255,255,.5); }
+.saved-ideas-list li > div:first-child { min-width:0; }
+.saved-ideas-list strong { display:block; margin-top:4px; color:var(--ink); }
+.saved-ideas-list p { margin:4px 0 0; color:var(--muted); font-size:.82rem; line-height:1.45; }
+.saved-ideas-list .saved-ideas-missing-note { color:var(--coral); font-weight:700; }
+.saved-ideas-actions { display:flex; flex:none; align-items:center; gap:6px; }
+.saved-ideas-actions button { min-height:44px; }
+.saved-remove { display:grid; width:44px; place-items:center; border:1px solid var(--line); border-radius:var(--control-radius); color:var(--ink); background:white; cursor:pointer; }
+.saved-ideas-empty { display:flex; align-items:center; gap:10px; padding:14px; border:1px dashed var(--line); border-radius:var(--control-radius); color:var(--muted); }
+.saved-ideas-empty p { margin:0; line-height:1.5; }
+.saved-ideas-empty a { color:var(--ink); font-weight:700; }
+.saved-ideas button:focus-visible,.saved-ideas a:focus-visible { outline:3px solid var(--focus-color); outline-offset:2px; box-shadow:0 0 0 5px var(--focus-halo); }
+@media(max-width:600px) { .saved-ideas-list li { align-items:flex-start; flex-direction:column; } .saved-ideas-actions { width:100%; } .saved-ideas-actions .secondary-button { flex:1; justify-content:center; } }

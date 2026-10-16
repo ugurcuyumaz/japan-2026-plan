@@ -1,0 +1,23 @@
+.alternative-save { min-height:44px; margin:4px 14px 14px; font-size:13px; }
+.alternative-save[aria-pressed="true"] { color:white; background:var(--ink); border-color:var(--ink); }
+.personal-storage-notice { padding:14px 18px; border:1px solid var(--coral); border-radius:var(--radius); color:var(--ink); line-height:1.5; }
+.personal-storage-notice a { color:var(--coral); font-weight:700; }
+#travel-desk,#saved-ideas,#planner-backup,#bookings { scroll-margin-top:100px; }
+.day-handled-brief { margin-top:12px; padding:10px 12px; background:var(--cream); border:1px solid var(--line); border-radius:var(--radius); }
+.day-handled-brief summary { min-height:44px; display:flex; align-items:center; cursor:pointer; font-size:13px; font-weight:650; }
+.day-handled-brief ul { list-style:none; padding:0; }
+.day-handled-brief button { display:flex; align-items:center; justify-content:space-between; gap:10px; width:100%; min-height:44px; padding:9px 0; border:0; background:transparent; color:var(--ink); text-align:left; cursor:pointer; }
+.day-handled-brief button span { display:grid; gap:4px; }
+.day-handled-brief small { color:var(--muted); }
+@media print { .alternative-save,.planner-backup-section,.saved-ideas,.travel-desk { display:none!important; } }
+
+.travel-desk { max-width:1112px; width:calc(100% - clamp(40px,10vw,140px)); margin:48px auto 0; }
+
+.pool-idea-tools { display:flex; align-items:center; flex-wrap:wrap; gap:6px; padding-bottom:6px; }
+.pool-idea-tools button { min-height:44px; padding:7px 12px; font-size:12px; }
+.travel-desk-footer { flex-wrap:wrap; }
+.travel-desk-tool-links { display:flex; gap:14px; flex-wrap:wrap; margin-left:auto; }
+.travel-desk-tool-links a { display:inline-flex; min-height:44px; align-items:center; font-weight:650; color:var(--ink); }
+.booking-progress-heading h2 { font-size:clamp(30px,3.3vw,42px); line-height:1.1; letter-spacing:-.035em; }
+.booking-progress-entry { scroll-margin-top:100px; }
+@media(max-width:600px) { .travel-desk-tool-links { margin-left:0; gap:8px 16px; } .booking-progress-main { min-width:0; overflow-wrap:anywhere; } .booking-progress-main small { flex-wrap:wrap; } }

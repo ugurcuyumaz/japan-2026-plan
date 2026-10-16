@@ -1,14 +1,16 @@
 import { useEffect, useState } from 'react';
 import { Download } from 'lucide-react';
 import { buildTravelPack } from '../data/travelPack';
+import type { ShortlistKey } from '../data/shortlist';
+import type { BookingProgress } from '../data/bookingProgress';
 import type { TokyoChoices } from '../data/tokyoChoices';
 
-export function TravelPackButton({ choices, dayId, iconOnly = false }: { choices: TokyoChoices; dayId?: string; iconOnly?: boolean }) {
+export function TravelPackButton({ choices, dayId, iconOnly = false, bookingProgress = {}, savedKeys = [] }: { choices: TokyoChoices; dayId?: string; iconOnly?: boolean; bookingProgress?: BookingProgress; savedKeys?: ShortlistKey[] }) {
   const [notice, setNotice] = useState('');
-  useEffect(() => setNotice(''), [dayId, choices]);
+  useEffect(() => setNotice(''), [dayId, choices, bookingProgress, savedKeys]);
   const save = () => {
     try {
-      const file = new Blob([buildTravelPack(choices, dayId)], { type: 'text/html;charset=utf-8' });
+      const file = new Blob([buildTravelPack(choices, dayId, new Date(), bookingProgress, savedKeys)], { type: 'text/html;charset=utf-8' });
       const url = URL.createObjectURL(file);
       const anchor = document.createElement('a');
       anchor.href = url;

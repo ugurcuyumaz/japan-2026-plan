@@ -1,0 +1,64 @@
+.travel-desk {
+  margin: 1.4rem 0 2.2rem;
+  padding: clamp(1rem, 2.2vw, 1.6rem);
+  border: 1px solid rgba(36, 74, 71, .17);
+  border-radius: 18px;
+  background: linear-gradient(135deg, #f5f8f4, #fbfaf6 70%);
+  box-shadow: 0 12px 34px rgba(32, 53, 48, .06);
+}
+.travel-desk-heading,.travel-desk-card-title,.travel-desk-clock,.travel-desk-shortcuts,.travel-desk-transfer,.travel-desk-luggage,.travel-desk-footer { display:flex; align-items:center; }
+.travel-desk-heading { justify-content:space-between; gap:1rem; margin-bottom:1rem; }
+.travel-desk-heading h2 { margin:.12rem 0 0; font-size:clamp(1.35rem, 2.5vw, 1.8rem); }
+.travel-desk-clock { gap:.45rem; color:#4e625c; font-size:.9rem; }
+.travel-desk-clock strong { color:#213d37; font-variant-numeric:tabular-nums; margin-left:.25rem; }
+.travel-desk-grid { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:.8rem; }
+.travel-desk-preview,.travel-desk-card { min-width:0; padding:1rem; border:1px solid rgba(36,74,71,.12); border-radius:13px; background:rgba(255,255,255,.79); }
+.travel-desk-preview { display:flex; flex-direction:column; gap:.85rem; }
+.travel-desk-date-controls { display:grid; gap:.4rem; }
+.travel-desk-date-controls label { font-size:.78rem; font-weight:700; color:#435850; }
+.travel-desk-date-controls select { width:100%; min-height:46px; padding:.55rem .75rem; border:1px solid #b6c7bf; border-radius:9px; background:#fff; color:#203630; font:inherit; font-size:16px; }
+.travel-desk-shortcuts { gap:.5rem; flex-wrap:wrap; }
+.travel-desk-shortcut { min-height:44px; display:inline-flex; align-items:center; gap:.3rem; padding:.45rem .7rem; border:1px solid #bfd0c7; border-radius:999px; background:#f8fbf8; color:#25544a; font:inherit; font-size:.85rem; font-weight:700; cursor:pointer; }
+.travel-desk-shortcut:hover { background:#eaf3ed; }
+.travel-desk-day-summary { padding-top:.1rem; }
+.travel-desk-day-summary h3 { margin:.35rem 0 .45rem; color:#263d36; font-size:1.18rem; line-height:1.35; }
+.travel-desk-day-summary p { margin:0; color:#5b6962; font-size:.91rem; line-height:1.55; }
+.travel-desk-open-day { min-height:44px; display:inline-flex; align-items:center; gap:.45rem; margin-top:.8rem; padding:.55rem .8rem; border:0; border-radius:8px; background:#24594e; color:#fff; font:inherit; font-size:.9rem; font-weight:700; cursor:pointer; }
+.travel-desk-open-day:hover { background:#19473d; }
+.travel-desk-card-title { gap:.5rem; color:#2b5c50; }
+.travel-desk-card-title h3 { margin:0; color:#263d36; font-size:1rem; }
+.travel-desk-confirmed { display:inline-block; margin-top:.7rem; color:#58766b; font-size:.76rem; font-weight:700; text-transform:uppercase; letter-spacing:.04em; }
+.travel-desk-property { display:block; margin-top:.2rem; color:#263d36; line-height:1.4; }
+.travel-desk-directions { min-height:44px; display:inline-flex; align-items:center; gap:.35rem; margin-top:.25rem; color:#246052; font-size:.89rem; font-weight:700; text-decoration-thickness:1px; text-underline-offset:3px; }
+.travel-desk-luggage { align-items:flex-start; gap:.4rem; margin:.7rem 0 0; padding-top:.65rem; border-top:1px solid #e6ece7; color:#596760; font-size:.82rem; line-height:1.45; }
+.travel-desk-luggage svg { flex:0 0 auto; margin-top:1px; }
+.travel-desk-muted { margin:.65rem 0 0; color:#64716c; font-size:.88rem; line-height:1.5; }
+.travel-desk-task-list { display:grid; gap:.35rem; margin:.55rem 0 0; padding:0; list-style:none; }
+.travel-desk-task-list button { width:100%; min-height:48px; display:flex; align-items:center; justify-content:space-between; gap:.6rem; padding:.5rem .3rem; border:0; border-top:1px solid #e7ede8; background:transparent; color:#263d36; text-align:left; cursor:pointer; }
+.travel-desk-task-list li:first-child button { border-top:0; }
+.travel-desk-task-list button>span { display:grid; gap:.18rem; min-width:0; }
+.travel-desk-task-list strong { font-size:.85rem; line-height:1.35; }
+.travel-desk-task-list small { color:#68766f; font-size:.75rem; line-height:1.35; }
+.travel-desk-task-list button>svg { flex:0 0 auto; color:#538073; }
+.travel-desk-progress-note { margin:.55rem 0 0; color:#718078; font-size:.72rem; line-height:1.45; }
+.travel-desk-next-date { display:block; margin:.65rem 0 .35rem; color:#52635b; font-size:.82rem; }
+.travel-desk-transfer { align-items:flex-start; gap:.65rem; padding:.55rem 0; }
+.travel-desk-transfer-time { color:#2b5c50; font-size:.92rem; font-weight:800; font-variant-numeric:tabular-nums; }
+.travel-desk-transfer>span:last-child { display:grid; gap:.15rem; min-width:0; }
+.travel-desk-transfer strong { color:#263d36; font-size:.85rem; line-height:1.35; }
+.travel-desk-transfer small { color:#69776f; font-size:.74rem; line-height:1.35; }
+.travel-desk-inline-link { min-height:44px; display:inline-flex; align-items:center; gap:.35rem; padding:.35rem 0; border:0; background:transparent; color:#246052; font:inherit; font-size:.85rem; font-weight:700; cursor:pointer; }
+.travel-desk-footer { gap:.65rem; margin-top:.8rem; color:#68776f; font-size:.8rem; }
+.travel-desk-footer .travel-pack-action { margin:0; }
+.travel-desk :focus-visible { outline:3px solid #d68c42; outline-offset:3px; }
+@media(max-width:600px) {
+  .travel-desk { margin:1rem 0 1.6rem; padding:.85rem; border-radius:14px; }
+  .travel-desk-heading { align-items:flex-start; }
+  .travel-desk-clock { align-items:flex-start; gap:.3rem; padding-top:.3rem; font-size:.78rem; }
+  .travel-desk-clock svg { margin-top:2px; }
+  .travel-desk-clock span { display:grid; gap:.08rem; }
+  .travel-desk-clock strong { margin:0; }
+  .travel-desk-grid { grid-template-columns:minmax(0,1fr); gap:.6rem; }
+  .travel-desk-preview,.travel-desk-card { padding:.85rem; }
+  .travel-desk-footer { align-items:flex-start; flex-direction:column; gap:.25rem; }
+}

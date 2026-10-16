@@ -283,6 +283,10 @@ describe('canonical itinerary data', () => {
     expect(get(sapporo, 'sapporo-view-checkin')?.startTime).toBe('15:10');
     expect(get(sapporo, 'garaku-backup')?.role).toBe('backup');
     expect(get(sapporo, 'beer-central-return')).toBeUndefined();
+    expect(get(sapporo, 'sapporo-moiwa-transfer')).toBeUndefined();
+    expect(get(sapporo, 'sapporo-moiwa-return')).toBeUndefined();
+    expect(get(sapporo, 'mt-moiwa')?.travelNote).toContain('Only if you choose');
+    expect(get(sapporo, 'mt-moiwa')?.startTime).toBeUndefined();
     expect(sendai.places.find((place) => place.id === 'jozenji-dori')).toBeTruthy();
     expect(sendai.places.find((place) => place.id === 'date-no-gyutan-backup')?.role).toBe('backup');
     expect(sendai.places.find((place) => place.id === 'hotel-jozenji-transfer')?.originQuery).toContain('KOKO HOTEL');

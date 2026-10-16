@@ -22,7 +22,10 @@ export interface TripSearchResult {
 }
 
 const coreSections = [
+  { id: 'travel-desk', title: 'Travel desk', keywords: 'today tomorrow preview hotel checkout preparation' },
   { id: 'overview', title: 'Trip overview', keywords: 'dates travelers countdown' },
+  { id: 'saved-ideas', title: 'Saved ideas', keywords: 'saved shortlist favorites favourite bookmarks' },
+  { id: 'planner-backup', title: 'Backup and restore', keywords: 'backup restore import json export decisions devices progress' },
   { id: 'route-map', title: 'Route map', keywords: 'map cities route hotels places' },
   { id: 'daily-plan', title: 'Daily plan', keywords: 'itinerary days schedule' },
   { id: 'city-guide', title: 'City food and activity alternatives', keywords: 'city guide alternatives food restaurants indoor swaps sightseeing' },
@@ -77,7 +80,7 @@ export function buildTripSearchIndex(days: TripDay[], plannerBookings: Booking[]
       id: `booking-${booking.id}`,
       kind: 'booking',
       title: booking.item,
-      subtitle: `${booking.date} · ${booking.status === 'booked' ? 'confirmed' : booking.status === 'on-site' ? 'buy on the day' : 'to do'}`,
+      subtitle: `${booking.date} · ${booking.status === 'booked' ? 'confirmed' : booking.status === 'on-site' ? 'buy on the day' : booking.handledAt ? 'Handled by you' : 'to do'}`,
       target: { kind: 'booking', bookingId: booking.id },
       searchText: fieldsText(booking.item, booking.destination, booking.date, booking.deadline, booking.notes),
     });

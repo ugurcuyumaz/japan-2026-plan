@@ -16,6 +16,13 @@ describe('day essentials', () => {
     expect(brief.tonight).toBeUndefined();
     expect(brief.leaving?.id).toBe('stay-tokyo-long');
   });
+  it('separates handled dated actions from open preparation actions', () => {
+    const day = tripDays.find((item) => item.id === '2026-11-03')!;
+    const plannerBookings = bookings.map((booking) => booking.id === 'booking-tobu' ? { ...booking, handledAt: '2026-10-15T10:00:00.000Z' } : booking);
+    const brief = dayBrief(day, stays, plannerBookings);
+    expect(brief.advance.some((item) => item.id === 'booking-tobu')).toBe(false);
+    expect(brief.handled.map((item) => item.id)).toContain('booking-tobu');
+  });
   it('opens each base visit on arrival, including a hotel swap and the return to Tokyo', () => {
     expect(baseVisitArrival('Sapporo', 0, stays, tripDays)?.id).toBe('2026-10-24');
     expect(baseVisitArrival('Tokyo', 0, stays, tripDays)?.id).toBe('2026-10-31');

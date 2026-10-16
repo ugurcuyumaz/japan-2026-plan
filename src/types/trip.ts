@@ -84,6 +84,8 @@ export interface Booking {
   extraLinks?: { label: string; url: string }[];
   notes: string;
   dayId?: string;
+  /** Local traveler progress annotation; never changes the source reservation status. */
+  handledAt?: string;
 }
 
 export interface BudgetCategory {

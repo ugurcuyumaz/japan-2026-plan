@@ -63,8 +63,36 @@ describe('offline travel pack', () => {
     const pass = buildTravelPack(emptyTokyoChoices(), '2026-10-27', savedAt);
     expect(pass).toContain('Cost reference: ¥40,000 · per adult.');
   });
+  it('exports traveler handling progress while preserving source reservation status', () => {
+    const html = buildTravelPack(emptyTokyoChoices(), '2026-11-03', savedAt, { 'booking-tobu': '2026-10-15T10:00:00.000Z' });
+    expect(html).toContain('<strong>Not booked</strong> · 3 Nov');
+    expect(html).toContain('<strong>Handled by traveler</strong>');
+    expect(html).toContain('handling progress is separate and does not confirm a reservation');
+    expect(html).not.toMatch(/booking-tobu[^]*?confirmation number/i);
+  });
   it('escapes all HTML delimiters and refuses an unknown day', () => {
     expect(escapeHtml('<script a="x">&\'</script>')).toBe('&lt;script a=&quot;x&quot;&gt;&amp;&#39;&lt;/script&gt;');
     expect(() => buildTravelPack(emptyTokyoChoices(), '2026-12-01', savedAt)).toThrow();
+  });
+});
+
+
+describe('saved options in readable exports', () => {
+  it('keeps map and source links for a saved Tokyo backup after removing its outing', () => {
+    const html = buildTravelPack(emptyTokyoChoices(), undefined, new Date('2026-10-16T10:00:00.000Z'), {}, ['place:2026-11-04:pool-ikebukuro-lunch-backup']);
+    expect(html).toContain('Saved from an earlier Tokyo choice');
+    const saved = html.split('<section id="saved-ideas">')[1]?.split('<section id="reservations">')[0];
+    expect(saved).toContain('maps/search/');
+    expect(saved).toContain('OCEAN Casita');
+  });
+  it('includes an unassigned shortlist reference without adding it to the dated main plan', () => {
+    const html = buildTravelPack(emptyTokyoChoices(), undefined, new Date('2026-10-16T10:00:00.000Z'), {}, ['idea:nezu-museum']);
+    const savedSection = html.split('<section id="saved-ideas">')[1]?.split('<section id="reservations">')[0];
+    expect(savedSection).toContain('Nezu Museum + Aoyama garden');
+    expect(savedSection).toContain('not extra commitments');
+    expect(savedSection).toContain('closed Mondays');
+    const datedDay = html.split('<section id="day-2026-11-04">')[1]?.split('<section id="day-')[0];
+    expect(datedDay).toContain('Keep this day free');
+    expect(datedDay).not.toContain('Nezu Museum galleries');
   });
 });
