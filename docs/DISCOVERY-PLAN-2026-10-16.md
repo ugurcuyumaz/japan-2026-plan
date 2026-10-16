@@ -34,3 +34,9 @@ Confirm secure primary sources, unique IDs, valid coordinates, sensible date sui
 ## Parent source check
 
 The [official Mt. Hakodate maintenance notice](https://334.co.jp/news/2026/0406-22668/) confirms ropeway closure from 20 October through 8 November 2026, covering the Hakodate stay. Preserve the existing closure handling. The [official Tokyo November guide](https://www.gotokyo.org/en/story/guide/november/index.html) is useful seasonal context; individual events and opening calendars must be verified against the actual trip dates.
+
+## Delivered and verified
+
+The published planner now has 18 new city alternatives and 23 Tokyo day outings plus four evenings (nine new outings and three new evenings). Noboribetsu keeps its existing named meals and short valley stop, protecting the luggage and rail-transfer buffer. The shared planner integrates alternatives into search, dated maps and saved plans without adding them to the main timeline.
+
+See [discovery CX verification](DISCOVERY-CX-2026-10-16.md#verification) for the completed build, 98-test suite, desktop/phone interaction checks and inspected downloads. The research logs link the primary venue, tourism and restaurant pages checked for this release. Hotels, Peach and international flights retain the traveler-confirmed status; the newly researched choices and preparation tasks are unconfirmed.

@@ -4,7 +4,7 @@
 
 - The Tokyo activity pool now lives in `src/app/TokyoActivityPool.tsx`; its existing assignment, removal, undo, sharing, date, and request props remain intact.
 - Tokyo browsing keeps the activity kind and time filters, adds the actual pool categories from `tokyoPoolCategories`, and adds weather and theme filters backed by each activity's metadata.
-- Up to three Tokyo ideas can be compared in an in-flow panel. The panel shows duration, area, weather fit, main visits, meal options, cautions or advance tasks, and source links. Remove and clear controls are available. Choosing a date updates the existing browse date; adding or replacing a dated idea still uses the existing assignment control and planner state.
+- Up to three Tokyo ideas can be compared in an in-flow panel. The panel shows duration, area, weather fit, main visits, meal options, cautions and advance tasks, explicit known date limits, and source links. Remove and clear controls are available. Choosing a date updates the existing browse date; adding or replacing a dated idea still uses the existing assignment control and planner state.
 - Date-specific closure data disables a new assignment or move for that date and shows the supplied reason. Existing saved choices remain visible with the warning so a prior choice is not silently rewritten.
 - The collapsed City guide sits between the dated plan and Tokyo pool. Its city, food or sight, and indoor filters show sourced map links, area, time allowance, cuisine, and a route-relevant day shortcut. These alternatives remain optional swaps.
 - Day focus explains that its alternatives are swaps, displays source-link counts, and lets the reader filter all, food, or things to do. The filter resets when the day changes or a place is selected, preserving finder and map jumps.
@@ -21,4 +21,12 @@ The guide uses native collapsed `details` disclosure, labeled native filters, li
 
 ## Verification
 
-`pnpm run build` completed successfully on 16 October 2026, including TypeScript and the Vite production build. The output retains the pre-existing large MapLibre vendor chunk notice. No browser viewport QA or interaction automation was run in this work slice.
+Parent integration verified on 16 October 2026:
+
+- 98 tests across 15 files passed; TypeScript, the production build and the stricter unused-import check passed.
+- Published desktop checks covered city/type/indoor filters, visit notes, suitable-day shortcuts, day-alternative filtering, finder navigation, three-idea comparison, removal/clear, and its date handoff.
+- Known Nezu Museum closure on 9 November blocks new assignment, with the reason displayed. Older saved choices remain visible with a dated warning.
+- Assigning Sunshine City adds the dated, unconfirmed aquarium preparation task. Undo restored the original empty Tokyo choices after testing.
+- Actual day and full-trip HTML downloads were inspected. They include the newly selected outing/task and researched city alternatives as appropriate, with no external rendering assets.
+- Live phone checks at 390px and 320px covered filters, result counts, comparison, 44px main controls, day focus and alternative filtering. The document and day dialog did not overflow horizontally.
+- The production build retains the existing large MapLibre vendor chunk notice. These checks do not establish live venue availability or offline interactive-map support.
