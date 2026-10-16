@@ -407,6 +407,46 @@ img, svg, canvas { max-width:100%; }
 .pool-card-actions { display: flex; flex-wrap: wrap; align-items: center; gap: 10px; margin-top: auto; padding-top: 4px; }
 .pool-card-actions select { min-height: 44px; max-width: 230px; padding: 0 10px; border: 1px solid var(--line, #ded8cc); border-radius: var(--control-radius); background: white; color: inherit; }
 .pool-assigned { flex: 1; color: var(--green, #326456); font-size: .85rem; font-weight: 650; }
+.pool-browse-controls { display:grid; grid-template-columns:repeat(auto-fit,minmax(min(100%,220px),1fr)); align-items:end; gap:12px; padding:16px; }
+.pool-browse-controls > .base-tabs { grid-column:1/-1; }
+.pool-browse-controls > p[role="status"] { grid-column:1/-1; margin:0; color:var(--muted); font-size:.85rem; }
+.pool-browse-controls .pool-effort-filter { display:grid; gap:5px; color:var(--muted); font-size:.78rem; font-weight:650; }
+.pool-browse-controls .pool-effort-filter select { width:100%; min-height:44px; padding:0 10px; border:1px solid var(--line); border-radius:var(--control-radius); background:white; color:inherit; }
+.pool-compare { margin:0 14px 16px; padding:16px; border:1px solid #b8c8be; border-radius:var(--radius); background:#f3f6f2; }
+.pool-compare-heading { display:flex; justify-content:space-between; align-items:center; gap:12px; margin-bottom:12px; }
+.pool-compare-heading h3 { margin:3px 0 0; font-family:var(--serif,Georgia,serif); font-size:1.3rem; }
+.pool-compare-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(min(100%,250px),1fr)); gap:10px; }
+.pool-compare-grid article { position:relative; min-width:0; padding:14px; border:1px solid var(--line); border-radius:var(--control-radius); background:var(--paper); }
+.pool-compare-grid h4 { padding-right:48px; margin:0 0 12px; font-size:1rem; }
+.pool-compare-grid dl { display:grid; gap:8px; margin:0 0 8px; }
+.pool-compare-grid dl > div { display:grid; grid-template-columns:82px minmax(0,1fr); gap:8px; font-size:.8rem; line-height:1.45; }
+.pool-compare-grid dt { color:var(--muted); font-weight:650; }
+.pool-compare-grid dd { margin:0; overflow-wrap:anywhere; }
+.pool-compare-grid dd a { display:inline-flex; align-items:center; gap:4px; min-height:36px; margin-right:8px; color:var(--ink); }
+.pool-compare-grid .text-button { min-height:44px; }
+.pool-compare-remove { position:absolute; top:8px; right:8px; display:grid; place-items:center; width:44px; height:44px; border:1px solid var(--line); border-radius:50%; background:white; color:var(--ink); cursor:pointer; }
+.pool-compare-date { display:flex; flex-wrap:wrap; align-items:center; justify-content:space-between; gap:10px; margin-top:12px; font-size:.85rem; font-weight:650; }
+.pool-compare-date select { min-height:44px; min-width:min(100%,245px); padding:0 10px; border:1px solid var(--line); border-radius:var(--control-radius); background:white; color:inherit; }
+.pool-compare-toggle { min-height:44px; }
+.pool-compare { scroll-margin-top:100px; }
+.pool-compare-bar { position:sticky; top:82px; z-index:15; display:flex; align-items:center; gap:8px; margin:0 14px 12px; padding:5px 8px; border:1px solid var(--line); border-radius:9px; background:var(--cream); box-shadow:var(--shadow); }
+.pool-compare-bar > span { margin-right:auto; font-size:12px; font-weight:700; }
+.pool-compare-bar button { min-height:44px; padding:6px 9px; border:1px solid var(--line); border-radius:7px; background:var(--paper); color:var(--ink); font:inherit; font-size:12px; font-weight:650; }
+@media(max-width:767px) { .pool-compare-bar { top:68px; margin-inline:10px; } }
+@media print { .pool-compare-bar { display:none; } }
+.pool-idea-wrap { display:grid; gap:7px; min-width:0; }
+.pool-idea-wrap > .pool-compare-toggle { justify-self:start; padding:7px 12px; }
+.pool-theme-chips { display:flex; flex-wrap:wrap; grid-column:1/-1; gap:6px; }
+.pool-theme-chips button { min-height:44px; padding:8px 10px; border:1px solid var(--line); border-radius:999px; background:white; color:var(--muted); font:inherit; font-size:.75rem; font-weight:650; cursor:pointer; text-transform:capitalize; }
+.pool-theme-chips button.is-active { border-color:var(--ink); background:var(--ink); color:white; }
+.pool-theme-chips button:focus-visible { outline:3px solid var(--focus-color); outline-offset:2px; }
+.day-alternative-note { display:flex; align-items:flex-start; gap:8px; padding:10px 12px; color:var(--ink); background:#eff4ef; font-size:.82rem; line-height:1.5; }
+.day-alternative-note svg { flex:none; margin-top:2px; }
+.day-alternative-filters { display:flex; flex-wrap:wrap; gap:7px; padding:10px 14px 2px; }
+.day-alternative-filters button { min-height:44px; padding:8px 11px; border:1px solid var(--line); border-radius:999px; background:white; color:var(--muted); font:inherit; font-size:.78rem; font-weight:650; cursor:pointer; }
+.day-alternative-filters button.is-active { border-color:var(--ink); background:var(--ink); color:white; }
+.day-alternative-filters button:focus-visible { outline:3px solid var(--focus-color); outline-offset:2px; }
+@media(max-width:600px) { .pool-browse-controls { grid-template-columns:1fr; padding:12px; } .pool-browse-controls > .base-tabs { grid-column:auto; } .pool-compare { margin-right:10px; margin-left:10px; padding:12px; } .pool-compare-heading { align-items:flex-start; flex-direction:column; } .pool-compare-date { align-items:stretch; flex-direction:column; } .pool-compare-date select { width:100%; } }
 @media (max-width: 760px) { .pool-day-strip { grid-template-columns: repeat(2, minmax(0, 1fr)); } .pool-day { min-height:96px; padding:13px; gap:8px; } .pool-day span { font-size:.8rem; } .pool-card { padding: 16px; } .pool-card-summary { margin:-16px; padding:16px; } .pool-card-actions > select { flex: 1; min-width: 155px; } .pool-board-summary { min-height:68px; padding:12px 14px; } .pool-board .pool-grid { padding:0 10px 10px; } }
 @media (max-width: 600px) { .booking-entry > summary { grid-template-columns:1fr auto 24px; gap:6px 10px; padding:12px; } .booking-entry-priority { grid-column:1/-1; } .booking-entry-details { padding:0 12px 12px; } .booking-entry-cost { font-size:11px; } .confirmed-booking-list article { align-items:flex-start; flex-direction:column; gap:4px; } .confirmed-booking-list article > span { align-self:flex-start; text-align:left; } }
 

@@ -35,6 +35,10 @@ The full component review and implementation decisions are recorded in [`docs/WE
 
 Use **Find** or **Ctrl/Cmd+K** to search across days, stops, food, hotels, current preparation tasks and Tokyo ideas. Results open the relevant day, hotel, task or idea. Phone controls use larger touch areas and a persistent Close control in day focus; map rendering is deferred until its section is reached.
 
+The **City guide** adds 18 researched food and activity alternatives for suitable dates in Sapporo, Hakodate, Sendai, Matsushima, Nikko and Kamakura. They also appear in each relevant day’s alternatives, map, search and saved plan. Tokyo now offers **23 day outings and four evenings**, with category, theme, time and indoor-focus filters and comparison of up to three ideas. Known date-specific museum closures prevent new assignments for those dates; older saved choices remain visible with a warning. Weather labels describe the main visits, not a forecast.
+
+See the [discovery plan](docs/DISCOVERY-PLAN-2026-10-16.md), [city research](docs/CITY-RESEARCH-2026-10-16.md), [Tokyo research](docs/TOKYO-RESEARCH-2026-10-16.md) and [CX changes](docs/DISCOVERY-CX-2026-10-16.md) for sources, scope and implementation decisions.
+
 The current website data is in [`src/data/trip.ts`](src/data/trip.ts), with rail comparisons in [`src/data/rail.ts`](src/data/rail.ts). The latest reservation summary is [`source-plan/japan-2026/RESERVATIONS_2026-10-14.md`](source-plan/japan-2026/RESERVATIONS_2026-10-14.md). Older root-level itinerary and topic Markdown files describe previous drafts and may conflict with the booked route; use the live planner for travel.
 
 ```sh

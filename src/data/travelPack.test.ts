@@ -1,9 +1,17 @@
 import { describe, expect, it } from 'vitest';
 import { buildTravelPack, escapeHtml } from './travelPack';
 import { emptyTokyoChoices } from './tokyoChoices';
+import { cityAlternatives } from './cityAlternatives';
 
 const savedAt = new Date('2026-10-15T18:00:00Z');
 describe('offline travel pack', () => {
+  it('carries the city alternatives and their official references on suitable dates', () => {
+    const option = cityAlternatives.find((item) => item.place.type === 'food')!;
+    const html = buildTravelPack(emptyTokyoChoices(), option.suitableDayIds[0], savedAt);
+    expect(html).toContain(escapeHtml(option.place.name));
+    expect(html).toContain(escapeHtml(option.place.sourceUrl!));
+    expect(html).toContain('food backups & optional stops');
+  });
   it('contains the complete trip, all confirmed hotels and reservation instructions with no required network assets', () => {
     const html = buildTravelPack(emptyTokyoChoices(), undefined, savedAt);
     expect(html.match(/<section id="day-/g)).toHaveLength(20);

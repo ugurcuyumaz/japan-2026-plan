@@ -9,8 +9,8 @@ describe('Tokyo choose-your-own pool', () => {
     expect(tokyoFlexibleDays.some((day) => ['2026-10-31', '2026-11-02', '2026-11-03', '2026-11-05', '2026-11-11'].includes(day.id))).toBe(false);
     expect(tokyoFlexibleDays.every((day) => day.label.includes('open Tokyo day'))).toBe(true);
     expect(tokyoFlexibleDays.every((day) => day.outing === null && day.evening === null)).toBe(true);
-    expect(tokyoPoolActivities.filter((activity) => activity.kind === 'outing')).toHaveLength(14);
-    expect(tokyoPoolActivities.filter((activity) => activity.kind === 'evening')).toHaveLength(1);
+    expect(tokyoPoolActivities.filter((activity) => activity.kind === 'outing').length).toBeGreaterThanOrEqual(23);
+    expect(tokyoPoolActivities.filter((activity) => activity.kind === 'evening').length).toBeGreaterThanOrEqual(4);
   });
 
   it('gives each outing a timed, non-overlapping route with usable Google Maps links', () => {
@@ -32,7 +32,7 @@ describe('Tokyo choose-your-own pool', () => {
 
   it('covers the stated choice interests with distinct, manageable outing types', () => {
     const ids = tokyoPoolActivities.map((activity) => activity.id);
-    expect(ids).toEqual(expect.arrayContaining(['deep-fukagawa', 'costco-kawasaki', 'akihabara', 'izakaya-evening', 'shibuya-shopping', 'yokohama', 'kawagoe', 'kawaguchiko', 'asakusa-ueno', 'shinjuku-green', 'odaiba-bay', 'tsukiji-ginza', 'koenji-vintage', 'teamlab-toyosu', 'hakone-gora']));
+    expect(ids).toEqual(expect.arrayContaining(['deep-fukagawa', 'costco-kawasaki', 'akihabara', 'izakaya-evening', 'shibuya-shopping', 'yokohama', 'kawagoe', 'kawaguchiko', 'asakusa-ueno', 'shinjuku-green', 'odaiba-bay', 'tsukiji-ginza', 'koenji-vintage', 'teamlab-toyosu', 'hakone-gora', 'yanesen', 'roppongi-art', 'kichijoji-park', 'ryogoku-history', 'kagurazaka-lanes', 'ikebukuro-indoor', 'shimokitazawa', 'marunouchi-history', 'nezu-museum', 'kagurazaka-evening', 'ryogoku-evening', 'kichijoji-evening']));
     expect(tokyoPoolActivities.find((activity) => activity.id === 'costco-kawasaki')?.summary.toLowerCase()).toContain('membership');
     expect(tokyoPoolActivities.find((activity) => activity.id === 'akihabara')?.title).toMatch(/games.*electronics/i);
     expect(tokyoPoolActivities.find((activity) => activity.id === 'shibuya-shopping')?.title).toMatch(/shoes.*clothing/i);
@@ -79,18 +79,18 @@ describe('Tokyo choose-your-own pool', () => {
   it('makes the pool scannable by effort and travel commitment', () => {
     const areas = tokyoPoolActivities.map((activity) => activity.area);
     expect(areas.filter((area) => area.startsWith('Easy local day'))).toHaveLength(1);
-    expect(areas.filter((area) => area.startsWith('Tokyo neighborhood'))).toHaveLength(5);
-    expect(areas.filter((area) => area.startsWith('Tokyo culture day'))).toHaveLength(1);
+    expect(areas.filter((area) => area.startsWith('Tokyo neighborhood')).length).toBeGreaterThanOrEqual(9);
+    expect(areas.filter((area) => area.startsWith('Tokyo culture day')).length).toBeGreaterThanOrEqual(4);
     expect(areas.filter((area) => area.startsWith('Tokyo bay day'))).toHaveLength(2);
     expect(areas.filter((area) => area.startsWith('Full day trip'))).toHaveLength(4);
     expect(areas.filter((area) => area.startsWith('Special-purpose outing'))).toHaveLength(1);
-    expect(areas.filter((area) => area.startsWith('Optional evening'))).toHaveLength(1);
+    expect(areas.filter((area) => area.startsWith('Optional evening')).length).toBeGreaterThanOrEqual(4);
 
     const duration = (time: string) => Number(time.slice(0, 2)) * 60 + Number(time.slice(3, 5));
     for (const activity of tokyoPoolActivities.filter((item) => item.kind === 'outing')) {
       const timed = activity.places.filter((place) => place.startTime && place.durationMinutes);
       const span = Math.max(...timed.map((place) => duration(place.startTime!) + place.durationMinutes!)) - Math.min(...timed.map((place) => duration(place.startTime!)));
-      const expectedHours = ({ akihabara: 7.5, 'shibuya-shopping': 8.25, 'costco-kawasaki': 8, yokohama: 10.75, kawagoe: 8, kawaguchiko: 12, 'deep-fukagawa': 6.5, 'asakusa-ueno': 8, 'shinjuku-green': 7.25, 'odaiba-bay': 7, 'tsukiji-ginza': 8.75, 'koenji-vintage': 8.5, 'teamlab-toyosu': 6, 'hakone-gora': 11.75 } as Record<string, number>)[activity.id];
+      const expectedHours = ({ akihabara: 7.5, 'shibuya-shopping': 8.25, 'costco-kawasaki': 8, yokohama: 10.75, kawagoe: 8, kawaguchiko: 12, 'deep-fukagawa': 6.5, 'asakusa-ueno': 8, 'shinjuku-green': 7.25, 'odaiba-bay': 7, 'tsukiji-ginza': 8.75, 'koenji-vintage': 8.5, 'teamlab-toyosu': 6, 'hakone-gora': 11.75, yanesen: 7, 'roppongi-art': 7, 'kichijoji-park': 8, 'ryogoku-history': 6.25, 'kagurazaka-lanes': 5.25, 'ikebukuro-indoor': 7, shimokitazawa: 6.5, 'marunouchi-history': 6.25, 'nezu-museum': 6.25 } as Record<string, number>)[activity.id];
       expect(Math.abs(span - expectedHours * 60), `${activity.id} duration label should match its timed door-to-door plan`).toBeLessThanOrEqual(30);
     }
   });
@@ -190,6 +190,21 @@ describe('Tokyo choose-your-own pool', () => {
     expect(hakone.places.find((place) => place.id === 'pool-hakone-mountain-rail')?.mapsQuery).toContain('Gora');
     expect(hakone.places.find((place) => place.id === 'pool-hakone-museum')?.sourceUrl).toContain('hakone-oam.or.jp');
     expect(hakone.routeNote).toMatch(/not a November 2026 timetable/i);
+    expect(tokyoFlexibleDays.every((day) => day.outing === null && day.evening === null)).toBe(true);
+  });
+
+  it('adds filter metadata to every option and flags the verified Nezu Museum closure', () => {
+    expect(tokyoPoolActivities.every((activity) => activity.weatherFit && activity.themes?.length)).toBe(true);
+    expect(tokyoPoolActivities.filter((activity) => activity.weatherFit === 'indoors').length).toBeGreaterThanOrEqual(4);
+    const nezu = tokyoPoolActivities.find((activity) => activity.id === 'nezu-museum')!;
+    expect(nezu.unavailableDates).toEqual([{ dayId: '2026-11-09', reason: expect.stringMatching(/closed Mondays.*9 Nov/i) }]);
+    expect(nezu.sources.some((source) => source.url.includes('/en/exhibitions/upcoming/'))).toBe(true);
+    const ryogoku = tokyoPoolActivities.find((activity) => activity.id === 'ryogoku-history')!;
+    expect(ryogoku.unavailableDates).toEqual([{ dayId: '2026-11-09', reason: expect.stringMatching(/Mondays.*9 Nov/i) }]);
+    const aquarium = tokyoPoolActivities.find((activity) => activity.id === 'ikebukuro-indoor')!;
+    expect(aquarium.bookingActions?.some((action) => action.id === 'sunshine-aquarium-entry' && action.priority === 'recommended')).toBe(true);
+    const kagurazakaEvening = tokyoPoolActivities.find((activity) => activity.id === 'kagurazaka-evening')!;
+    expect(kagurazakaEvening.bookingActions?.some((action) => action.priority === 'required' && /reservation-only/.test(action.notes))).toBe(true);
     expect(tokyoFlexibleDays.every((day) => day.outing === null && day.evening === null)).toBe(true);
   });
 });

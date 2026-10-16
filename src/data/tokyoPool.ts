@@ -1,4 +1,5 @@
 import type { Place } from '../types/trip';
+import { tokyoMoreActivities } from './tokyoMore';
 
 export interface TokyoPoolActivity {
   id: string;
@@ -11,6 +12,10 @@ export interface TokyoPoolActivity {
   routeNote: string;
   places: Place[];
   sources: { label: string; url: string }[];
+  weatherFit?: 'indoors' | 'outdoors' | 'mixed';
+  themes?: ('food' | 'history' | 'art' | 'gardens' | 'shopping' | 'views' | 'local')[];
+  planningCautions?: string[];
+  unavailableDates?: { dayId: string; reason: string }[];
   bookingActions?: TokyoPoolBookingAction[];
 }
 
@@ -286,6 +291,29 @@ const tokyoPool: TokyoPoolActivity[] = [
     ],
   },
 ];
+
+// Describes the main visits, not a forecast. Keep the original pool annotated so
+// the new routes can be filtered alongside the previously researched options.
+const existingMetadata: Record<string, Pick<TokyoPoolActivity, 'weatherFit' | 'themes'>> = {
+  akihabara: { weatherFit: 'mixed', themes: ['shopping', 'local', 'food', 'history'] },
+  'shibuya-shopping': { weatherFit: 'mixed', themes: ['shopping', 'local', 'food'] },
+  'costco-kawasaki': { weatherFit: 'indoors', themes: ['shopping', 'food'] },
+  yokohama: { weatherFit: 'mixed', themes: ['views', 'shopping', 'food', 'local'] },
+  kawagoe: { weatherFit: 'outdoors', themes: ['history', 'food', 'local'] },
+  kawaguchiko: { weatherFit: 'mixed', themes: ['views', 'food', 'local'] },
+  'deep-fukagawa': { weatherFit: 'mixed', themes: ['gardens', 'history', 'food', 'local'] },
+  'asakusa-ueno': { weatherFit: 'mixed', themes: ['history', 'art', 'shopping', 'food'] },
+  'shinjuku-green': { weatherFit: 'mixed', themes: ['gardens', 'views', 'shopping'] },
+  'odaiba-bay': { weatherFit: 'mixed', themes: ['views', 'art', 'shopping'] },
+  'tsukiji-ginza': { weatherFit: 'mixed', themes: ['food', 'shopping', 'local'] },
+  'koenji-vintage': { weatherFit: 'mixed', themes: ['shopping', 'local', 'food'] },
+  'teamlab-toyosu': { weatherFit: 'indoors', themes: ['art', 'food', 'views'] },
+  'hakone-gora': { weatherFit: 'mixed', themes: ['art', 'views', 'gardens'] },
+  'izakaya-evening': { weatherFit: 'indoors', themes: ['food', 'local'] },
+};
+for (const activity of tokyoPool) Object.assign(activity, existingMetadata[activity.id]);
+
+tokyoPool.push(...tokyoMoreActivities);
 
 export const tokyoPoolActivities = tokyoPool;
 const categoryDefinitions: Omit<TokyoPoolCategory, 'activities'>[] = [

@@ -25,6 +25,7 @@ const coreSections = [
   { id: 'overview', title: 'Trip overview', keywords: 'dates travelers countdown' },
   { id: 'route-map', title: 'Route map', keywords: 'map cities route hotels places' },
   { id: 'daily-plan', title: 'Daily plan', keywords: 'itinerary days schedule' },
+  { id: 'city-guide', title: 'City food and activity alternatives', keywords: 'city guide alternatives food restaurants indoor swaps sightseeing' },
   { id: 'tokyo-pool', title: 'Tokyo ideas', keywords: 'ideas outings activities tokyo pool' },
   { id: 'bookings', title: 'Reservations and to-dos', keywords: 'booking tickets train reserve tasks' },
   { id: 'stays', title: 'Confirmed stays', keywords: 'hotels accommodation lodging' },
@@ -89,7 +90,7 @@ export function buildTripSearchIndex(days: TripDay[], plannerBookings: Booking[]
       title: idea.title,
       subtitle: `${idea.area} · ${idea.durationLabel}`,
       target: { kind: 'idea', ideaId: idea.id },
-      searchText: fieldsText(idea.title, idea.area, idea.summary, idea.routeNote, ...idea.places.flatMap((place) => [place.name, place.cuisine, place.signature])),
+      searchText: fieldsText(idea.title, idea.area, idea.summary, idea.routeNote, idea.weatherFit, ...(idea.themes ?? []), ...idea.places.flatMap((place) => [place.name, place.cuisine, place.signature])),
     });
   }
 
