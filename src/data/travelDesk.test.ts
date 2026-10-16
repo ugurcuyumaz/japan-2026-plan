@@ -40,6 +40,11 @@ describe('travel desk date and transfer context', () => {
     expect(firstPlannedTransfer(tomorrow)?.id).toBe('early-planned');
   });
 
+  it('keeps the rail-pass decision before same-day train-seat tasks', () => {
+    const { items } = openPreparationTasks([booking('hokuto-seats', '2026-10-27'), booking('booking-jr-east-south-hokkaido-pass', '2026-10-27', 'Confirm purchase status now')], '2026-10-23');
+    expect(items[0].id).toBe('booking-jr-east-south-hokkaido-pass');
+  });
+
   it('puts exact-date actions first and excludes earlier open actions from later previews', () => {
     const { items, exactCount } = openPreparationTasks([
       booking('late', '2026-11-05'),

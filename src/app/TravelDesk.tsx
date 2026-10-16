@@ -72,7 +72,7 @@ export function TravelDesk({ days, plannerBookings, choices, bookingProgress, on
         <div className="travel-desk-day-summary">
           <span className="eyebrow">{dateMode === 'before' ? 'Preview · before your trip' : dateMode === 'after' ? 'Preview · after your trip' : 'Selected day'}</span>
           <h3>{displayedDate} · {selectedDay.base}</h3>
-          <p>{selectedDay.summary}</p>
+          <p className="travel-desk-day-title">{selectedDay.title}</p><details className="travel-desk-overview" key={selectedDay.id}><summary>Day overview & timing</summary><p>{selectedDay.summary}</p></details>
           <button type="button" className="travel-desk-open-day" onClick={() => onOpenDay(selectedDay.id)}>Open day plan <ArrowRight size={16} /></button>
         </div>
       </div>
@@ -90,7 +90,7 @@ export function TravelDesk({ days, plannerBookings, choices, bookingProgress, on
       <div className="travel-desk-card travel-desk-prep">
         <div className="travel-desk-card-title"><CalendarDays size={18} /><h3>{exactCount ? 'Prepare for selected day' : 'Next open actions'}</h3></div>
         {prepTasks.length ? <ul className="travel-desk-task-list">{prepTasks.map((booking) => <li key={booking.id}><button type="button" onClick={() => onOpenBooking(booking.id)}><span><strong>{booking.item}</strong><small>{booking.date} · {booking.status === 'unbooked' ? 'Not booked' : 'Needs checking'} · {booking.deadline}</small></span><ArrowRight size={15} /></button></li>)}</ul> : <p className="travel-desk-muted">No open actions remain for this or a later date.</p>}
-        <p className="travel-desk-progress-note">Hotel and flight reservations stay source-confirmed; task handling is your local progress note and does not change reservation status.</p>
+        <p className="travel-desk-progress-note">Handled tasks record your progress; source reservation statuses stay unchanged.</p>
       </div>
 
       <div className="travel-desk-card travel-desk-next">

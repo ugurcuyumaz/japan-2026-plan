@@ -44,3 +44,13 @@ The parent stores all three personal domains in one versioned browser record, mi
 The plan review found that Mt Moiwa was optional but its outbound and return transfers still appeared in the fixed evening timeline. Those two rows were removed from the scheduled plan; the optional visit now carries its access and return allowances. Its venue and fare sources remain unchanged.
 
 The readable full-trip export now includes the saved shortlist, with source links, museum date limits and preparation notes. A day export includes saved places for that date. Saving an unassigned Tokyo idea does not populate a dated main timeline.
+
+## Verification and review
+
+- The integrated source passes strict TypeScript (including unused imports), production build and 115 regression tests across 19 files. Existing deferred MapLibre bundle-size warning remains.
+- A second review caught stale booking-focus requests after progress edits, lost offline source links for a saved restaurant after its outing moved, and focus loss after Unsave/restore Undo. These were corrected before the published interaction checks.
+- Live desktop checks: handled/reopen flow, correct count changes, no jump to an older focused action, saved city/Tokyo choices, saved-only guide results, exact dated alternative reveal and reload persistence.
+- Moving the selected Sunshine City outing from 4 to 6 November produces a newly open dated task; the old handled task disappears from active lists and remains in the backup. Its saved 4 November restaurant offers the source idea instead of pretending it is still in the dated plan.
+- Actual JSON downloads were inspected: original state had 0 picks/0 saves/0 progress; the edited test backup had 1 pick/3 saves/2 progress records. Import rejects invalid JSON before any change; valid import previews all three domains, replaces them together, and undo restores them together and returns keyboard focus to Import. The original state was restored and survived reload.
+- The actual full HTML download includes 20 dates, local handled progress, saved options and the inactive saved restaurant's map and official source links, without rendering network assets. External map/direction/official links require internet.
+- Live phone checks at 390px and 320px covered Travel desk, native date selector, action controls and backup replacement preview, without horizontal document overflow. Main action-view controls measured 44px. At 320px the collapsed Tokyo filters correctly reported two active filters and two matching indoor/art ideas; Clear restored the full pool. The desk's longer narrative was moved into a disclosure to bring hotel details closer to the initial phone view.

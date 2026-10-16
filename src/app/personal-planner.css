@@ -21,3 +21,8 @@
 .booking-progress-heading h2 { font-size:clamp(30px,3.3vw,42px); line-height:1.1; letter-spacing:-.035em; }
 .booking-progress-entry { scroll-margin-top:100px; }
 @media(max-width:600px) { .travel-desk-tool-links { margin-left:0; gap:8px 16px; } .booking-progress-main { min-width:0; overflow-wrap:anywhere; } .booking-progress-main small { flex-wrap:wrap; } }
+
+.travel-desk-day-title { font-weight:650; color:var(--ink)!important; }
+.travel-desk-overview { margin-top:8px; }
+.travel-desk-overview summary { min-height:44px; padding:10px 0; font-size:13px; font-weight:650; color:var(--ink); cursor:pointer; }
+.travel-desk-overview p { margin:4px 0 0; }

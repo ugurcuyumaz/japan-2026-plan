@@ -44,7 +44,9 @@ export function firstPlannedTransfer(day: TripDay): Place | undefined {
 /** Exact-day actions first, then upcoming or undated tasks; past dated actions stay out of later previews. */
 export function openPreparationTasks(bookings: Booking[], dayId: string, limit = 3): { items: Booking[]; exactCount: number } {
   const open = bookings.filter(isOpenBooking);
-  const byDate = (a: Booking, b: Booking) => (a.dayId ?? '9999-12-31').localeCompare(b.dayId ?? '9999-12-31') || a.deadline.localeCompare(b.deadline);
+  const priority = { required: 0, recommended: 1, research: 2 };
+  const dependency = (item: Booking) => item.id === 'booking-jr-east-south-hokkaido-pass' ? -1 : 0;
+  const byDate = (a: Booking, b: Booking) => (a.dayId ?? '9999-12-31').localeCompare(b.dayId ?? '9999-12-31') || dependency(a) - dependency(b) || priority[a.priority] - priority[b.priority] || a.deadline.localeCompare(b.deadline);
   const exact = open.filter((booking) => booking.dayId === dayId).sort(byDate);
   const upcoming = open.filter((booking) => booking.dayId !== dayId && (!booking.dayId || booking.dayId > dayId)).sort(byDate);
   const items = [...exact, ...upcoming].slice(0, limit);
