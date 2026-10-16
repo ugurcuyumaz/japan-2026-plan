@@ -11,6 +11,20 @@ export interface TokyoPoolActivity {
   routeNote: string;
   places: Place[];
   sources: { label: string; url: string }[];
+  bookingActions?: TokyoPoolBookingAction[];
+}
+
+export interface TokyoPoolBookingAction {
+  id: string;
+  item: string;
+  priority: 'required' | 'recommended' | 'research';
+  deadline: string;
+  destination: string;
+  purchaseUrl?: string;
+  purchaseLabel?: string;
+  referenceUrl?: string;
+  referenceLabel?: string;
+  notes: string;
 }
 
 export type TokyoPoolCategoryId = 'neighborhood' | 'shopping-gaming' | 'day-trip' | 'local-easy' | 'culture' | 'waterfront' | 'special-purpose' | 'evening';
@@ -111,6 +125,10 @@ const tokyoPool: TokyoPoolActivity[] = [
     summary: 'A scenic, weather-dependent Fuji day: direct limited-express train to Kawaguchiko, a flat lakeside visit to Oishi Park, local hōtō lunch and a short lake cruise. Fuji visibility is never guaranteed; skip the extra lake activity if the train/bus connections feel tight.',
     routeNote: 'This is a long day with roughly four hours on the direct Fuji Excursion alone, plus hotel–Shinjuku and local-bus legs. Times below are planning blocks, not a promised November 2026 timetable: check JR East and Fujikyu, reserve the limited express when sales open, and shift the local plan around the confirmed trains.',
     sources: [{ label: 'JR East · Fuji Excursion route and train reservations', url: 'https://www.jreast.co.jp/en/multi/traininformation/azusa_kaiji/index.html' }, { label: 'Fujikyu Bus · Kawaguchiko sightseeing-bus routes, schedules and fares', url: 'https://bus.fujikyu.co.jp/en/fujitour/kawaguchiko/' }, { label: 'Houtou Laboratory · official restaurant and access', url: 'https://fuji.creative-r.com/en/pages/hoto-labo' }, { label: 'Yamanashi Tourism · Hoto Fudo listing', url: 'https://www.yamanashi-kankou.jp/kankou/eat/p3_0111.html' }],
+    bookingActions: [
+      { id: 'fuji-excursion-outbound', item: 'Fuji Excursion · reserve Shinjuku → Kawaguchiko seats', priority: 'required', deadline: 'Before this day · check the date-specific timetable and reservation window', destination: 'Shinjuku → Kawaguchiko', purchaseUrl: 'https://www.jreast.co.jp/en/multi/traininformation/azusa_kaiji/index.html', purchaseLabel: 'JR East · Fuji Excursion information', notes: 'Choose and reserve the outward limited-express seats for this date. Confirm the date-specific timetable and reservation window; this planner does not hold seats.' },
+      { id: 'fuji-excursion-return', item: 'Fuji Excursion · reserve Kawaguchiko → Shinjuku seats', priority: 'required', deadline: 'Before this day · choose a return with a generous buffer', destination: 'Kawaguchiko → Shinjuku', purchaseUrl: 'https://www.jreast.co.jp/en/multi/traininformation/azusa_kaiji/index.html', purchaseLabel: 'JR East · Fuji Excursion information', notes: 'Choose and reserve the return limited-express seats for this date, allowing a connection buffer. Confirm the date-specific timetable; the placeholder time is only a planning window.' },
+    ],
     places: [
       stop('pool-kawaguchiko-hotel-out', 'Metro · hotel → Shinjuku Station', 'transit', 'Allow about 60–75 minutes door to door including station walks. Start early enough to reach the reserved train platform without rushing.', 'Shinjuku Station', [35.6896, 139.7006], { startTime: '07:00', durationMinutes: 70, originQuery: hotel, travelMode: 'train', verification: 'verify-before-trip' }),
       stop('pool-kawaguchiko-train-out', 'Limited express · Shinjuku → Kawaguchiko', 'transit', 'The Fuji Excursion runs direct in about 1 hour 50 minutes to 2 hours. Limited-express seats need advance planning; check the date-specific timetable and reservation window before assigning this outing.', 'Kawaguchiko Station', [35.4982, 138.7689], { startTime: '08:15', durationMinutes: 120, originQuery: 'Shinjuku Station', travelMode: 'train', verification: 'verify-before-trip' }),
@@ -226,6 +244,7 @@ const tokyoPool: TokyoPoolActivity[] = [
     summary: 'A focused immersive-art experience paired with an easy Toyosu waterfront lunch. Buy a timed admission ticket in advance if you choose this option; the visit is barefoot/water-based in parts, so check the venue guidance and wear practical clothing.',
     routeNote: 'Toyosu is close to your hotel: allow roughly 25–40 minutes by subway/Yurikamome and station walks. The official access guide recommends the rail stations rather than depending on public buses, which can be congested. This is a half-day-plus outing, not a full Odaiba day.',
     sources: [{ label: 'teamLab Planets · official ticket store and visitor guide', url: 'https://teamlabplanets.dmm.com/en/guide' }, { label: 'teamLab Planets · official access guide', url: 'https://teamlabplanets.dmm.com/en/guide/access_method' }],
+    bookingActions: [{ id: 'teamlab-ticket', item: 'teamLab Planets · buy a timed admission ticket', priority: 'required', deadline: 'Before this day · choose an available entry slot', destination: 'teamLab Planets TOKYO, Toyosu', purchaseUrl: 'https://teamlabplanets.dmm.com/en/guide', purchaseLabel: 'teamLab Planets · official visitor guide and ticket store', notes: 'Buy an official timed ticket for the chosen date and entry slot. Check current visitor guidance; this planner does not book admission.' }],
     places: [
       stop('pool-teamlab-out', 'Metro / Yurikamome · hotel → Toyosu', 'transit', 'Allow 25–40 minutes door to door; use rail rather than relying on a public bus, and check the live route.', 'teamLab Planets TOKYO Toyosu', [35.6492, 139.7894], { startTime: '09:15', durationMinutes: 35, originQuery: hotel, travelMode: 'train' }),
       stop('pool-teamlab-visit', 'teamLab Planets TOKYO', 'sight', 'Allow about 2½ hours for entry, the immersive route and changing areas. Buy an official timed ticket in advance and check current visitor guidance; dates and entry slots are not booked by this planner.', 'teamLab Planets TOKYO Toyosu', [35.6492, 139.7894], { startTime: '10:00', durationMinutes: 150, sourceUrl: 'https://teamlabplanets.dmm.com/en/guide', sourceLabel: 'teamLab Planets · official visitor guide', verification: 'verify-before-trip' }),
@@ -240,6 +259,10 @@ const tokyoPool: TokyoPoolActivity[] = [
     summary: 'A scenic, art-focused alternative day trip: ride to Hakone-Yumoto, continue by mountain railway to Gora, and spend the main visit at the Hakone Open-Air Museum. Keep the loop simple rather than trying to add Lake Ashi and every ropeway stop; weather or service disruption can make a reduced Gora-only day more comfortable.',
     routeNote: 'Allow about 45–60 minutes from the hotel to Shinjuku, then around 75–90 minutes on a reserved Odakyu Romancecar to Hakone-Yumoto; the Hakone Tozan mountain train takes roughly 40–45 minutes onward to Gora. Return the same way, allowing about 3 hours from Gora to the hotel including transfers. Times are planning allowances, not a November 2026 timetable. Check service status and reserve the Romancecar; the Hakone Freepass may suit the area transport, but compare the current fare and inclusions before buying.',
     sources: [{ label: 'Odakyu · Romancecar and Hakone access', url: 'https://www.odakyu.jp/english/transport/timetable/' }, { label: 'Hakone Open-Air Museum · official visitor information', url: 'https://www.hakone-oam.or.jp/en/' }, { label: 'Odakyu · Hakone Freepass', url: 'https://www.odakyu.jp/english/passes/hakone/' }],
+    bookingActions: [
+      { id: 'romancecar-outbound', item: 'Romancecar · reserve Shinjuku → Hakone-Yumoto seats', priority: 'required', deadline: 'Before this day · check date-specific connections and seat availability', destination: 'Shinjuku → Hakone-Yumoto', purchaseUrl: 'https://www.odakyu.jp/english/transport/timetable/', purchaseLabel: 'Odakyu · Romancecar timetable and Hakone access', notes: 'Choose and reserve the outward Romancecar seats for this date. Confirm connections and availability; this planner does not hold seats.' },
+      { id: 'romancecar-return', item: 'Romancecar · reserve Hakone-Yumoto → Shinjuku seats', priority: 'required', deadline: 'Before this day · choose a suitable return and keep a buffer', destination: 'Hakone-Yumoto → Shinjuku', purchaseUrl: 'https://www.odakyu.jp/english/transport/timetable/', purchaseLabel: 'Odakyu · Romancecar timetable and Hakone access', notes: 'Choose and reserve a suitable return Romancecar, leaving time for the mountain railway and transfers. Confirm the date-specific timetable; do not depend on a last train.' },
+    ],
     places: [
       stop('pool-hakone-out', 'Rail · hotel → Shinjuku → Hakone-Yumoto', 'transit', 'Allow about 2½ hours door to door using a reserved Romancecar from Shinjuku; confirm date-specific connections and seat availability.', 'Hakone-Yumoto Station', [35.2324, 139.1069], { startTime: '07:30', durationMinutes: 150, originQuery: hotel, travelMode: 'train', verification: 'verify-before-trip' }),
       stop('pool-hakone-mountain-rail', 'Hakone Tozan Railway · Yumoto → Gora', 'transit', 'Allow about 45 minutes for the mountain railway plus connection time; check service status before setting out.', 'Gora Station Hakone', [35.2507, 139.0489], { startTime: '10:15', durationMinutes: 45, originQuery: 'Hakone-Yumoto Station', travelMode: 'train', verification: 'verify-before-trip' }),

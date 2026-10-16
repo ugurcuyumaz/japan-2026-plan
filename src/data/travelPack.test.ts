@@ -22,12 +22,38 @@ describe('offline travel pack', () => {
     expect(html).toContain('full pace');
     expect(html).not.toContain('id="day-2026-11-05"');
   });
+  it('exports the assigned advance task, Tokyo food context and cautious price references', () => {
+    const html = buildTravelPack({ outings: { '2026-11-04': 'teamlab-toyosu' }, evenings: {} }, '2026-11-04', savedAt);
+    expect(html).toContain('booking-tokyo-teamlab-ticket-2026-11-04');
+    expect(html).toContain('Japan local time');
+    const foodHtml = buildTravelPack({ outings: { '2026-11-04': 'akihabara' }, evenings: {} }, '2026-11-04', savedAt);
+    expect(foodHtml).toContain('Food:</strong> Gyukatsu (beef cutlet) · lunch');
+    expect(foodHtml).toContain('Price-level reference: €€; person/group basis not recorded.');
+  });
+  it('includes supporting links and the two seat reservations for selected day trips', () => {
+    const html = buildTravelPack({ outings: { '2026-11-04': 'kawaguchiko' }, evenings: {} }, undefined, savedAt);
+    expect(html).toContain('booking-tokyo-fuji-excursion-outbound-2026-11-04');
+    expect(html).toContain('booking-tokyo-fuji-excursion-return-2026-11-04');
+    expect(html).toContain('JR Hokkaido · train and reserved-seat guide');
+    expect(html).not.toMatch(/Fuji Excursion[^<]*¥[\d,]+/);
+    expect(html).not.toMatch(/¥[\d,]+[^<]*Fuji Excursion/);
+  });
   it('keeps the right hotel and dependent reservation references on a move day', () => {
     const html = buildTravelPack(emptyTokyoChoices(), '2026-11-03', savedAt);
     expect(html).toContain('Tonight · confirmed:</strong> Comfort Hotel');
     expect(html).toContain('Check out:</strong> Gableview');
     expect(html).toContain('id="booking-tobu"');
     expect(html).toContain('id="booking-jr-east-south-hokkaido-pass"');
+  });
+  it('uses traveler-facing booking labels and prints numeric cost references with recorded basis', () => {
+    const day = buildTravelPack(emptyTokyoChoices(), '2026-10-25', savedAt);
+    expect(day).toContain('Not confirmed · Reservation suggested');
+    const placeCost = buildTravelPack(emptyTokyoChoices(), '2026-11-11', savedAt);
+    expect(placeCost).toContain('Cost reference: ¥1,500; person/group basis not recorded.');
+    const bookings = buildTravelPack(emptyTokyoChoices(), '2026-11-02', savedAt);
+    expect(bookings).toContain('Cost reference: ¥6,000 · for two.');
+    const pass = buildTravelPack(emptyTokyoChoices(), '2026-10-27', savedAt);
+    expect(pass).toContain('Cost reference: ¥40,000 · per adult.');
   });
   it('escapes all HTML delimiters and refuses an unknown day', () => {
     expect(escapeHtml('<script a="x">&\'</script>')).toBe('&lt;script a=&quot;x&quot;&gt;&amp;&#39;&lt;/script&gt;');

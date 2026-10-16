@@ -66,7 +66,7 @@ export default function VectorCanvas(props: Props) {
     map.on('style.load', installRoute);
     map.on('load', () => { fit(); regroup(); setReady(true); latest.current.onError(false); });
     map.on('moveend', regroup);
-    map.on('error', () => { if (!map.isStyleLoaded()) latest.current.onError(true); });
+    map.on('error', () => latest.current.onError(true));
     const resize = new ResizeObserver(() => { map.resize(); regroup(); });
     resize.observe(container.current);
     return () => { resize.disconnect(); markers.current.forEach((marker) => marker.remove()); markers.current = []; map.remove(); mapRef.current = undefined; };

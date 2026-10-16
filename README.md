@@ -29,7 +29,11 @@ The budget is an indicative Japan-cost range for two. It excludes international 
 
 Use **Save offline travel pack** above the daily explorer to download the current plan as a standalone HTML file, or the download icon in day focus for one date. Keep it in Downloads / Files and open it before travel. It includes the current Tokyo choices and full notes; save again after edits. Text works offline, while directions and official links require internet. The website itself does not cache an offline copy.
 
-Day focus offers Quick view and Full notes. Transport instructions and booking warnings stay visible in Quick view. Tokyo ideas can be filtered by the sample route’s total time commitment; pace includes the selected evening as well as the main outing.
+Day focus offers Quick view and Full notes. Transport instructions and booking warnings stay visible in Quick view. Tokyo ideas can be filtered by the sample route’s total time commitment; pace includes the selected evening as well as the main outing. Assigned ideas with known ticket or seat requirements create dated preparation tasks in the reservation board, day essentials and saved travel pack. Moving or removing an idea updates those tasks; it never confirms a reservation.
+
+The full component review and implementation decisions are recorded in [`docs/WEBSITE-REVIEW-2026-10-16.md`](docs/WEBSITE-REVIEW-2026-10-16.md). It covers navigation, discovery, day plans, Tokyo choices, maps, reservations, hotels, budget, accessibility and offline references.
+
+Use **Find** or **Ctrl/Cmd+K** to search across days, stops, food, hotels, current preparation tasks and Tokyo ideas. Results open the relevant day, hotel, task or idea. Phone controls use larger touch areas and a persistent Close control in day focus; map rendering is deferred until its section is reached.
 
 The current website data is in [`src/data/trip.ts`](src/data/trip.ts), with rail comparisons in [`src/data/rail.ts`](src/data/rail.ts). The latest reservation summary is [`source-plan/japan-2026/RESERVATIONS_2026-10-14.md`](source-plan/japan-2026/RESERVATIONS_2026-10-14.md). Older root-level itinerary and topic Markdown files describe previous drafts and may conflict with the booked route; use the live planner for travel.
 

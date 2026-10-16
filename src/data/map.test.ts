@@ -14,6 +14,18 @@ describe('map discovery', () => {
     expect(flexibleMeal).toBeDefined(); expect(isAlternative(flexibleMeal)).toBe(false);
     expect(tripDays.flatMap((day) => day.places).filter((place) => place.role === 'backup').every(isAlternative)).toBe(true);
   });
+  it('shows backup meals in both Food and Alternatives with matching entry counts', () => {
+    const backupMeals = tripDays.flatMap((day) => day.places).filter((place) => place.type === 'food' && place.role === 'backup' && place.coordinates);
+    expect(backupMeals.length).toBeGreaterThan(0);
+    const food = mapEntries(tripDays, 'food');
+    const alternatives = mapEntries(tripDays, 'optional');
+    for (const place of backupMeals) {
+      const id = tripDays.find((day) => day.places.includes(place))!.id + ':' + place.id;
+      expect(food.some((entry) => entry.id === id)).toBe(true);
+      expect(alternatives.some((entry) => entry.id === id)).toBe(true);
+    }
+    expect(alternatives.length).toBe(tripDays.flatMap((day) => day.places).filter((place) => place.coordinates && isAlternative(place)).length);
+  });
   it('retains every co-located stop in a group', () => {
     const entries = mapEntries(tripDays, 'all', tripDays.find((day) => day.id === '2026-10-27'));
     const groups = groupMapEntries(entries, ([lat, lon]) => ({ x: lon * 1000, y: lat * 1000 }));

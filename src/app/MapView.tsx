@@ -1,10 +1,13 @@
 import { lazy, Suspense, useCallback, useEffect, useMemo, useRef, useState } from 'react';
-import { ArrowRight, BedDouble, ChevronLeft, ExternalLink, Footprints, Layers, MapPin, Maximize2, Route, X } from 'lucide-react';
+import { ArrowRight, BedDouble, ChevronLeft, ExternalLink, Footprints, Layers, MapPin, Maximize2, RotateCcw, Route, X } from 'lucide-react';
 import { baseVisits, googleDirectionsUrl, googleMapsUrl, stays } from '../data/trip';
+import { bookingStateLabel } from '../data/bookingLabels';
 import { distanceKm, localMapPoints, mapEntries, mapTypeLabel, shortDate, type MapEntry } from '../data/map';
 import type { ItemType, Place, TripDay } from '../types/trip';
+import { MapErrorBoundary } from './MapErrorBoundary';
+import './map-view.css';
 
-const VectorCanvas = lazy(() => import('./VectorCanvas'));
+const makeVectorCanvas = () => lazy(() => import('./VectorCanvas'));
 const emptyDays: TripDay[] = [];
 
 export function MapView({ selectedDay, allDays = emptyDays, selectedPlaceId, onSelectPlace, onJumpToPlace, onOpenOverviewPlace, onOpenOverviewDay, filter }: { selectedDay?: TripDay; allDays?: TripDay[]; selectedPlaceId?: string; onSelectPlace: (place: Place) => void; onJumpToPlace?: (place: Place) => void; onOpenOverviewPlace?: (day: TripDay, place: Place) => void; onOpenOverviewDay?: (day: TripDay) => void; filter: ItemType | 'all' }) {
@@ -21,8 +24,60 @@ export function MapView({ selectedDay, allDays = emptyDays, selectedPlaceId, onS
   const [style, setStyle] = useState<'liberty' | 'positron'>(() => selectedDay ? 'liberty' : 'positron');
   const [reset, setReset] = useState(0);
   const [failed, setFailed] = useState(false);
+  const [retry, setRetry] = useState(0);
+  const [rendererVisible, setRendererVisible] = useState(Boolean(selectedDay));
   const [focusId, setFocusId] = useState<string>();
   const panelRef = useRef<HTMLDivElement>(null);
+  const stageRef = useRef<HTMLDivElement>(null);
+  const VectorCanvas = useMemo(makeVectorCanvas, [retry]);
+  useEffect(() => {
+    const stage = stageRef.current;
+    if (selectedDay || !stage) { setRendererVisible(true); return; }
+    if (typeof IntersectionObserver === 'undefined') { setRendererVisible(true); return; }
+    let observer: IntersectionObserver | undefined;
+    let frame = 0;
+    let lastTop: number;
+    let initialTop: number;
+    let stableFrames = 0;
+    let onScroll: (() => void) | undefined;
+    const observe = () => {
+      if (observer) return;
+      window.cancelAnimationFrame(frame);
+      frame = 0;
+      if (onScroll) window.removeEventListener('scroll', onScroll);
+      window.removeEventListener('scrollend', observe);
+      observer = new IntersectionObserver((records) => {
+        if (records.some((record) => record.isIntersecting)) { setRendererVisible(true); observer?.disconnect(); }
+      }, { rootMargin: '180px 0px' });
+      observer.observe(stage);
+    };
+    const requestedDay = new URLSearchParams(window.location.search).get('day');
+    const validDayLink = Boolean(requestedDay && allDays.some((day) => day.id === requestedDay));
+    const dailyPlanHash = window.location.hash === '#daily-plan';
+    if (!validDayLink && !dailyPlanHash) { observe(); return () => observer?.disconnect(); }
+    // App scrolls direct day links to the daily plan on its next animation frame. Wait until
+    // that scroll settles before observing the earlier route map, or it can mount at page top.
+    const dailyPlan = document.getElementById('daily-plan');
+    if (!dailyPlan) { observe(); return () => observer?.disconnect(); }
+    initialTop = dailyPlan.getBoundingClientRect().top;
+    lastTop = initialTop;
+    const scrollMargin = Number.parseFloat(window.getComputedStyle(dailyPlan).scrollMarginTop) || 0;
+    if (Math.abs(initialTop - scrollMargin) <= 16 || Math.abs(initialTop) <= 16) { observe(); return () => observer?.disconnect(); }
+    const checkScrollSettled = () => {
+      if (observer) return;
+      const top = dailyPlan.getBoundingClientRect().top;
+      const moved = Math.abs(top - initialTop) >= 1;
+      stableFrames = moved && Math.abs(top - lastTop) < 1 ? stableFrames + 1 : 0;
+      lastTop = top;
+      if (moved && stableFrames >= 2) observe();
+      else if (moved) frame = window.requestAnimationFrame(checkScrollSettled);
+      else frame = 0;
+    };
+    onScroll = () => { if (!observer && !frame) frame = window.requestAnimationFrame(checkScrollSettled); };
+    window.addEventListener('scroll', onScroll, { passive: true });
+    window.addEventListener('scrollend', observe, { once: true });
+    return () => { window.cancelAnimationFrame(frame); if (onScroll) window.removeEventListener('scroll', onScroll); window.removeEventListener('scrollend', observe); observer?.disconnect(); };
+  }, [selectedDay, allDays]);
   useEffect(() => { setActiveIds([]); setFocusId(undefined); }, [filter, selectedDay?.id, area, search]);
   useEffect(() => { setSearch(''); setArea('all'); }, [filter]);
   useEffect(() => {
@@ -42,14 +97,15 @@ export function MapView({ selectedDay, allDays = emptyDays, selectedPlaceId, onS
   const active = entries.filter((entry) => activeIds.includes(entry.id));
   const chooseFromList = (entry: MapEntry) => { pick([entry], false); setFocusId(entry.id); };
   const resetView = () => { setActiveIds([]); setFocusId(undefined); setReset((current) => current + 1); };
+  const retryMap = () => { setFailed(false); setRetry((current) => current + 1); };
   const showOnDay = (entry: MapEntry) => { if (!entry.place || !entry.day) return; if (selectedDay) (onJumpToPlace ?? onSelectPlace)(entry.place); else onOpenOverviewPlace?.(entry.day, entry.place); };
   return <div className={`travel-map ${selectedDay ? 'day-travel-map' : 'overview-travel-map'}`}>
     {!selectedDay && filter !== 'all' && <div className="map-find-controls"><label><span className="sr-only">Search places on the route map</span><input aria-label="Search places on the route map" type="search" placeholder="Find a place in this layer…" value={search} onChange={(event) => setSearch(event.target.value)} /></label><label><span className="sr-only">Filter map by itinerary base</span><select aria-label="Filter map by itinerary base" value={area} onChange={(event) => setArea(event.target.value)}><option value="all">Every base</option>{['Sapporo', 'Hakodate', 'Sendai', 'Tokyo', 'Nikko'].map((base) => <option key={base} value={base}>{base} days</option>)}</select></label><span role="status">{entries.length} places</span></div>}
-    <div className="vector-map-stage">
-      <Suspense fallback={<div className="map-loading" role="status"><MapPin size={24} /> Loading your map…</div>}><VectorCanvas entries={entries} points={points} route={route} activeIds={activeIds} focusId={focusId} reset={reset} style={style} day={Boolean(selectedDay)} onPick={pick} onError={setFailed} /></Suspense>
+    <div className="vector-map-stage" ref={stageRef}>
+      {!rendererVisible ? <div className="map-loading map-deferred" role="status"><MapPin size={24} /><span>Interactive map loads when you reach this section.</span></div> : <MapErrorBoundary key={retry} onRetry={retryMap}><Suspense fallback={<div className="map-loading" role="status"><MapPin size={24} /> Loading your map…</div>}><VectorCanvas key={retry} entries={entries} points={points} route={route} activeIds={activeIds} focusId={focusId} reset={reset} style={style} day={Boolean(selectedDay)} onPick={pick} onError={setFailed} /></Suspense></MapErrorBoundary>}
       <div className="vector-map-controls"><label><Layers size={15} /><span className="sr-only">Map appearance</span><select aria-label={selectedDay ? 'Day map appearance' : 'Route map appearance'} value={style} onChange={(event) => setStyle(event.target.value as typeof style)}><option value="liberty">Street map</option><option value="positron">Calm map</option></select></label><button type="button" onClick={resetView} aria-label={selectedDay ? 'Fit all local day stops' : filter === 'all' ? 'Fit whole trip route' : 'Fit map results'}><Maximize2 size={15} /><span>{selectedDay ? 'Fit stops' : filter === 'all' ? 'Whole route' : 'Fit results'}</span></button></div>
       {active.length > 0 && <div className="map-selection-label"><MapPin size={15} /><span><strong>{active.length === 1 ? active[0].title : `${active.length} nearby stops`}</strong><small>{active.length === 1 ? active[0].subtitle : 'Choose a stop in the details panel'}</small></span><button type="button" onClick={resetView} aria-label="Clear map selection"><X size={17} /></button></div>}
-      {failed && <p className="vector-map-error" role="status">The map could not load. You can still browse every place below and open its Google Maps link.</p>}
+      {failed && <div className="vector-map-error" role="alert"><span>The map tiles could not load. Place details and Google Maps links remain available below.</span><button type="button" onClick={retryMap}><RotateCcw size={13} /> Retry map</button></div>}
       <span className="map-route-note">{route.length > 1 ? 'Dashed line = stop order, not navigation' : 'Select a pin for place details'}</span>
     </div>
     <div className="map-details-panel" ref={panelRef} role="region" aria-label={selectedDay ? 'Day map place details' : 'Route map place details'}>
@@ -76,8 +132,8 @@ function EntryDetails({ entry, allDays, inDay, onOpenDay, onShowOnDay }: { entry
     <h3 tabIndex={-1}>{entry.title}</h3><p className="map-entry-date">{entry.subtitle}</p><p>{entry.description}</p>
     {place?.cuisine && <p className="map-entry-fact"><strong>Food:</strong> {place.cuisine}{place.signature ? ` · ${place.signature}` : ''}</p>}
     {place?.durationMinutes && <p className="map-entry-fact"><strong>Allow:</strong> {place.durationMinutes} minutes</p>}
-    {(place?.priceBand || place?.estimatedCostJPY) && <p className="map-entry-fact"><strong>Budget:</strong> {place.priceBand ? `${place.priceBand} price level` : ''}{place.priceBand && place.estimatedCostJPY ? ' · ' : ''}{place.estimatedCostJPY ? `¥${place.estimatedCostJPY.toLocaleString('en-GB')} estimate` : ''}</p>}
-    {place?.bookingState && place.bookingState !== 'not-needed' && <p className={`status status-${place.bookingState}`}>Reservation: {place.bookingState}</p>}
+    {(place?.priceBand || place?.estimatedCostJPY) && <p className="map-entry-fact"><strong>Budget:</strong> {place.priceBand ? `${place.priceBand} price level` : ''}{place.priceBand && place.estimatedCostJPY ? ' · ' : ''}{place.estimatedCostJPY ? `¥${place.estimatedCostJPY.toLocaleString('en-GB')} reference · person or group basis not recorded` : ''}</p>}
+    {place?.bookingState && place.bookingState !== 'not-needed' && <p className={`status status-${place.bookingState}`}>Reservation: {bookingStateLabel(place.bookingState)}</p>}
     {place?.travelNote && <p className="map-entry-fact"><strong>Getting there:</strong> {place.travelNote}</p>}
     {place?.bookingNote && <p className="map-entry-warning">{place.bookingNote}</p>}
     {place?.verification !== undefined && place.verification !== 'confirmed' && <p className="map-entry-warning">{place.verification === 'research' ? 'Research option · check details before going.' : 'Recheck the current details before travel.'}</p>}

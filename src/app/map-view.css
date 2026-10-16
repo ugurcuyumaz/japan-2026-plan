@@ -1,0 +1,7 @@
+.map-deferred { flex-direction:column; gap:12px; padding:24px; text-align:center; }
+.map-failure { position:absolute; z-index:4; inset:0; display:flex; flex-direction:column; align-items:center; justify-content:center; gap:10px; padding:24px; background:#f4f2ea; color:var(--ink); text-align:center; }
+.map-failure > span { max-width:300px; color:var(--muted); font-size:13px; line-height:1.5; }
+.map-failure button,.vector-map-error button { display:inline-flex; align-items:center; justify-content:center; gap:7px; min-height:40px; padding:0 13px; border:1px solid #d5ddd8; border-radius:8px; background:#fffefb; color:var(--ink); font:inherit; font-size:12px; font-weight:650; cursor:pointer; }
+.vector-map-error { display:flex; align-items:center; justify-content:space-between; gap:12px; }
+.vector-map-error button { flex:none; background:#fffaf2; }
+@media (max-width:480px) { .vector-map-error { align-items:flex-start; flex-direction:column; } }

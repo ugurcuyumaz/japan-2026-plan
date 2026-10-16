@@ -18,6 +18,7 @@ export interface MapEntry {
 export const mapTypeLabel: Record<ItemType, string> = { sight: 'Sight', food: 'Food', optional: 'Optional', transit: 'Transport', stay: 'Stay', booking: 'Book / check', note: 'Note' };
 export const shortDate = (date: string) => new Date(`${date}T12:00:00Z`).toLocaleDateString('en-GB', { day: 'numeric', month: 'short', timeZone: 'UTC' });
 export const isAlternative = (place: Place) => place.role === 'backup' || place.type === 'optional';
+export const matchesMapLayer = (place: Place, filter: ItemType | 'all'): boolean => filter === 'all' || (filter === 'optional' ? isAlternative(place) : place.type === filter);
 export const cityDescriptions: Record<string, string> = {
   Sapporo: 'Ease into Japan with autumn walks, soup curry and a gentle start after the flight.',
   Hakodate: 'Morning-market seafood, the star-shaped fort and Motomachi’s hillside streets.',
@@ -32,7 +33,7 @@ export function mapEntries(days: TripDay[], filter: ItemType | 'all', day?: Trip
     return { id: `base-${city.name}`, title: city.name, subtitle: `${city.nights} night${city.nights === 1 ? '' : 's'} · ${hotels.map((stay) => `${shortDate(stay.checkIn)}–${shortDate(stay.checkOut)}`).join(' / ')}`, description: cityDescriptions[city.name], type: 'stay', coordinates: city.coordinates, label: `${index + 1}`, city: city.name };
   });
   if (!day && filter === 'stay') return stays.map((stay) => ({ id: stay.id, title: stay.property, subtitle: `${stay.city} · ${stay.dates} · ${stay.nights} nights`, description: stay.note, type: 'stay', coordinates: stay.coordinates, label: '⌂', stay }));
-  return (day ? [day] : days).flatMap((tripDay) => tripDay.places.filter((place) => place.coordinates && (filter === 'all' || place.type === filter)).map((place, index) => ({ id: `${tripDay.id}:${place.id}`, title: place.name, subtitle: `${shortDate(tripDay.id)}${place.startTime ? ` · ${place.startTime}${place.endTime ? `–${place.endTime}` : ''}` : ' · Flexible'}${isAlternative(place) ? ' · Alternative' : ''}`, description: place.description, type: place.type, coordinates: place.coordinates!, label: `${index + 1}`, day: tripDay, place })));
+  return (day ? [day] : days).flatMap((tripDay) => tripDay.places.filter((place) => place.coordinates && matchesMapLayer(place, filter)).map((place, index) => ({ id: `${tripDay.id}:${place.id}`, title: place.name, subtitle: `${shortDate(tripDay.id)}${place.startTime ? ` · ${place.startTime}${place.endTime ? `–${place.endTime}` : ''}` : ' · Flexible'}${isAlternative(place) ? ' · Alternative' : ''}`, description: place.description, type: place.type, coordinates: place.coordinates!, label: `${index + 1}`, day: tripDay, place })));
 }
 
 export function distanceKm(a: [number, number], b: [number, number]) {

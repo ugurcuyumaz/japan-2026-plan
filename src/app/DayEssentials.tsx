@@ -1,10 +1,10 @@
 import { BedDouble, ArrowRight, ExternalLink, ListChecks } from 'lucide-react';
 import { dayBrief } from '../data/dayBrief';
 import { bookings, stays, googleDirectionsUrl, googleMapsUrl } from '../data/trip';
-import type { TripDay } from '../types/trip';
+import type { Booking, TripDay } from '../types/trip';
 
-export function DayEssentials({ day, onOpenBooking }: { day: TripDay; onOpenBooking: (id: string) => void }) {
-  const { tonight, leaving, advance, onSite } = dayBrief(day, stays, bookings);
+export function DayEssentials({ day, onOpenBooking, plannerBookings = bookings }: { day: TripDay; onOpenBooking: (id: string) => void; plannerBookings?: Booking[] }) {
+  const { tonight, leaving, advance, onSite } = dayBrief(day, stays, plannerBookings);
   return <section className="day-essentials" aria-label="Day essentials">
     <h3 tabIndex={-1}>At a glance</h3>
     {(tonight || leaving) && <div className="day-hotel-brief"><BedDouble size={18} /><div>
