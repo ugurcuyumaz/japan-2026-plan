@@ -9,6 +9,7 @@ import { tokyoPoolActivities } from './tokyoPool';
 import { withBookingProgress, type BookingProgress } from './bookingProgress';
 import { dayTimeLabel } from './navigation';
 import { tokyoTimingWarning, type TokyoChoices } from './tokyoChoices';
+import { getTokyoResource, resourceMeals } from './tokyoPractical';
 import type { Booking, BookingState, Place } from '../types/trip';
 
 export const escapeHtml = (value: string): string => value.replace(/[&<>"']/g, (character) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[character]!));
@@ -25,14 +26,21 @@ export function buildTravelPack(choices: TokyoChoices, dayId?: string, generated
   const includedIds = new Set(days.map((day) => day.id));
   const includedBookings = plannerBookings.filter((booking) => !dayId || booking.dayId === dayId || booking.id === 'booking-jr-east-south-hokkaido-pass');
   const includedStays = stays.filter((stay) => days.some((day) => stay.checkIn <= day.id && day.id <= stay.checkOut));
-  const saved = shortlistEntries(savedKeys).filter((entry) => !dayId || (entry.target.kind === 'day' && entry.target.dayId === dayId));
+  const saved = shortlistEntries(savedKeys).filter((entry) => {
+    if (!dayId) return true;
+    if (entry.target.kind === 'day') return entry.target.dayId === dayId;
+    if (entry.target.kind === 'resource') return getTokyoResource(entry.target.resourceId)?.candidateDayIds.includes(dayId) ?? false;
+    return false;
+  });
   const savedHtml = saved.length ? `<section id="saved-ideas"><h2>Saved options</h2><p>Shortlisted references, not extra commitments or confirmed bookings. Saving an idea does not assign it to a date.</p><ul>${saved.map((entry) => {
     const ideaTarget = entry.target.kind === 'idea' ? entry.target : undefined;
     const idea = ideaTarget ? tokyoPoolActivities.find((activity) => activity.id === ideaTarget.ideaId) : undefined;
+    const resourceTarget = entry.target.kind === 'resource' ? entry.target : undefined;
+    const resource = resourceTarget ? getTokyoResource(resourceTarget.resourceId) : undefined;
     const datedTarget = entry.target.kind === 'day' ? entry.target : undefined;
     const activePlace = datedTarget ? days.find((day) => day.id === datedTarget.dayId)?.places.find((item) => item.id === datedTarget.placeId) : undefined;
     const place = activePlace ?? (datedTarget ? tokyoPoolActivities.flatMap((activity) => activity.places).find((item) => item.id === datedTarget.placeId) : undefined);
-    return `<li><h3>${e(entry.title)}</h3><p>${e(entry.area)}</p><p>${e(entry.summary)}</p>${idea ? `<p>${e(idea.durationLabel)} · ${e(idea.weatherFit ?? 'mixed')} setting</p>${idea.planningCautions?.map((note) => `<p class="notice">${e(note)}</p>`).join('') ?? ''}${idea.unavailableDates?.map((limit) => `<p class="notice">${e(shortDate(limit.dayId))} · ${e(limit.reason)}</p>`).join('') ?? ''}<p>Advance tasks: ${e(idea.bookingActions?.map((action) => action.item).join('; ') || 'No advance task noted')}</p><p>Visits and food: ${e(idea.places.filter((stop) => ['sight', 'food', 'optional'].includes(stop.type)).map((stop) => stop.name).join('; '))}</p><p class="links">${idea.sources.map((source) => link(source.url, source.label)).join('')}</p>` : place ? `${!activePlace ? '<p>Saved from an earlier Tokyo choice; not in the current dated plan.</p>' : ''}<p class="links">${link(googleMapsUrl(place.mapsQuery), 'Place details')}${place.sourceUrl ? link(place.sourceUrl, place.sourceLabel ?? 'Official details') : ''}</p>` : ''}</li>`;
+    return `<li><h3>${e(entry.title)}</h3><p>${e(entry.area)}</p><p>${e(entry.summary)}</p>${idea ? `<p>${e(idea.durationLabel)} · ${e(idea.weatherFit ?? 'mixed')} setting</p>${idea.planningCautions?.map((note) => `<p class="notice">${e(note)}</p>`).join('') ?? ''}${idea.unavailableDates?.map((limit) => `<p class="notice">${e(shortDate(limit.dayId))} · ${e(limit.reason)}</p>`).join('') ?? ''}<p>Advance tasks: ${e(idea.bookingActions?.map((action) => action.item).join('; ') || 'No advance task noted')}</p><p>Visits and food: ${e(idea.places.filter((stop) => ['sight', 'food', 'optional'].includes(stop.type)).map((stop) => stop.name).join('; '))}</p><p class="links">${idea.sources.map((source) => link(source.url, source.label)).join('')}</p>` : resource ? `<p><strong>Candidate dates:</strong> ${e(resource.candidateDayIds.map(shortDate).join(', '))}</p><p><strong>Schedule &amp; date fit:</strong> ${e(resource.scheduleNote)}</p>${resource.durationLabel ? `<p><strong>Duration:</strong> ${e(resource.durationLabel)}</p>` : ''}<p><strong>Price:</strong> ${e(resource.priceLabel)} <span class="muted">(basis as stated in price; if absent, not verified)</span></p><p><strong>English:</strong> ${e(resource.languageLabel)}${resource.languageEvidenceUrl ? ` · ${link(resource.languageEvidenceUrl, 'Language evidence')}` : ''}</p>${resource.kind === 'food' ? `<p><strong>Meal fit${dayId ? ` · ${e(shortDate(dayId))}` : ''}:</strong> ${e(resourceMeals(resource, dayId).join(', ') || 'No meal time published for this date')}</p>` : ''}${resource.notes.map((note) => `<p class="notice">${e(note)}</p>`).join('')}<p class="links">${link(googleMapsUrl(resource.mapsQuery), 'Map')} ${resource.sources.map((source) => link(source.url, source.label)).join(' ')}${resource.bookingUrl ? link(resource.bookingUrl, 'Booking / operator details') : ''}</p>` : place ? `${!activePlace ? '<p>Saved from an earlier Tokyo choice; not in the current dated plan.</p>' : ''}<p class="links">${link(googleMapsUrl(place.mapsQuery), 'Place details')}${place.sourceUrl ? link(place.sourceUrl, place.sourceLabel ?? 'Official details') : ''}</p>` : ''}</li>`;
   }).join('')}</ul></section>` : '';
   const title = dayId ? `Japan · ${shortDate(dayId)} travel plan` : 'Japan, slowly · offline travel pack';
   return `<!doctype html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="color-scheme" content="light"><title>${e(title)}</title><style>

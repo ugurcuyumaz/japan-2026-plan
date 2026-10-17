@@ -2,6 +2,7 @@ import { describe, expect, it } from 'vitest';
 import { buildTravelPack, escapeHtml } from './travelPack';
 import { emptyTokyoChoices } from './tokyoChoices';
 import { cityAlternatives } from './cityAlternatives';
+import { resourceKey } from './shortlist';
 
 const savedAt = new Date('2026-10-15T18:00:00Z');
 describe('offline travel pack', () => {
@@ -78,6 +79,28 @@ describe('offline travel pack', () => {
 
 
 describe('saved options in readable exports', () => {
+  it('exports saved practical resources with source, language, price, schedule, notes and map references', () => {
+    const html = buildTravelPack(emptyTokyoChoices(), undefined, savedAt, {}, [resourceKey('hotel-food-clann'), resourceKey('ozu-washi-making')]);
+    const saved = html.split('<section id="saved-ideas">')[1]?.split('<section id="reservations">')[0];
+    expect(saved).toContain('CLANN BY THE RIVER');
+    expect(saved).toContain('9 Nov 2026 is breakfast only');
+    expect(saved).toContain('English booking and course information');
+    expect(saved).toContain('basis as stated in price; if absent, not verified');
+    expect(saved).toContain('9 Nov maintenance notice');
+    expect(saved).toContain('maps/search/');
+    expect(saved).toContain('Ozu Washi paper-making');
+    expect(saved).toContain('Candidate dates:</strong> 4 Nov, 6 Nov, 7 Nov, 10 Nov');
+  });
+  it('filters saved resources by candidate date and applies meal availability for that date', () => {
+    const nov9 = buildTravelPack(emptyTokyoChoices(), '2026-11-09', savedAt, {}, [resourceKey('hotel-food-clann'), resourceKey('hotel-food-fukagawa-kamasho')]);
+    const nov9Saved = nov9.split('<section id="saved-ideas">')[1]?.split('<section id="reservations">')[0];
+    expect(nov9Saved).toContain('CLANN BY THE RIVER');
+    expect(nov9Saved).toContain('Meal fit · 9 Nov:</strong> breakfast');
+    expect(nov9Saved).not.toContain('Fukagawa Kamasho');
+    const nov5 = buildTravelPack(emptyTokyoChoices(), '2026-11-05', savedAt, {}, [resourceKey('hotel-food-fukagawa-kamasho')]);
+    const nov5Saved = nov5.split('<section id="saved-ideas">')[1]?.split('<section id="reservations">')[0];
+    expect(nov5Saved).toContain('Meal fit · 5 Nov:</strong> lunch');
+  });
   it('keeps map and source links for a saved Tokyo backup after removing its outing', () => {
     const html = buildTravelPack(emptyTokyoChoices(), undefined, new Date('2026-10-16T10:00:00.000Z'), {}, ['place:2026-11-04:pool-ikebukuro-lunch-backup']);
     expect(html).toContain('Saved from an earlier Tokyo choice');

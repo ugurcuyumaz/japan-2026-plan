@@ -4,9 +4,11 @@ import { buildPlannedDays } from './planner';
 import { emptyTokyoChoices, tokyoPlacesForHotel } from './tokyoChoices';
 import { tokyoFlexibleDays, tokyoPoolActivities } from './tokyoPool';
 import { shortDate } from './map';
+import { tokyoResources } from './tokyoPractical';
 
-export type ShortlistKey = `idea:${string}` | `place:${string}:${string}`;
+export type ShortlistKey = `idea:${string}` | `place:${string}:${string}` | `resource:${string}`;
 export const shortlistStorageKey = 'japan-2026-shortlist-v1';
+export const resourceKey = (id: string): ShortlistKey => `resource:${id}`;
 export const ideaKey = (id: string): ShortlistKey => `idea:${id}`;
 export const placeKey = (dayId: string, placeId: string): ShortlistKey => `place:${dayId}:${placeId}`;
 
@@ -14,7 +16,7 @@ export interface ShortlistEntry {
   key: ShortlistKey;
   title: string;
   area: string;
-  kind: 'idea' | 'place';
+  kind: 'idea' | 'place' | 'resource';
   summary: string;
   target: TripSearchTarget;
 }
@@ -38,6 +40,8 @@ for (const activity of tokyoPoolActivities) {
     }
   }
 }
+
+for (const resource of tokyoResources) catalog.set(resourceKey(resource.id), { key: resourceKey(resource.id), title: resource.title, area: resource.area, kind: 'resource', summary: resource.description, target: { kind: 'resource', resourceId: resource.id } });
 
 const known = new Set(catalog.keys());
 export function parseShortlist(raw: string): ShortlistKey[] | undefined {

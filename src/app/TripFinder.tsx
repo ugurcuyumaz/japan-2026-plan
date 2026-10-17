@@ -12,6 +12,7 @@ const kindLabel: Record<TripSearchKind, string> = {
   booking: 'Reservation',
   stay: 'Stay',
   idea: 'Tokyo idea',
+  resource: 'Workshop / food',
   section: 'Section',
 };
 
@@ -86,7 +87,7 @@ export function TripFinder({ open, onClose, days, plannerBookings, onNavigate }:
           <p className="trip-finder-count" role="status" aria-live="polite">{search.totalMatches === 0 ? 'No matches.' : `${search.totalMatches} match${search.totalMatches === 1 ? '' : 'es'}${search.totalMatches > search.results.length ? ` · showing ${search.results.length}; narrow your search to see fewer results` : ''}`}</p>
           {search.results.length ? <ul className="trip-finder-results">{search.results.map((result) => <li key={result.id}><button type="button" className="trip-finder-result" onClick={() => navigate(result.target)}><span className="trip-finder-result-copy"><span className="trip-finder-kind">{kindLabel[result.kind]}</span><strong>{result.title}</strong><small>{result.subtitle}</small></span><ArrowRight size={17} aria-hidden="true" /></button></li>)}</ul> : <div className="trip-finder-no-results"><strong>No matches yet</strong><span>Try a place, dish, date, hotel, train or shorter search term.</span>{relevantDay && shortcut({ kind: 'day', dayId: relevantDay.day.id }, relevantDay.label, 'relevant-day-no-results')}<div className="trip-finder-shortcuts">{tripSearchSectionShortcuts.slice(1, 6).map((item) => shortcut(item.target, item.title, `no-results-${item.id}`))}</div></div>}
         </> : <div className="trip-finder-start">
-          <p className="trip-finder-prompt">Search the planned itinerary, selected Tokyo ideas, hotel stays and current to-dos.</p>
+          <p className="trip-finder-prompt">Search the planned itinerary, selected Tokyo ideas, hotel stays, English workshops, nearby food and current to-dos.</p>
           {relevantDay && shortcut({ kind: 'day', dayId: relevantDay.day.id }, relevantDay.label, 'relevant-day')}
           <h3>Jump to a section</h3>
           <div className="trip-finder-shortcuts">{tripSearchSectionShortcuts.map((item) => shortcut(item.target, item.title, item.id))}</div>

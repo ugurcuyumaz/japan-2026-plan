@@ -4,6 +4,16 @@
 
 The site is the current day-by-day plan. It includes booked stays, travel days, a vector map with named pins and place details, reservation actions, budget estimates, Tokyo activity choices, and a printable day view. Tokyo activity choices are saved in the browser you use and can be transferred with a snapshot link, reviewed before applying and reversible with undo. Day focus starts with tonight’s booked hotel, checkout context and date-specific reservation tasks; its map opens on demand. Tokyo idea routes use the selected date’s hotel, and warn about tight outing/evening combinations. The itinerary is searchable by place and base; backup meals and optional stops are kept apart from the main timeline. Maps use MapLibre with OpenFreeMap vector tiles, with street and calm styles, English labels where available, grouped nearby stops, and a place list that remains usable if the map cannot load. Dashed lines show stop order, not a walking or rail route.
 
+## Sharing and Tokyo practical guide
+
+Personal edits persist in the browser/device that made them. **Share your plan** creates a full snapshot link containing Tokyo picks, saved ideas and handled tasks; the recipient reviews it before replacing their own decisions. Day links include the same snapshot. Later changes require a new link. There is no shared backend or automatic cross-device synchronization. Long snapshots can be transferred as validated JSON backups instead.
+
+Unreadable stored data is preserved for recovery instead of overwritten. Changes from another tab trigger review before this tab can overwrite them; explicit recovery actions retain the original raw copy. Native mobile navigation traps focus, supports Escape and scrolls on small screens.
+
+**English workshops & local food** adds seven workshops with explicit English instruction or included interpretation and seven restaurant/café options near the two Tokyo hotels. Filter by hotel, candidate date, meal and saved status. Cards distinguish instruction from English web information, show price basis and restrictions, and link to operators and hotel-origin directions. No slots or tables have been checked. Saved resources are included in full travel packs and date-appropriate day packs. The existing Kimuraya izakaya evening covers the Monday dinner gap without duplicating an idea.
+
+See the [sharing/CX plan](docs/SHARING-TOKYO-PLAN-2026-10-16.md), [English workshop research](docs/ENGLISH-WORKSHOPS-2026-10-16.md) and [hotel food research](docs/TOKYO-HOTEL-FOOD-2026-10-16.md).
+
 ## Current route
 
 | Dates | Base | Nights | Stay |

@@ -1,6 +1,7 @@
 import type { Booking, Stay, TripDay } from '../types/trip';
 import { stays as tripStays } from './trip';
 import { tokyoPoolActivities } from './tokyoPool';
+import { tokyoResources } from './tokyoPractical';
 import { normalizeSearchText } from './navigation';
 
 export type TripSearchTarget =
@@ -8,9 +9,10 @@ export type TripSearchTarget =
   | { kind: 'booking'; bookingId: string }
   | { kind: 'stay'; stayId: string }
   | { kind: 'idea'; ideaId: string }
+  | { kind: 'resource'; resourceId: string }
   | { kind: 'section'; sectionId: string };
 
-export type TripSearchKind = 'day' | 'place' | 'booking' | 'stay' | 'idea' | 'section';
+export type TripSearchKind = 'day' | 'place' | 'booking' | 'stay' | 'idea' | 'resource' | 'section';
 
 export interface TripSearchResult {
   id: string;
@@ -29,6 +31,8 @@ const coreSections = [
   { id: 'route-map', title: 'Route map', keywords: 'map cities route hotels places' },
   { id: 'daily-plan', title: 'Daily plan', keywords: 'itinerary days schedule' },
   { id: 'city-guide', title: 'City food and activity alternatives', keywords: 'city guide alternatives food restaurants indoor swaps sightseeing' },
+  { id: 'tokyo-practical', title: 'English workshops and local food', keywords: 'workshop English lesson restaurant izakaya near hotel' },
+  { id: 'share-plan', title: 'Share your plan', keywords: 'share snapshot link partner device saving sync' },
   { id: 'tokyo-pool', title: 'Tokyo ideas', keywords: 'ideas outings activities tokyo pool' },
   { id: 'bookings', title: 'Reservations and to-dos', keywords: 'booking tickets train reserve tasks' },
   { id: 'stays', title: 'Confirmed stays', keywords: 'hotels accommodation lodging' },
@@ -95,6 +99,10 @@ export function buildTripSearchIndex(days: TripDay[], plannerBookings: Booking[]
       target: { kind: 'idea', ideaId: idea.id },
       searchText: fieldsText(idea.title, idea.area, idea.summary, idea.routeNote, idea.weatherFit, ...(idea.themes ?? []), ...idea.places.flatMap((place) => [place.name, place.cuisine, place.signature])),
     });
+  }
+
+  for (const resource of tokyoResources) {
+    results.push({ id: `resource-${resource.id}`, kind: 'resource', title: resource.title, subtitle: `${resource.kind === 'workshop' ? 'English workshop' : 'Food near hotel'} · ${resource.area}`, target: { kind: 'resource', resourceId: resource.id }, searchText: fieldsText(resource.title, resource.area, resource.description, resource.languageLabel, resource.scheduleNote, ...resource.notes) });
   }
 
   for (const section of coreSections) {

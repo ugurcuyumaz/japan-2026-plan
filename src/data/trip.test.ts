@@ -25,6 +25,14 @@ describe('canonical itinerary data', () => {
     expect(googleDirectionsUrl('Shinjuku Gyoen')).toContain('travelmode=walking');
   });
 
+  it('uses the verified Tokyo hotel address pins for stays and hotel transfers', () => {
+    for (const hotel of stays.filter((stay) => stay.city === 'Tokyo')) {
+      const endpoints = [...tripDays.flatMap((day) => day.places), ...tokyoPoolActivities.flatMap((idea) => idea.places)].filter((place) => place.mapsQuery === hotel.property);
+      expect(endpoints.length).toBeGreaterThan(1);
+      expect(endpoints.every((place) => JSON.stringify(place.coordinates) === JSON.stringify(hotel.coordinates))).toBe(true);
+    }
+  });
+
   it('derives action and budget summaries from structured data', () => {
     expect(openItems).toHaveLength(0);
     expect(bookings.filter((booking) => booking.status !== 'booked')).toHaveLength(21);

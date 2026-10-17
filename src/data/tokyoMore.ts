@@ -21,7 +21,7 @@ export const tokyoMoreActivities: TokyoPoolActivity[] = [
       food('pool-yanesen-lunch','Lunch · Yanaka Beer Hall, Ueno Sakuragi Atari','Named neighborhood beer hall in a preserved complex. Its official listing shows daytime service but closes Mondays; check food service and the current calendar before choosing it.','Yanaka Beer Hall Ueno Sakuragi Atari',[35.7216,139.7685],'lunch','Japanese café dining','https://www.uenosakuragiatari.jp/shop/','Ueno Sakuragi Atari · official store information','primary'),
       food('pool-yanesen-lunch-backup','Lunch backup · Yanaka SUGIURA','Named French restaurant near Nippori; its official page lists weekday and seasonal lunch service. It is closed Mondays and Tuesdays, so check date-specific opening before relying on it.','Yanaka SUGIURA Tokyo',[35.7273,139.7668],'lunch','French cuisine','https://yanaka-sugiura.jp/','Yanaka SUGIURA · official site','backup'),
       stop('pool-yanesen-nezu','Nezu Shrine','sight','Visit the historic shrine and torii-lined Otome Inari approach; grounds access and hours can vary seasonally, so check the shrine before travel.','Nezu Shrine Tokyo',[35.7202,139.7603],{startTime:'14:00',durationMinutes:50,verification:'verify-before-trip'}),
-      stop('pool-yanesen-return','Rail · Nezu → hotel','transit','Allow 45–55 minutes door to door; choose the nearest station after the shrine.','Comfort Hotel Tokyo Kiyosumi Shirakawa',[35.682,139.798],{startTime:'15:15',durationMinutes:50,originQuery:'Nezu Shrine Tokyo',travelMode:'train'}),
+      stop('pool-yanesen-return','Rail · Nezu → hotel','transit','Allow 45–55 minutes door to door; choose the nearest station after the shrine.','Comfort Hotel Tokyo Kiyosumi Shirakawa',[35.68219, 139.799637],{startTime:'15:15',durationMinutes:50,originQuery:'Nezu Shrine Tokyo',travelMode:'train'}),
     ],
   },
   {
@@ -37,7 +37,7 @@ export const tokyoMoreActivities: TokyoPoolActivity[] = [
       food('pool-roppongi-lunch','Lunch · Rigoletto Bar and Grill','Named Spanish-Italian restaurant in Roppongi Hills; check its current lunch service and availability.','Rigoletto Bar and Grill Roppongi Hills',[35.6604,139.7292],'lunch','Spanish-Italian · pizza, pasta and tapas','https://www.huge.co.jp/en/service/restaurant/rigoletto/rigoletto_bar_grill/','HUGE · Rigoletto official restaurant page','primary'),
       food('pool-roppongi-lunch-backup','Lunch backup · TsuruTonTan Roppongi','Named udon restaurant a short walk away; confirm current service and queue.','TsuruTonTan Roppongi Tokyo',[35.664,139.731],'lunch','Udon','https://www.tsurutontan.co.jp/roppongi/','TsuruTonTan · Roppongi official page','backup'),
       stop('pool-roppongi-midtown','Tokyo Midtown garden + design shops','sight','A flexible indoor/outdoor browse after lunch; use the garden only if weather allows.','Tokyo Midtown Tokyo',[35.6662,139.7317],{startTime:'14:00',durationMinutes:75}),
-      stop('pool-roppongi-return','Metro · Roppongi → hotel','transit','Allow about 45 minutes door to door.','Comfort Hotel Tokyo Kiyosumi Shirakawa',[35.682,139.798],{startTime:'15:30',durationMinutes:45,originQuery:'Roppongi Station Tokyo',travelMode:'train'}),
+      stop('pool-roppongi-return','Metro · Roppongi → hotel','transit','Allow about 45 minutes door to door.','Comfort Hotel Tokyo Kiyosumi Shirakawa',[35.68219, 139.799637],{startTime:'15:30',durationMinutes:45,originQuery:'Roppongi Station Tokyo',travelMode:'train'}),
     ],
   },
   {
@@ -51,7 +51,7 @@ export const tokyoMoreActivities: TokyoPoolActivity[] = [
       stop('pool-kichijoji-shopping','Kichijoji shopping streets','sight','Browse the station-area lanes and department stores at an easy pace; choose a few shops.','Kichijoji Sunroad Shopping Street',[35.704,139.5805],{startTime:'12:45',durationMinutes:75}),
       food('pool-kichijoji-lunch','Lunch · Kichijoji RETRO','Named yakitori restaurant near the station with a stated lunch service on its official page; verify that the chosen date is operating.','Kichijoji RETRO Tokyo',[35.7039,139.5793],'lunch','Yakitori and Japanese set meals','https://kichijoji-retro.com/en/information/','Kichijoji RETRO · official information','primary'),
       food('pool-kichijoji-lunch-backup','Lunch backup · Hakata Tempura Yamaya, Atre Kichijoji','Named tempura restaurant listed in Atre’s official café/restaurant directory; check current service and queue.','Hakata Tempura Yamaya Atre Kichijoji',[35.7037,139.5798],'lunch','Hakata tempura','https://www.atre.co.jp/kichijoji/caferestaurant/?category=washoku','Atre Kichijoji · official restaurant directory','backup'),
-      stop('pool-kichijoji-return','Rail · Kichijoji → hotel','transit','Allow about 65 minutes door to door; return before evening rush if convenient.','Comfort Hotel Tokyo Kiyosumi Shirakawa',[35.682,139.798],{startTime:'16:00',durationMinutes:65,originQuery:'Kichijoji Station Tokyo',travelMode:'train'}),
+      stop('pool-kichijoji-return','Rail · Kichijoji → hotel','transit','Allow about 65 minutes door to door; return before evening rush if convenient.','Comfort Hotel Tokyo Kiyosumi Shirakawa',[35.68219, 139.799637],{startTime:'16:00',durationMinutes:65,originQuery:'Kichijoji Station Tokyo',travelMode:'train'}),
     ],
   },
   {
@@ -65,7 +65,7 @@ export const tokyoMoreActivities: TokyoPoolActivity[] = [
       stop('pool-ryogoku-area','Ryogoku Kokugikan exterior + sumo quarter','sight','Walk the sumo district and see the arena exterior; tournament dates are not assumed and interior access is not promised.','Ryogoku Kokugikan',[35.6969,139.7934],{startTime:'12:30',durationMinutes:35}),
       food('pool-ryogoku-lunch','Lunch · Chanko Tomoegata','Named chanko-nabe restaurant in Ryogoku; check current service, holiday schedule and availability before relying on it.','Chanko Tomoegata Ryogoku',[35.6962,139.7938],'lunch','Chanko-nabe · sumo hot pot','https://www.tomoegata.com/','Chanko Tomoegata · official site','primary'),
       food('pool-ryogoku-lunch-backup','Lunch backup · Chanko Kirishima Ryogoku','Named nearby chanko restaurant; verify current branch hours and queue.','Chanko Kirishima Ryogoku Main Branch',[35.6967,139.7932],'lunch','Chanko-nabe','https://c-kirishima.com/shop.html','Chanko Kirishima · official shop information','backup'),
-      stop('pool-ryogoku-return','Rail · Ryogoku → hotel','transit','Allow about 35–40 minutes door to door.','Comfort Hotel Tokyo Kiyosumi Shirakawa',[35.682,139.798],{startTime:'14:30',durationMinutes:40,originQuery:'Ryogoku Station Tokyo',travelMode:'train'}),
+      stop('pool-ryogoku-return','Rail · Ryogoku → hotel','transit','Allow about 35–40 minutes door to door.','Comfort Hotel Tokyo Kiyosumi Shirakawa',[35.68219, 139.799637],{startTime:'14:30',durationMinutes:40,originQuery:'Ryogoku Station Tokyo',travelMode:'train'}),
     ],
   },
   {
@@ -80,7 +80,7 @@ export const tokyoMoreActivities: TokyoPoolActivity[] = [
       food('pool-kagurazaka-lunch','Lunch · Kuzuryu Soba Kagurazaka Main Store','Named soba restaurant with official listing for lunch service; check current opening notices and queue.','Kuzuryu Soba Kagurazaka Main Store',[35.7019,139.7413],'lunch','Echizen soba and Fukui local dishes','https://kuzuryu-soba.com/info/honten/','Kuzuryu Soba · official Kagurazaka store page','primary'),
       food('pool-kagurazaka-lunch-backup','Lunch backup · Kagurazaka Kurosu','Named Japanese restaurant; its official page lists lunch Tue–Sat, with reservation and holiday conditions. Its listed course is high-priced and this is not a walk-in fallback: check the current menu and arrange a reservation if selecting it.','Kagurazaka Kurosu Tokyo',[35.7006,139.7388],'lunch','Seasonal Japanese cuisine','https://www.kagurazaka-x.com/en','Kagurazaka Kurosu · official site','backup'),
       stop('pool-kagurazaka-akagi','Akagi Shrine','sight','Visit the contemporary shrine designed by architect Kengo Kuma; allow a short stop.','Akagi Shrine Kagurazaka',[35.7036,139.737],{startTime:'13:15',durationMinutes:35}),
-      stop('pool-kagurazaka-return','Metro · Kagurazaka → hotel','transit','Allow about 40 minutes door to door.','Comfort Hotel Tokyo Kiyosumi Shirakawa',[35.682,139.798],{startTime:'14:00',durationMinutes:40,originQuery:'Kagurazaka Station Tokyo',travelMode:'train'}),
+      stop('pool-kagurazaka-return','Metro · Kagurazaka → hotel','transit','Allow about 40 minutes door to door.','Comfort Hotel Tokyo Kiyosumi Shirakawa',[35.68219, 139.799637],{startTime:'14:00',durationMinutes:40,originQuery:'Kagurazaka Station Tokyo',travelMode:'train'}),
     ],
   },
   {
@@ -96,7 +96,7 @@ export const tokyoMoreActivities: TokyoPoolActivity[] = [
       food('pool-ikebukuro-lunch','Lunch · Tenbou-Park CAFE','Named café inside the observatory; check access requirements and current menu/service.','Tenbou-Park CAFE Sunshine 60',[35.7287,139.7195],'lunch','Café · light meals and drinks','https://sunshinecity.jp/en/observatory/restaurant/restaurant_list/','Sunshine City · Tenbou-Park CAFE','primary'),
       food('pool-ikebukuro-lunch-backup','Lunch backup · OCEAN Casita','Named seafood grill restaurant in Sunshine 60; check current lunch service and whether reservation is useful.','OCEAN Casita Sunshine 60 Ikebukuro',[35.7287,139.7195],'lunch','Italian seafood grill','https://www.casita.jp/ocean/','Casita · OCEAN official restaurant site','backup'),
       stop('pool-ikebukuro-shopping','Sunshine City indoor browse','sight','Use the remaining time for the indoor shopping complex; choose stores based on interest and energy.','Sunshine City Ikebukuro',[35.7287,139.7195],{startTime:'13:15',durationMinutes:90}),
-      stop('pool-ikebukuro-return','Rail · Ikebukuro → hotel','transit','Allow 45–55 minutes door to door.','Comfort Hotel Tokyo Kiyosumi Shirakawa',[35.682,139.798],{startTime:'15:00',durationMinutes:50,originQuery:'Ikebukuro Station Tokyo',travelMode:'train'}),
+      stop('pool-ikebukuro-return','Rail · Ikebukuro → hotel','transit','Allow 45–55 minutes door to door.','Comfort Hotel Tokyo Kiyosumi Shirakawa',[35.68219, 139.799637],{startTime:'15:00',durationMinutes:50,originQuery:'Ikebukuro Station Tokyo',travelMode:'train'}),
     ],
   },
   {
@@ -110,7 +110,7 @@ export const tokyoMoreActivities: TokyoPoolActivity[] = [
       food('pool-shimokitazawa-lunch','Lunch · Magic Spice Shimokitazawa','Named soup-curry restaurant; check its official opening calendar and spice options before choosing.','Magic Spice Shimokitazawa',[35.6597,139.6673],'lunch','Soup curry','https://www.magicspice.net/','Magic Spice · official restaurant site','primary'),
       food('pool-shimokitazawa-lunch-backup','Lunch backup · Shimokita SABA Shokudo Sasuke Sakaba','Named seafood restaurant two minutes from Shimokitazawa Station. Its official lunch page lists grilled mackerel set meals; verify the current day’s hours.','Shimokita SABA Shokudo Sasuke Sakaba',[35.6612,139.6674],'lunch','Grilled mackerel set meals','https://saba-shokudo-shimokitazawa.com/lunch/','Shimokita SABA Shokudo · official lunch page','backup'),
       stop('pool-shimokitazawa-village','Reload + Bonus Track creative complex','sight','Browse the compact creative retail and food complex if open; individual tenants may have varying hours.','BONUS TRACK Shimokitazawa',[35.6614,139.6625],{startTime:'13:00',durationMinutes:90}),
-      stop('pool-shimokitazawa-return','Rail · Shimokitazawa → hotel','transit','Allow around 60 minutes door to door.','Comfort Hotel Tokyo Kiyosumi Shirakawa',[35.682,139.798],{startTime:'15:00',durationMinutes:60,originQuery:'Shimokitazawa Station Tokyo',travelMode:'train'}),
+      stop('pool-shimokitazawa-return','Rail · Shimokitazawa → hotel','transit','Allow around 60 minutes door to door.','Comfort Hotel Tokyo Kiyosumi Shirakawa',[35.68219, 139.799637],{startTime:'15:00',durationMinutes:60,originQuery:'Shimokitazawa Station Tokyo',travelMode:'train'}),
     ],
   },
   {
@@ -125,7 +125,7 @@ export const tokyoMoreActivities: TokyoPoolActivity[] = [
       food('pool-marunouchi-lunch','Lunch · Maharaja Marunouchi','Named Indian restaurant within walking distance of Tokyo Station; verify the current holiday hours and lunch service.','Maharaja Marunouchi Tokyo',[35.6788,139.7628],'lunch','Indian cuisine','https://www.maharaja-group.com/en/marunouchi/','Maharaja · official Marunouchi page','primary'),
       food('pool-marunouchi-lunch-backup','Lunch backup · Shichi Jyu Ni Kou, Tokyo Station Hotel','Named Japanese restaurant in Tokyo Station Hotel; check current lunch hours and reservation availability.','Shichi Jyu Ni Kou Tokyo Station Hotel',[35.6813,139.7672],'lunch','Japanese cuisine','https://www.thetokyostationhotel.jp/restaurants/shichijunikou/','Tokyo Station Hotel · Shichi Jyu Ni Kou','backup'),
       stop('pool-marunouchi-architecture','Marunouchi architecture walk','sight','Optional short walk past the restored station district buildings and plazas; skip if wet or tired.','Marunouchi Tokyo',[35.6801,139.764],{startTime:'13:30',durationMinutes:45}),
-      stop('pool-marunouchi-return','Metro · Tokyo Station → hotel','transit','Allow about 40 minutes door to door.','Comfort Hotel Tokyo Kiyosumi Shirakawa',[35.682,139.798],{startTime:'14:30',durationMinutes:40,originQuery:'Tokyo Station Marunouchi North Exit',travelMode:'train'}),
+      stop('pool-marunouchi-return','Metro · Tokyo Station → hotel','transit','Allow about 40 minutes door to door.','Comfort Hotel Tokyo Kiyosumi Shirakawa',[35.68219, 139.799637],{startTime:'14:30',durationMinutes:40,originQuery:'Tokyo Station Marunouchi North Exit',travelMode:'train'}),
     ],
   },
   {
@@ -139,7 +139,7 @@ export const tokyoMoreActivities: TokyoPoolActivity[] = [
       food('pool-nezu-museum-lunch','Lunch · Nezu Café','Named café inside the museum grounds; access is within the museum visit and current service should be checked with the museum.','Nezu Museum Cafe Tokyo',[35.662,139.7177],'lunch','Museum café','https://www.nezu-muse.or.jp/en/','Nezu Museum · official site','primary'),
       food('pool-nezu-museum-lunch-backup','Lunch backup · Aoyama Flower Market TEA HOUSE','Named café in the Omotesando area; verify branch hours and wait before setting out.','Aoyama Flower Market TEA HOUSE Minami Aoyama',[35.6654,139.712],'lunch','Café · tea and light meals','https://www.afm-teahouse.com/','Aoyama Flower Market TEA HOUSE · official site','backup'),
       stop('pool-nezu-museum-omotesando','Omotesando architecture + design browse','sight','A flexible short walk along Omotesando, with indoor shops as a rain alternative.','Omotesando Tokyo',[35.6654,139.712],{startTime:'13:15',durationMinutes:75}),
-      stop('pool-nezu-museum-return','Metro · Omotesando → hotel','transit','Allow about 50 minutes door to door.','Comfort Hotel Tokyo Kiyosumi Shirakawa',[35.682,139.798],{startTime:'14:45',durationMinutes:50,originQuery:'Omotesando Station Tokyo',travelMode:'train'}),
+      stop('pool-nezu-museum-return','Metro · Omotesando → hotel','transit','Allow about 50 minutes door to door.','Comfort Hotel Tokyo Kiyosumi Shirakawa',[35.68219, 139.799637],{startTime:'14:45',durationMinutes:50,originQuery:'Omotesando Station Tokyo',travelMode:'train'}),
     ],
   },
   {
@@ -152,7 +152,7 @@ export const tokyoMoreActivities: TokyoPoolActivity[] = [
       stop('pool-kagurazaka-evening-walk','Laneways + Bishamonten','sight','A short dusk walk through the lit backstreets and main street; use care on the slopes.','Kagurazaka Tokyo',[35.7005,139.7405],{startTime:'18:15',durationMinutes:45}),
       food('pool-kagurazaka-evening-dinner','Dinner · Kagurazaka Hikariishi','Its official page says course meals are by reservation only; reserve in advance and check current service. The late-night So Bar is a separate 9 p.m. option.','Kagurazaka Hikariishi Tokyo',[35.7001,139.7388],'dinner','Seasonal Japanese cuisine and soba','https://kouseki.jp/en/','Kagurazaka Hikariishi · official site','primary'),
       food('pool-kagurazaka-evening-backup','Dinner backup · Kuzuryu Soba Kagurazaka Main Store','Named soba restaurant with evening service listed on its official store page; check current opening notices.','Kuzuryu Soba Kagurazaka Main Store',[35.7019,139.7413],'dinner','Echizen soba and Fukui local dishes','https://kuzuryu-soba.com/info/honten/','Kuzuryu Soba · official Kagurazaka store page','backup'),
-      stop('pool-kagurazaka-evening-return','Metro · Kagurazaka → hotel','transit','Allow about 40 minutes door to door.','Comfort Hotel Tokyo Kiyosumi Shirakawa',[35.682,139.798],{startTime:'20:45',durationMinutes:40,originQuery:'Kagurazaka Station Tokyo',travelMode:'train'}),
+      stop('pool-kagurazaka-evening-return','Metro · Kagurazaka → hotel','transit','Allow about 40 minutes door to door.','Comfort Hotel Tokyo Kiyosumi Shirakawa',[35.68219, 139.799637],{startTime:'20:45',durationMinutes:40,originQuery:'Kagurazaka Station Tokyo',travelMode:'train'}),
     ],
   },
   {
@@ -164,7 +164,7 @@ export const tokyoMoreActivities: TokyoPoolActivity[] = [
       stop('pool-ryogoku-evening-walk','Kokugikan exterior + sumo quarter','sight','Short neighborhood orientation walk; no tournament or arena access is assumed.','Ryogoku Kokugikan',[35.6969,139.7934],{startTime:'18:40',durationMinutes:25}),
       food('pool-ryogoku-evening-dinner','Dinner · Chanko Tomoegata','Named chanko-nabe restaurant; check current service and reservation availability.','Chanko Tomoegata Ryogoku',[35.6962,139.7938],'dinner','Chanko-nabe · sumo hot pot','https://www.tomoegata.com/','Chanko Tomoegata · official site','primary'),
       food('pool-ryogoku-evening-backup','Dinner backup · Chanko Kirishima Ryogoku','Named nearby chanko-nabe restaurant; confirm its current branch hours and table availability.','Chanko Kirishima Ryogoku Main Branch',[35.6967,139.7932],'dinner','Chanko-nabe','https://www.edo-tokyo-museum.or.jp/assets/pc/pdf/ryogoku-nigiwai-map-2022.pdf','Edo-Tokyo Museum · Ryogoku neighborhood map','backup'),
-      stop('pool-ryogoku-evening-return','Rail · Ryogoku → hotel','transit','Allow about 35–40 minutes door to door.','Comfort Hotel Tokyo Kiyosumi Shirakawa',[35.682,139.798],{startTime:'21:00',durationMinutes:40,originQuery:'Ryogoku Station Tokyo',travelMode:'train'}),
+      stop('pool-ryogoku-evening-return','Rail · Ryogoku → hotel','transit','Allow about 35–40 minutes door to door.','Comfort Hotel Tokyo Kiyosumi Shirakawa',[35.68219, 139.799637],{startTime:'21:00',durationMinutes:40,originQuery:'Ryogoku Station Tokyo',travelMode:'train'}),
     ],
   },
   {
@@ -176,7 +176,7 @@ export const tokyoMoreActivities: TokyoPoolActivity[] = [
       stop('pool-kichijoji-evening-walk','Harmonica Yokocho + station streets','sight','Short browse near the station; keep the alleys considerate and avoid blocking narrow walkways.','Harmonica Yokocho Kichijoji',[35.704,139.5801],{startTime:'18:40',durationMinutes:35}),
       food('pool-kichijoji-evening-dinner','Dinner · Kichijoji RETRO','Named yakitori and Japanese dining venue; check current dinner hours and reserve if desired.','Kichijoji RETRO Tokyo',[35.7039,139.5793],'dinner','Yakitori and Japanese dishes','https://kichijoji-retro.com/en/information/','Kichijoji RETRO · official information','primary'),
       food('pool-kichijoji-evening-backup','Dinner backup · Umegaoka Sushi no Midori, Atre Kichijoji','Named sushi restaurant at Atre Kichijoji; check current wait and branch service information.','Umegaoka Sushi no Midori Atre Kichijoji',[35.7037,139.5798],'dinner','Sushi','https://www.sushinomidori.co.jp/shops/kichijoji/','Sushi no Midori · official Kichijoji store page','backup'),
-      stop('pool-kichijoji-evening-return','Rail · Kichijoji → hotel','transit','Allow about 65 minutes; check the date-specific final suitable train.','Comfort Hotel Tokyo Kiyosumi Shirakawa',[35.682,139.798],{startTime:'20:30',durationMinutes:65,originQuery:'Kichijoji Station Tokyo',travelMode:'train'}),
+      stop('pool-kichijoji-evening-return','Rail · Kichijoji → hotel','transit','Allow about 65 minutes; check the date-specific final suitable train.','Comfort Hotel Tokyo Kiyosumi Shirakawa',[35.68219, 139.799637],{startTime:'20:30',durationMinutes:65,originQuery:'Kichijoji Station Tokyo',travelMode:'train'}),
     ],
   },
 ];
