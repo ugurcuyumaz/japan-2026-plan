@@ -6,7 +6,7 @@ The [original GitHub Pages link](https://ugurcuyumaz.github.io/japan-2026-plan/)
 
 ## One plan for everyone
 
-Everyone can read the canonical trip without signing in. Only the two email accounts explicitly chosen by the owner may edit. Authorization is checked on the server using platform sign-in and a server-only allowlist. Picks, saved ideas and handled preparation tasks are stored in a managed D1 database. Open pages refresh every eight seconds and when focused. Conflicting saves require review; failed saves retain a recoverable draft. Offline HTML and editable JSON downloads are dated snapshots.
+Everyone can read the canonical trip without signing in. Only the two email accounts explicitly chosen by the owner may edit. Editors use the simple email-and-password form. Authorization is checked on the server using a server-only allowlist and an expiring session. ChatGPT sign-in is not required. Picks, saved ideas and handled preparation tasks are stored in a managed D1 database. Open pages refresh every eight seconds and when focused. Conflicting saves require review; failed saves retain a recoverable draft. Offline HTML and editable JSON downloads are dated snapshots.
 
 All seven hotels, Peach and international flights remain source-confirmed. Other reservations are not confirmed. The website does not make bookings or payments. Workshop and food availability remains unverified.
 
