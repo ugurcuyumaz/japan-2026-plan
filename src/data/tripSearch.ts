@@ -53,7 +53,7 @@ export function buildTripSearchIndex(days: TripDay[], plannerBookings: Booking[]
       title: day.title,
       subtitle: `${dayCaption} · day plan`,
       target: { kind: 'day', dayId: day.id },
-      searchText: fieldsText(day.title, day.base, dayCaption, day.summary, day.tags.join(' ')),
+      searchText: fieldsText(day.id, day.title, day.base, dayCaption, day.summary, day.tags.join(' ')),
     });
     for (const place of day.places) {
       if (place.type === 'stay' && !place.startTime) continue;
@@ -120,6 +120,7 @@ export function buildTripSearchIndex(days: TripDay[], plannerBookings: Booking[]
 }
 
 function scoreResult(result: TripSearchResult, normalizedQuery: string, terms: string[]): number | undefined {
+  if (result.target.kind === 'day' && (normalizedQuery === result.target.dayId || normalizedQuery === normalizeSearchText(dateLabel(result.target.dayId)))) return result.kind === 'day' ? -2 : -1;
   const title = normalizeSearchText(result.title);
   const fullText = normalizeSearchText(result.searchText);
   if (!terms.every((term) => fullText.includes(term))) return undefined;

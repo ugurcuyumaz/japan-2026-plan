@@ -38,6 +38,12 @@ describe('trip-wide finder index', () => {
     expect(matches.results).toHaveLength(16);
   });
 
+  it('puts the requested day first for short and ISO dates, including empty flexible days', () => {
+    for (const query of ['9 Nov', '2026-11-09']) {
+      expect(searchTripIndex(index, query).results[0]).toMatchObject({ kind: 'day', target: { dayId: '2026-11-09' } });
+    }
+  });
+
   it('returns no arbitrary result for a blank query', () => {
     expect(searchTripIndex(index, '   ')).toEqual({ results: [], totalMatches: 0 });
   });

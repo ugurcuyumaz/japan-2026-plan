@@ -26,7 +26,7 @@ Test legacy migration, unsupported-data preservation, storage failure, stale-tab
 
 ## Verification — 17 October 2026
 
-- 145 tests in 22 files passed; strict TypeScript unused checks and production build passed. GitHub Pages build/deploy succeeded.
+- 146 tests in 22 files passed; strict TypeScript unused checks and production build passed. GitHub Pages build/deploy succeeded.
 - Public-site checks: saved Ozu workshop survived reload; whole-plan and day snapshots included a dated evening, saved workshop and handled task; mobile day focus stayed closed until shared-plan review finished. Malformed links left decisions unchanged.
 - Two real browser tabs: a stale tab retained unsaved local edits without overwriting the saved copy. Explicit Keep downloaded the previous copy; Use adopted the reviewed state. Backup restore and undo restored all three personal lists.
 - Whole HTML travel pack included saved Ozu/Sokichi resources, group price and English evidence. Date-aware export restrictions have automated coverage.
@@ -36,3 +36,5 @@ Test legacy migration, unsupported-data preservation, storage failure, stale-tab
 - Restored the original browser decisions after QA: no Tokyo picks, no saved ideas, no handled records. 13 advance actions remain open. No reservations made or changed.
 
 Known limits: browser storage can be cleared by the user/browser; no backend or automatic device synchronization exists. Sharing sends a snapshot and never incorporates later edits. Venue schedules are researched references, not checked vacancies. Map routes remain stop-order references; external directions need internet. Vite retains the existing large map-vendor chunk warning; the map is deferred until needed.
+
+Finder follow-up: exact short dates and ISO dates now put the requested day first, including empty flexible dates. This resolves the live check where a time containing “9” appeared above the 9 November day. Regression coverage added.
