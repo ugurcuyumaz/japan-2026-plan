@@ -10,7 +10,13 @@ export function MobileNavigation({ open, onClose, onNavigate }: { open: boolean;
     if (!open && dialog.current?.open) dialog.current.close();
   }, [open]);
   useEffect(() => { document.body.classList.toggle('mobile-navigation-open', open); return () => document.body.classList.remove('mobile-navigation-open'); }, [open]);
-  return <dialog id="mobile-menu" className="mobile-navigation-dialog" ref={dialog} aria-labelledby="mobile-navigation-title" onCancel={(event) => { event.preventDefault(); onClose(); }} onClick={(event) => { if (event.target !== event.currentTarget) return; const rect = event.currentTarget.getBoundingClientRect(); if (event.clientX < rect.left || event.clientX > rect.right || event.clientY < rect.top || event.clientY > rect.bottom) onClose(); }}>
+  return <dialog id="mobile-menu" className="mobile-navigation-dialog" ref={dialog} aria-labelledby="mobile-navigation-title" onKeyDown={(event) => {
+    if (event.key !== 'Tab') return;
+    const items = Array.from(dialog.current?.querySelectorAll<HTMLElement>('button, a[href]') ?? []).filter((item) => item.getClientRects().length > 0);
+    const first = items[0], last = items[items.length - 1];
+    if (event.shiftKey && document.activeElement === first) { event.preventDefault(); last?.focus(); }
+    else if (!event.shiftKey && document.activeElement === last) { event.preventDefault(); first?.focus(); }
+  }} onCancel={(event) => { event.preventDefault(); onClose(); }} onClick={(event) => { if (event.target !== event.currentTarget) return; const rect = event.currentTarget.getBoundingClientRect(); if (event.clientX < rect.left || event.clientX > rect.right || event.clientY < rect.top || event.clientY > rect.bottom) onClose(); }}>
     <div className="mobile-navigation-heading"><h2 id="mobile-navigation-title">Your travel notebook</h2><button type="button" className="icon-button" aria-label="Close navigation" onClick={onClose}><X size={20} /></button></div>
     <nav aria-label="Mobile navigation">{sections.map(([id, label]) => <a href={`#${id}`} key={id} onClick={(event) => { event.preventDefault(); onNavigate(id); }}>{label}</a>)}</nav>
   </dialog>;

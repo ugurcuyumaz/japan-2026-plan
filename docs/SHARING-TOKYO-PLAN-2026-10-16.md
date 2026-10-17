@@ -23,3 +23,16 @@ The user confirmed there is no existing shared backend and requested improvement
 ## Verification
 
 Test legacy migration, unsupported-data preservation, storage failure, stale-tab conflicts and resolutions, snapshot validation/limits, review-before-apply, undo invalidation and closure guards. Confirm actual JSON/HTML downloads, public live share/day-link navigation, cross-tab state behavior, keyboard menu operation, 390px and 320×568 layout. Restore original browser decisions after testing and publish the integrated result.
+
+## Verification — 17 October 2026
+
+- 145 tests in 22 files passed; strict TypeScript unused checks and production build passed. GitHub Pages build/deploy succeeded.
+- Public-site checks: saved Ozu workshop survived reload; whole-plan and day snapshots included a dated evening, saved workshop and handled task; mobile day focus stayed closed until shared-plan review finished. Malformed links left decisions unchanged.
+- Two real browser tabs: a stale tab retained unsaved local edits without overwriting the saved copy. Explicit Keep downloaded the previous copy; Use adopted the reviewed state. Backup restore and undo restored all three personal lists.
+- Whole HTML travel pack included saved Ozu/Sokichi resources, group price and English evidence. Date-aware export restrictions have automated coverage.
+- Food guide: 9 November dinner filter excluded CLANN and offered existing Kimuraya; breakfast filter included CLANN with its maintenance restriction. Existing-pool shortcut opened the correct evening.
+- Main map opened Tokyo detail, confirmed stays and dated itinerary links. No browser console errors observed.
+- 320×568 and 667×375 menu checks: bounded scrolling, Escape, destination heading focus, no horizontal page overflow. Added explicit Tab wrapping after native dialog focus visited the browser document boundary.
+- Restored the original browser decisions after QA: no Tokyo picks, no saved ideas, no handled records. 13 advance actions remain open. No reservations made or changed.
+
+Known limits: browser storage can be cleared by the user/browser; no backend or automatic device synchronization exists. Sharing sends a snapshot and never incorporates later edits. Venue schedules are researched references, not checked vacancies. Map routes remain stop-order references; external directions need internet. Vite retains the existing large map-vendor chunk warning; the map is deferred until needed.
